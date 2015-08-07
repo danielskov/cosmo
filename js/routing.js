@@ -6,28 +6,25 @@ var cosmoApp = angular.module('cosmoApp', ['ngRoute']);
 cosmoApp.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl : 'pages/front.html'//,
-            //controller  : 'mainController'
+            templateUrl : 'pages/front.html'
         })
         .when('/methods', {
-            templateUrl : 'pages/methods.html'//,
-            //controller  : 'methodsController'
+            templateUrl : 'pages/methods.html'
         })
         .when('/about', {
-            templateUrl : 'pages/about.html'//,
-            //controller  : 'aboutController'
+            templateUrl : 'pages/about.html'
         })
         .when('/help', {
-            templateUrl : 'pages/help.html'//,
-            //controller  : 'helpController'
+            templateUrl : 'pages/help.html'
+        })
+        .when('/exposure-age', {
+            templateUrl : 'pages/exposure-age.html'
+        })
+        .when('/erosion-rate', {
+            templateUrl : 'pages/erosion-rate.html'
         });
 });
 
 
 // create the controller and inject Angular's $scope
-cosmoApp.controller('mainController', function($scope) {
-
-    // message to display in content div
-    $scope.content = 'Hello, world';
-
-});
+cosmoApp.controller('mainController', function($scope) { });
