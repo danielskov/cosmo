@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="lat" type="text" class="validate">
-                        <label for="lat">Latitude</label>
+                        <label for="lat">Latitude </label>
                     </div>
                     <div class="input-field col s6">
                         <input id="long" type="text" class="validate">
@@ -40,7 +40,7 @@
 
                 <div class="row">
                     <b>Concentrations of terrestrial cosmogenic nuclides
-                        [?]</b>&nbsp; Fill in at least one field,
+                        [?]</b>&nbsp;<br>Fill in at least one field,
                     leave unknown values blank<br>
                     <div class="input-field col s3">
                         <input id="10Be" type="text" class="validate">
@@ -59,30 +59,86 @@
                         <label for="21Ne"><sup>21</sup>Ne</label>
                     </div>
                 </div>
+                <div class="row">
+                    Concentration uncertainty [%]<br>
+                    <div class="input-field col s3">
+                        <input id="10Be" type="text" class="validate"
+                        placeholder="5">
+                        <label for="10Be" class="active"><sup>10</sup>Be</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="26Al" type="text" class="validate"
+                        placeholder="5">
+                        <label for="26Al" class="active"><sup>26</sup>Al</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="14C" type="text" class="validate"
+                        placeholder="5">
+                        <label for="14C" class="active"><sup>14</sup>C</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="21Ne" type="text" class="validate"
+                        placeholder="5">
+                        <label for="21Ne" class="active"><sup>21</sup>Ne</label>
+                    </div>
+
+                </div>
 
                 <div class="row">
-                    <b>Erosion rates [mm a<sup>-1</sup>]</b><br>
+                    <b>Parameter bounds</b><br>
                     <div class="input-field col s6">
-                        <input id="epsilon_gla" type="text" class="validate">
-                        <label for="epsilon_gla">Glacial</label>
+                        <input id="epsilon_gla_min" type="text" class="validate">
+                        <label for="epsilon_gla_min">Min. glacial erosion rate
+                            [mm a<sup>-1</sup>]</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="epsilon_int" type="text" class="validate">
-                        <label for="epsilon_int">Inter-glacial</label>
+                        <input id="epsilon_gla_max" type="text" class="validate">
+                        <label for="epsilon_gla_max">Max. glacial erosion rate
+                            [mm a<sup>-1</sup>]</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="epsilon_int_min" type="text" class="validate">
+                        <label for="epsilon_int_min">Min. inter-glacial erosion
+                            rate [mm a<sup>-1</sup>]</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="epsilon_int_max" type="text" class="validate">
+                        <label for="epsilon_int_max">Max. inter-glacial erosion
+                            rate [mm a<sup>-1</sup>]</label>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="t_degla" type="text" class="validate">
+                        <label for="t_degla">Time since deglaciation [a]</label>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <input id="d18O_threshold_min" type="text"
+                        class="validate">
+                        <label for="d18O_threshold_min">Min.
+                            &delta;<sup>18</sup>O
+                            threshold [&permil;]</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="d18O_threshold_max" type="text"
+                        class="validate">
+                        <label for="d18O_threshold_max">Max.
+                            &delta;<sup>18</sup>O
+                            threshold [&permil;]</label>
                     </div>
                 </div>
 
                 <div class="row">
-                    <b>Optional constraining parameters</b><br>
-                    <div class="input-field col s6">
-                        <input id="t_degla" type="text" class="validate">
-                        <label for="t_degla">Time since deglaciation [a]</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="d18O_threshold" type="text" class="validate">
-                        <label for="d18O_threshold">&delta;<sup>18</sup>O
-                            threshold [&permil;]</label>
-                    </div>
+                    <b>Please fill out the following Captcha challenge</b><br>
+                    asdf
                 </div>
 
                 <div class="right">
