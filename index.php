@@ -27,8 +27,8 @@
     </head>
 
     <!--<body ng-controller="mainController">-->
-        <body ng-app="cosmoApp">
-            <div ng-controller="mainController">
+    <body ng-app="cosmoApp">
+        <div ng-controller="mainController">
 
         <!-- Navigation bar -->
         <nav class="light-blue lighten-1" role="navigation">
