@@ -40,69 +40,73 @@
                 </div>
 
                 <div class="row">
-                    <b>Concentrations of terrestrial cosmogenic nuclides
+                    <b>Concentrations of terrestrial cosmogenic nuclides (TCN)
                         [?]</b>&nbsp;<br>Fill in at least one field,
                     leave unknown values blank<br>
                     <div class="input-field col s3">
-                        <input id="10Be" type="text" class="validate">
-                        <label for="10Be"><sup>10</sup>Be</label>
+                        <input id="conc_10Be" type="text" class="validate">
+                        <label for="conc_10Be"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="26Al" type="text" class="validate">
-                        <label for="26Al"><sup>26</sup>Al</label>
+                        <input id="conc_26Al" type="text" class="validate">
+                        <label for="conc_26Al"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="14C" type="text" class="validate">
-                        <label for="14C"><sup>14</sup>C</label>
+                        <input id="conc_14C" type="text" class="validate">
+                        <label for="conc_14C"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="21Ne" type="text" class="validate">
-                        <label for="21Ne"><sup>21</sup>Ne</label>
+                        <input id="conc_21Ne" type="text" class="validate">
+                        <label for="conc_21Ne"><sup>21</sup>Ne</label>
                     </div>
                 </div>
                 <div class="row">
-                    Concentration uncertainty [%]<br>
+                    <b>TCN concentration uncertainty [%]</b><br>
                     <div class="input-field col s3">
-                        <input id="10Be" type="text" class="validate"
+                        <input id="uncer_10Be" type="text" class="validate"
                         placeholder="5">
-                        <label for="10Be" class="active"><sup>10</sup>Be</label>
+                        <label for="uncer_10Be"
+                            class="active"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="26Al" type="text" class="validate"
+                        <input id="uncer_26Al" type="text" class="validate"
                         placeholder="5">
-                        <label for="26Al" class="active"><sup>26</sup>Al</label>
+                        <label for="uncer_26Al"
+                            class="active"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="14C" type="text" class="validate"
+                        <input id="uncer_14C" type="text" class="validate"
                         placeholder="5">
-                        <label for="14C" class="active"><sup>14</sup>C</label>
+                        <label for="uncer_14C"
+                            class="active"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="21Ne" type="text" class="validate"
+                        <input id="uncer_21Ne" type="text" class="validate"
                         placeholder="5">
-                        <label for="21Ne" class="active"><sup>21</sup>Ne</label>
+                        <label for="uncer_21Ne"
+                            class="active"><sup>21</sup>Ne</label>
                     </div>
                 </div>
                 <div class="row">
-                    <b>Production rates [? a<sup>-1</sup>]</b>&nbsp;<br>
+                    <b>TCN production rates [? a<sup>-1</sup>]</b>&nbsp;<br>
                     Values can be estimated using <a
-                        href="http://hess.ess.washington.edu">CRONUS-Earth</a>
-                    <br>
+                        href="http://hess.ess.washington.edu"
+                        target="_blank">CRONUS-Earth</a> <br>
                     <div class="input-field col s3">
-                        <input id="10Be" type="text" class="validate">
-                        <label for="10Be"><sup>10</sup>Be</label>
+                        <input id="prod_10Be" type="text" class="validate">
+                        <label for="prod_10Be"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="26Al" type="text" class="validate">
-                        <label for="26Al"><sup>26</sup>Al</label>
+                        <input id="prod_26Al" type="text" class="validate">
+                        <label for="prod_26Al"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="14C" type="text" class="validate">
-                        <label for="14C"><sup>14</sup>C</label>
+                        <input id="prod_14C" type="text" class="validate">
+                        <label for="prod_14C"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="21Ne" type="text" class="validate">
-                        <label for="21Ne"><sup>21</sup>Ne</label>
+                        <input id="prod_21Ne" type="text" class="validate">
+                        <label for="prod_21Ne"><sup>21</sup>Ne</label>
                     </div>
                 </div>
 
@@ -163,32 +167,33 @@
                         <input name="d18O_smoothing" type="radio" id="rec_5kyr">
                         <label for="rec_5kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
-                                href="http://onlinelibrary.wiley.com/store/10.1029/2004PA001071/asset/palo1186.pdf;jsessionid=93536644C9BFA8B3DD4AD64BC8351CE3.f02t03?v=1&t=idfompjb&s=3de1756c14742ddc140a6e6d9e32e92b103addfe">Lisiecki
-                                and Raymo, 2005</a>, smoothed with 5 kyr running
-                            mean)</label>
+                                href="http://onlinelibrary.wiley.com/doi/10.1029/2004PA001071/full"
+                                target="_blank">Lisiecki and Raymo, 2005</a>,
+                            smoothed with 5 kyr running mean)</label>
                         </p>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_20kyr">
                         <label for="rec_20kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
-                                href="http://onlinelibrary.wiley.com/store/10.1029/2004PA001071/asset/palo1186.pdf;jsessionid=93536644C9BFA8B3DD4AD64BC8351CE3.f02t03?v=1&t=idfompjb&s=3de1756c14742ddc140a6e6d9e32e92b103addfe">Lisiecki
-                                and Raymo, 2005</a>, smoothed with 20 kyr
-                            running mean)</label>
+                                href="http://onlinelibrary.wiley.com/doi/10.1029/2004PA001071/full"
+                                target="_blank">Lisiecki and Raymo, 2005</a>,
+                            smoothed with 20 kyr running mean)</label>
                         </p>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_30kyr">
                         <label for="rec_30kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
-                                href="http://onlinelibrary.wiley.com/store/10.1029/2004PA001071/asset/palo1186.pdf;jsessionid=93536644C9BFA8B3DD4AD64BC8351CE3.f02t03?v=1&t=idfompjb&s=3de1756c14742ddc140a6e6d9e32e92b103addfe">Lisiecki
-                                and Raymo, 2005</a>, smoothed with 30 kyr
-                            running mean)</label>
+                                href="http://onlinelibrary.wiley.com/doi/10.1029/2004PA001071/full"
+                                target="_blank">Lisiecki and Raymo, 2005</a>,
+                            smoothed with 30 kyr running mean)</label>
                         </p>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_own">
-                        <label for="rec_own">Upload own record</label>
+                        <label for="rec_own">Upload own record (details)</label>
                         </p>
                 </div>
 
+                <!--
                 <div class="row">
                     <b>To verify that this is not an automated request, please
                         complete the following CAPTCHA challenge</b><br>
@@ -198,6 +203,7 @@
                         when domain is registeres.
                     </div>
                 </div>
+                -->
 
                 <div class="row">
                     <div class="right">
