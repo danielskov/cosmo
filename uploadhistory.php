@@ -1,17 +1,22 @@
 <?php
 // write form data to file
 if (isset($_POST['sample_id'])) {
-    echo 'sample_id set';
+    $data = $_POST['sample_id'] . '\t';
+    $tmpfile = tempnam('/tmp', 'cosmo_');
+    $returnstatus = file_put_contents($tmpfile, $data);
+
+    if ($returnstatus === false) {
+        die('There was an error writing to the output file: ' . $tmpfile);
+    }
+
+
+    // delete temporary file
+    //unlink($tmpfile);
+} else {
+    die('Invalid post data sent');
 }
+
+// redirect user after processing uploaded data, before any output!
+header("Location: /cosmo");
+
 ?>
-<!DOCTYPE html>
-<!--<html lang="en" ng-app="cosmoApp">-->
-<html lang="en">
-    <head>
-        <meta http-equiv="refresh" content="0; url=/cosmo" />
-    </head>
-    <body>
-    <p>Click <a href="/">here</a> if your browser doesn't automatically forward 
-    you</p>
-    </body>
-</html>
