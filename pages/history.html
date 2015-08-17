@@ -82,7 +82,28 @@
                         placeholder="5">
                         <label for="21Ne" class="active"><sup>21</sup>Ne</label>
                     </div>
-
+                </div>
+                <div class="row">
+                    <b>Production rates [? a<sup>-1</sup>]</b>&nbsp;<br>
+                    Values can be estimated using <a
+                        href="http://hess.ess.washington.edu">CRONUS-Earth</a>
+                    <br>
+                    <div class="input-field col s3">
+                        <input id="10Be" type="text" class="validate">
+                        <label for="10Be"><sup>10</sup>Be</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="26Al" type="text" class="validate">
+                        <label for="26Al"><sup>26</sup>Al</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="14C" type="text" class="validate">
+                        <label for="14C"><sup>14</sup>C</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="21Ne" type="text" class="validate">
+                        <label for="21Ne"><sup>21</sup>Ne</label>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -120,7 +141,6 @@
 
                 </div>
                 <div class="row">
-
                     <div class="input-field col s6">
                         <input id="d18O_threshold_min" type="text"
                         class="validate">
@@ -138,24 +158,51 @@
                 </div>
 
                 <div class="row">
+                    <b>Select climate record</b>
+                        <p>
+                        <input name="d18O_smoothing" type="radio" id="rec_5kyr">
+                        <label for="rec_5kyr">Benthic &delta;<sup>18</sup>O
+                            record (<a
+                                href="http://onlinelibrary.wiley.com/store/10.1029/2004PA001071/asset/palo1186.pdf;jsessionid=93536644C9BFA8B3DD4AD64BC8351CE3.f02t03?v=1&t=idfompjb&s=3de1756c14742ddc140a6e6d9e32e92b103addfe">Lisiecki
+                                and Raymo, 2005</a>, smoothed with 5 kyr running
+                            mean)</label>
+                        </p>
+                        <p>
+                        <input name="d18O_smoothing" type="radio" id="rec_20kyr">
+                        <label for="rec_20kyr">Benthic &delta;<sup>18</sup>O
+                            record (<a
+                                href="http://onlinelibrary.wiley.com/store/10.1029/2004PA001071/asset/palo1186.pdf;jsessionid=93536644C9BFA8B3DD4AD64BC8351CE3.f02t03?v=1&t=idfompjb&s=3de1756c14742ddc140a6e6d9e32e92b103addfe">Lisiecki
+                                and Raymo, 2005</a>, smoothed with 20 kyr
+                            running mean)</label>
+                        </p>
+                        <p>
+                        <input name="d18O_smoothing" type="radio" id="rec_30kyr">
+                        <label for="rec_30kyr">Benthic &delta;<sup>18</sup>O
+                            record (<a
+                                href="http://onlinelibrary.wiley.com/store/10.1029/2004PA001071/asset/palo1186.pdf;jsessionid=93536644C9BFA8B3DD4AD64BC8351CE3.f02t03?v=1&t=idfompjb&s=3de1756c14742ddc140a6e6d9e32e92b103addfe">Lisiecki
+                                and Raymo, 2005</a>, smoothed with 30 kyr
+                            running mean)</label>
+                        </p>
+                        <p>
+                        <input name="d18O_smoothing" type="radio" id="rec_own">
+                        <label for="rec_own">Upload own record</label>
+                        </p>
+                </div>
+
+                <div class="row">
                     <b>To verify that this is not an automated request, please
-                        select the relevant meaning of the acronym TCN</b><br>
+                        complete the following CAPTCHA challenge</b><br>
                     <div class="input-field col s12">
-                        <!--<select class="browser-default">-->
-                        <select>
-                            <option value="" disabled selected>Choose an option</option>
-                            <option value="1">The Comedy Network</option>
-                            <option value="2">The Cronicles of Narnia</option>
-                            <option value="3">Terrestrial Cosmogenic Nuclides</option>
-                        </select>
-                        <label>Acronym meaning</label>
+                        Insert <a
+                            href="https://www.google.com/recaptcha/">reCAPTCHA</a>
+                        when domain is registeres.
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="right">
                         <button class="btn waves-effect waves-light"
-                            type="submit" name="action">Submit
+                            type="submit" name="action">Next
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
