@@ -20,6 +20,9 @@ cosmoApp.config(function($routeProvider) {
         .when('/history', {
             templateUrl : 'pages/history.html'
         })
+        .when('/history2', {
+            templateUrl : 'pages/history2.html'
+        })
         .when('/exposure-age', {
             templateUrl : 'pages/exposure-age.html'
         })
