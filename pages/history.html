@@ -14,19 +14,19 @@
                     <b>General information</b><br>
                     <div class="input-field col s6">
                         <input placeholder="" id="sample_id" name="sample_id"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="sample_id">Sample ID</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="your_name" name="your_name" type="text"
-                        class="validate">
+                        class="validate" required>
                         <label for="yourast_name">Your Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" name="email" type="email"
-                        class="validate">
+                        class="validate" required>
                         <label for="email">Email</label>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                     <b>Rock density [kg m<sup>-3</sup>]</b><br>
                     <div class="input-field col s12">
                         <input id="rock_density" name="rock_density" type="text"
-                        class="validate" placeholder="2650">
+                        class="validate" placeholder="2650" required>
                         <label for="rock_density" class="active">Density</label>
                     </div>
                 </div>
@@ -136,13 +136,13 @@
                     <b>Inversion parameter bounds</b><br>
                     <div class="input-field col s6">
                         <input id="epsilon_gla_min" name="epsilon_gla_min"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="epsilon_gla_min">Min. glacial erosion rate
                             [mm a<sup>-1</sup>]</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="epsilon_gla_max" name="epsilon_gla_max"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="epsilon_gla_max">Max. glacial erosion rate
                             [mm a<sup>-1</sup>]</label>
                     </div>
@@ -150,13 +150,13 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="epsilon_int_min" name="epsilon_int_min"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="epsilon_int_min">Min. inter-glacial erosion
                             rate [mm a<sup>-1</sup>]</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="epsilon_int_max" name="epsilon_int_max"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="epsilon_int_max">Max. inter-glacial erosion
                             rate [mm a<sup>-1</sup>]</label>
                     </div>
@@ -166,7 +166,7 @@
 
                     <div class="input-field col s12">
                         <input id="t_degla" name="t_degla" type="text"
-                        class="validate">
+                        class="validate" required>
                         <label for="t_degla">Time since deglaciation [a]</label>
                     </div>
 
@@ -174,14 +174,14 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="d18O_threshold_min" name="d18O_threshold_min"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="d18O_threshold_min">Min.
                             &delta;<sup>18</sup>O
                             threshold [&permil;]</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="d18O_threshold_max" name="d18O_threshold_max"
-                        type="text" class="validate">
+                        type="text" class="validate" required>
                         <label for="d18O_threshold_max">Max.
                             &delta;<sup>18</sup>O
                             threshold [&permil;]</label>
@@ -192,7 +192,7 @@
                     <b>Select climate record</b>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_5kyr"
-                        name="rec_5kyr">
+                        value="rec_5kyr">
                         <label for="rec_5kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
                                 href="http://onlinelibrary.wiley.com/doi/10.1029/2004PA001071/full"
@@ -201,7 +201,7 @@
                         </p>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_20kyr"
-                        name="rec_20kyr">
+                        value="rec_20kyr">
                         <label for="rec_20kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
                                 href="http://onlinelibrary.wiley.com/doi/10.1029/2004PA001071/full"
@@ -210,7 +210,7 @@
                         </p>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_30kyr"
-                        name="rec_30kyr">
+                        value="rec_30kyr">
                         <label for="rec_30kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
                                 href="http://onlinelibrary.wiley.com/doi/10.1029/2004PA001071/full"
@@ -219,7 +219,7 @@
                         </p>
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_own"
-                        name="rec_own">
+                        value="rec_own">
                         <label for="rec_own">Upload own record (format
                             specification)</label>
                         </p>

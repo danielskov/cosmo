@@ -1,7 +1,9 @@
 <?php
 // write form data to file
 if (isset($_POST['sample_id'])) {
-    $data = $_POST['sample_id'] . '\t';
+    // generate string containing all user input.
+    // addslashes adds backslashes before characters that need to be escaped.
+    $data = addslashes($_POST['sample_id']) . '\t';
     $tmpfile = tempnam('/tmp', 'cosmo_');
     $returnstatus = file_put_contents($tmpfile, $data);
 
