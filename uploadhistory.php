@@ -34,7 +34,31 @@ if ((!isset($_POST['conc_10Be']) || $_POST['conc_10Be'] == '') &&
 
 // For each isotope concentration there should be uncertainty and production 
 // rate
-//if (isset($
+if ((isset($_POST['conc_10Be']) && $_POST['conc_10Be'] != '') &&
+    (!isset($_POST['prod_10Be']) || $_POST['prod_10Be'] == '' ||
+    !isset($_POST['uncer_10Be']) || $_POST['uncer_10Be'] == '')) {
+        array_push($missing_fields, 'production rate and uncertainty for ' .
+        '<sup>10</sup>Be');
+}
+if ((isset($_POST['conc_26Al']) && $_POST['conc_26Al'] != '') &&
+    (!isset($_POST['prod_26Al']) || $_POST['prod_26Al'] == '' ||
+    !isset($_POST['uncer_26Al']) || $_POST['uncer_26Al'] == '')) {
+        array_push($missing_fields, 'production rate and uncertainty for ' .
+        '<sup>26</sup>Al');
+}
+if ((isset($_POST['conc_14C']) && $_POST['conc_14C'] != '') &&
+    (!isset($_POST['prod_14C']) || $_POST['prod_14C'] == '' ||
+    !isset($_POST['uncer_14C']) || $_POST['uncer_14C'] == '')) {
+        array_push($missing_fields, 'production rate and uncertainty for ' .
+        '<sup>14</sup>C');
+}
+if ((isset($_POST['conc_21Ne']) && $_POST['conc_21Ne'] != '') &&
+    (!isset($_POST['prod_21Ne']) || $_POST['prod_21Ne'] == '' ||
+    !isset($_POST['uncer_21Ne']) || $_POST['uncer_21Ne'] == '')) {
+        array_push($missing_fields, 'production rate and uncertainty for ' .
+        '<sup>21</sup>Ne');
+}
+
 
 // If something is missing, send error to user and make him/her go back
 if (count($missing_fields) > 0) {
