@@ -5,6 +5,22 @@
         <h2 class="header center orange-text">Calculate Exposure and Erosion
             History</h2>
 
+        <div class="row">
+            <p class="flow-text">
+            Please fill in the relevant information from a single sample below.
+            The computations take several minutes, so make sure the information
+            is correct before submitting. Click the 
+            <a onclick="Materialize.toast('Help will appear here', 5000)">
+                <i class="material-icons">info_outline</i>
+            </a>
+            symbols for more information.
+            </p>
+        </div>
+
+        <!--<div>
+            <a class="btn" onclick="Materialize.toast('I am a toast', 5000)">
+                <i class="material-icons tooltipped prefix">info_outline</i>
+            </a>-->
 
         <div class="row">
             <!-- method: GET or POST -->
@@ -16,10 +32,15 @@
                 <div class="row">
                     <b>General information</b><br>
                     <div class="input-field col s6 form group">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'String uniquely identifying the sample. All characters are accepted',
+                                5000)">info_outline</i></a>
                         <input placeholder="" id="sample_id" name="sample_id"
                         type="text" class="validate" required>
                         <label for="sample_id">Sample ID
-                            <small>Required</small></label>
+                            <small>Required</small> </label>
                     </div>
                     <div class="input-field col s6">
                         <input id="your_name" name="your_name" type="text"
