@@ -7,7 +7,7 @@
 $missing_fields = array(); // array of missing field names
 //die('"' . $_POST['sample_id'] . '", ' . isset($_POST['sample_id']));
 
-// Check required fields one by one
+// Check required fields if not set or blank, one by one
 if (!isset($_POST['sample_id']) || $_POST['sample_id'] == '') {
     array_push($missing_fields, 'Sample ID');
 }
@@ -23,6 +23,18 @@ if (!isset($_POST['lat']) || $_POST['lat'] == '') {
 if (!isset($_POST['long']) || $_POST['long'] == '') {
     array_push($missing_fields, 'Longitude');
 }
+
+// Check TCN concentrations, at least one value is needed
+if ((!isset($_POST['conc_10Be']) || $_POST['conc_10Be'] == '') &&
+    (!isset($_POST['conc_26Al']) || $_POST['conc_26Al'] == '') &&
+    (!isset($_POST['conc_14C'])  || $_POST['conc_14C'] == '') &&
+    (!isset($_POST['conc_21Ne']) || $_POST['conc_21Ne']) == '') {
+        array_push($missing_fields, 'at least 1 TCN concentration');
+}
+
+// For each isotope concentration there should be uncertainty and production 
+// rate
+//if (isset($
 
 // If something is missing, send error to user and make him/her go back
 if (count($missing_fields) > 0) {
