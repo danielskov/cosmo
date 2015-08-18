@@ -37,25 +37,25 @@ if ((!isset($_POST['conc_10Be']) || $_POST['conc_10Be'] == '') &&
 if ((isset($_POST['conc_10Be']) && $_POST['conc_10Be'] != '') &&
     (!isset($_POST['prod_10Be']) || $_POST['prod_10Be'] == '' ||
     !isset($_POST['uncer_10Be']) || $_POST['uncer_10Be'] == '')) {
-        array_push($missing_fields, 'production rate and uncertainty for ' .
+        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>10</sup>Be');
 }
 if ((isset($_POST['conc_26Al']) && $_POST['conc_26Al'] != '') &&
     (!isset($_POST['prod_26Al']) || $_POST['prod_26Al'] == '' ||
     !isset($_POST['uncer_26Al']) || $_POST['uncer_26Al'] == '')) {
-        array_push($missing_fields, 'production rate and uncertainty for ' .
+        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>26</sup>Al');
 }
 if ((isset($_POST['conc_14C']) && $_POST['conc_14C'] != '') &&
     (!isset($_POST['prod_14C']) || $_POST['prod_14C'] == '' ||
     !isset($_POST['uncer_14C']) || $_POST['uncer_14C'] == '')) {
-        array_push($missing_fields, 'production rate and uncertainty for ' .
+        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>14</sup>C');
 }
 if ((isset($_POST['conc_21Ne']) && $_POST['conc_21Ne'] != '') &&
     (!isset($_POST['prod_21Ne']) || $_POST['prod_21Ne'] == '' ||
     !isset($_POST['uncer_21Ne']) || $_POST['uncer_21Ne'] == '')) {
-        array_push($missing_fields, 'production rate and uncertainty for ' .
+        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>21</sup>Ne');
 }
 
@@ -70,22 +70,14 @@ if (count($missing_fields) > 0) {
 
         // text before list of field names
         if ($i == 0 && count($missing_fields) == 1) {
-            $error_msg .= '<p>The following value is missing: <b>';
+            $error_msg .= '<p>The following value is missing: <ul>';
         } elseif ($i == 0) {
-            $error_msg .= '<p>The following values are missing: <b>';
+            $error_msg .= '<p>The following values are missing: <ul>';
         }
 
-        if (1 == count($missing_fields)) { // just a single missing field
-            $error_msg .= $missing_fields[$i];
-        } elseif ($i + 1 == count($missing_fields)) { // no comma for last word
-            $error_msg .= ' and ' . $missing_fields[$i];
-        } elseif ($i + 2 == count($missing_fields)) { // no oxford comma
-            $error_msg .= $missing_fields[$i] . ' ';
-        } else {
-            $error_msg .= $missing_fields[$i] . ', ';
-        }
+        $error_msg .= '<li>' . $missing_fields[$i] . '</li>';
     }
-    $error_msg .= '</b></p><p>Please <a href="javascript:history.back()">go' .
+    $error_msg .= '</ul></p><p>Please <a href="javascript:history.back()">go' .
        ' back</a> and fill in the missing fields.</p></body></html>';
     die($error_msg); // end this script, print error
 }
