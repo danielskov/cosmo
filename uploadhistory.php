@@ -41,10 +41,10 @@ if (!isset($_POST['epsilon_int_max']) || $_POST['epsilon_int_max'] == '') {
 if (!isset($_POST['t_degla']) || $_POST['t_degla'] == '') {
     array_push($missing_fields, 'Time since deglaciation');
 }
-if (!isset($_POST['d18O_threshold_min']) || $_POST['d18O_threshold_min'] == '') {
+if (!isset($_POST['d18O_threshold_min']) || $_POST['d18O_threshold_min'] == ''){
     array_push($missing_fields, 'Min. &delta;<sup>18</sup>O threshold value');
 }
-if (!isset($_POST['d18O_threshold_max']) || $_POST['d18O_threshold_max'] == '') {
+if (!isset($_POST['d18O_threshold_max']) || $_POST['d18O_threshold_max'] == ''){
     array_push($missing_fields, 'Max. &delta;<sup>18</sup>O threshold value');
 }
 
