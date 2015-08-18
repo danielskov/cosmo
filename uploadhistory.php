@@ -1,5 +1,8 @@
 <?php
-// write form data to file
+// uploadhistory.php
+// Validates form data from pages/history.html and writes a file for the Matlab 
+// script file_scanner_mcmc_starter.m to read as input for the MCMC inversion.
+
 if (isset($_POST['sample_id'])) {
     // generate string containing all user input.
     // addslashes adds backslashes before characters that need to be escaped.
@@ -18,7 +21,8 @@ if (isset($_POST['sample_id'])) {
     die('Invalid post data sent');
 }
 
-// redirect user after processing uploaded data, before any output!
+// redirect user after processing uploaded data, header function call must be 
+// before any output!
 header("Location: /cosmo");
 
 ?>
