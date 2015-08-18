@@ -23,6 +23,30 @@ if (!isset($_POST['lat']) || $_POST['lat'] == '') {
 if (!isset($_POST['long']) || $_POST['long'] == '') {
     array_push($missing_fields, 'Longitude');
 }
+if (!isset($_POST['rock_density']) || $_POST['rock_density'] == '') {
+    array_push($missing_fields, 'Rock density');
+}
+if (!isset($_POST['epsilon_gla_min']) || $_POST['epsilon_gla_min'] == '') {
+    array_push($missing_fields, 'Min. glacial erosion rate');
+}
+if (!isset($_POST['epsilon_gla_max']) || $_POST['epsilon_gla_max'] == '') {
+    array_push($missing_fields, 'Max. glacial erosion rate');
+}
+if (!isset($_POST['epsilon_int_min']) || $_POST['epsilon_int_min'] == '') {
+    array_push($missing_fields, 'Min. inter-glacial erosion rate');
+}
+if (!isset($_POST['epsilon_int_max']) || $_POST['epsilon_int_max'] == '') {
+    array_push($missing_fields, 'Max. inter-glacial erosion rate');
+}
+if (!isset($_POST['t_degla']) || $_POST['t_degla'] == '') {
+    array_push($missing_fields, 'Time since deglaciation');
+}
+if (!isset($_POST['d18O_threshold_min']) || $_POST['d18O_threshold_min'] == '') {
+    array_push($missing_fields, 'Min. &delta;<sup>18</sup>O threshold value');
+}
+if (!isset($_POST['d18O_threshold_max']) || $_POST['d18O_threshold_max'] == '') {
+    array_push($missing_fields, 'Max. &delta;<sup>18</sup>O threshold value');
+}
 
 // Check TCN concentrations, at least one value is needed
 if ((!isset($_POST['conc_10Be']) || $_POST['conc_10Be'] == '') &&
