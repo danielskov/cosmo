@@ -3,6 +3,42 @@
 // Validates form data from pages/history.html and writes a file for the Matlab 
 // script file_scanner_mcmc_starter.m to read as input for the MCMC inversion.
 
+//$missing_fields = ''; // string of missing field names
+$missing_fields = array(); // array of missing field names
+
+// Check required fields one by one
+if (!isset($_POST['sample_id'])) {
+    array_push($missing_fields, 'Sample ID');
+    die('sample_id missing');
+}
+if (!isset($_POST['your_name'])) {
+    array_push($missing_fields, 'Your Name');
+}
+if (!isset($_POST['email'])) {
+    array_push($missing_fields, 'Email');
+}
+if (!isset($_POST['lat'])) {
+    array_push($missing_fields, 'Latitude');
+}
+if (!isset($_POST['long'])) {
+    array_push($missing_fields, 'Longitude');
+}
+
+// If something is missing, send error to user and make him/her go back
+if (count($missing_fields) > 0) {
+    $error_msg = '<html><body>' .
+        '<h2>Invalid input</h2>' .
+        '<p>The following values are missing: <b>';
+    foreach ($missing_fields as $field) {
+        $error_msg .= $field . ', ';
+    }
+    $error_msg .= '</b></p><p>Please <a href="javascript:history.back()">go' .
+       ' back</a> and fill in the missing field values.</p></body></html>';
+    die($error_msg); // end this script, print error
+}
+
+
+// If this is reached, input is ok and it is time to write the file for matlab
 if (isset($_POST['sample_id'])) {
     // generate string containing all user input.
     // addslashes adds backslashes before characters that need to be escaped.
