@@ -27,10 +27,16 @@ if (!isset($_POST['long']) || $_POST['long'] == '') {
 // If something is missing, send error to user and make him/her go back
 if (count($missing_fields) > 0) {
     $error_msg = '<html><body>' .
-        '<h2>Invalid input</h2>' .
-        '<p>The following values are missing: <b>';
+        '<h2>Invalid input</h2>';
+
     // generate comma-separated list of missing field names
     for ($i = 0; $i < count($missing_fields); $i++) {
+        if ($i == 0 && count($missing_fields) == 1) {
+            $error_msg .= '<p>The following value is missing: <b>';
+        } elseif ($i == 0) {
+            $error_msg .= '<p>The following values are missing: <b>';
+        }
+
         if (1 == count($missing_fields)) { // just a single missing field
             $error_msg .= $missing_fields[$i];
         } elseif ($i + 1 == count($missing_fields)) { // no comma for last word
