@@ -31,6 +31,8 @@ if (count($missing_fields) > 0) {
 
     // generate comma-separated list of missing field names
     for ($i = 0; $i < count($missing_fields); $i++) {
+
+        // text before list of field names
         if ($i == 0 && count($missing_fields) == 1) {
             $error_msg .= '<p>The following value is missing: <b>';
         } elseif ($i == 0) {
@@ -41,6 +43,8 @@ if (count($missing_fields) > 0) {
             $error_msg .= $missing_fields[$i];
         } elseif ($i + 1 == count($missing_fields)) { // no comma for last word
             $error_msg .= ' and ' . $missing_fields[$i];
+        } elseif ($i + 2 == count($missing_fields)) { // no oxford comma
+            $error_msg .= $missing_fields[$i] . ' ';
         } else {
             $error_msg .= $missing_fields[$i] . ', ';
         }
