@@ -13,7 +13,7 @@
             <a onclick="Materialize.toast('Help will appear here', 5000)">
                 <i class="material-icons">info_outline</i>
             </a>
-            symbols for more information.
+            symbols for more information on the parameter and the input format.
             </p>
         </div>
 
@@ -43,6 +43,11 @@
                             <small>Required</small> </label>
                     </div>
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'If necessary your name is used for personal support communication',
+                                5000)">info_outline</i></a>
                         <input id="your_name" name="your_name" type="text"
                         class="validate" aria-describedby="name-format" required
                         aria-required="true">
@@ -52,6 +57,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Your email address is used for support communication in case of technical problems. No spam or exchange to third parties.',
+                                5000)">info_outline</i></a>
                         <input id="email" name="email" type="email"
                         class="validate" required>
                         <label for="email">Email <small>Required</small></label>
@@ -59,12 +69,22 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Latitude of sampling location. Used for anonymous statistical purposes. Format: signed degrees format (DDD.ddd). South latitudes must be preceded with a minus sign.',
+                                5000)">info_outline</i></a>
                         <input id="lat" name="lat" type="text"
                         class="validate" required>
                         <label for="lat">Latitude
                             <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Longitude of sampling location. Used for anonymous statistical purposes. Format: signed degrees format (DDD.ddd). West longitudes must be preceded with a minus sign.',
+                                5000)">info_outline</i></a>
                         <input id="long" name="long" type="text"
                         class="validate" required>
                         <label for="long">Longitude
@@ -162,6 +182,11 @@
                 <div class="row">
                     <b>Rock density [kg m<sup>-3</sup>]</b><br>
                     <div class="input-field col s12">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Measured or estimated rock density',
+                                5000)">info_outline</i></a>
                         <input id="rock_density" name="rock_density" type="text"
                         class="validate" value="2650" required>
                         <label for="rock_density" class="active">Density
@@ -172,12 +197,22 @@
                 <div class="row">
                     <b>Inversion parameter bounds</b><br>
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Lowest possible erosion rate during glaciations',
+                                5000)">info_outline</i></a>
                         <input id="epsilon_gla_min" name="epsilon_gla_min"
                         type="text" class="validate" required>
                         <label for="epsilon_gla_min">Min. glacial erosion rate
                             [mm yr<sup>-1</sup>] <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Highest possible erosion rate during glaciations',
+                                5000)">info_outline</i></a>
                         <input id="epsilon_gla_max" name="epsilon_gla_max"
                         type="text" class="validate" required>
                         <label for="epsilon_gla_max">Max. glacial erosion rate
@@ -186,12 +221,22 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Lowest possible erosion rate during interglaciations',
+                                5000)">info_outline</i></a>
                         <input id="epsilon_int_min" name="epsilon_int_min"
                         type="text" class="validate" required>
                         <label for="epsilon_int_min">Min. inter-glacial erosion
                             rate [mm yr<sup>-1</sup>] <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Highest possible erosion rate during interglaciations',
+                                5000)">info_outline</i></a>
                         <input id="epsilon_int_max" name="epsilon_int_max"
                         type="text" class="validate" required>
                         <label for="epsilon_int_max">Max. inter-glacial erosion
@@ -202,6 +247,11 @@
                 <div class="row">
 
                     <div class="input-field col s12">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Estimated number of years since the deglaciation at the site of sampling',
+                                5000)">info_outline</i></a>
                         <input id="t_degla" name="t_degla" type="text"
                         class="validate" required>
                         <label for="t_degla">Time since deglaciation [a]
@@ -209,25 +259,14 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="d18O_threshold_min" name="d18O_threshold_min"
-                        type="text" class="validate" required>
-                        <label for="d18O_threshold_min">Min.
-                            &delta;<sup>18</sup>O threshold value [&permil;]
-                            <small>Required</small></label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="d18O_threshold_max" name="d18O_threshold_max"
-                        type="text" class="validate" required>
-                        <label for="d18O_threshold_max">Max.
-                            &delta;<sup>18</sup>O threshold value [&permil;]
-                            <small>Required</small></label>
-                    </div>
-                </div>
 
                 <div class="row">
-                    <b>Select climate record</b> <small>Required</small>
+                    <b>Climate record</b> <small>Required</small><br>
+                    The evolution between glacials and interglacials is expected
+                    to follow a climate record.                     You may use
+                    one of the global marine records below, or upload your own
+                    record. Smoothed records have fewer short-lived peaks and
+                    troughs.
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_5kyr"
                         value="rec_5kyr">
@@ -258,9 +297,46 @@
                         <p>
                         <input name="d18O_smoothing" type="radio" id="rec_own"
                         value="rec_own">
-                        <label for="rec_own">Upload own record (format
-                            specification)</label>
+                        <label for="rec_own">Upload own record
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'TODO: format specification',
+                                5000)">info_outline</i></a>
+                        
+                        </label>
                         </p>
+                </div>
+                <div class="row">
+                    <b>Climate record threshold limits</b><br>
+                    The erosion rate is expected to alter between glacial and
+                    interglacial values when the climate record passes an
+                    unknown threshold value. Specify realistic lower and upper
+                    limits for this threshold value below.
+                    <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Lower limit of threshold value in climate record',
+                                5000)">info_outline</i></a>
+                        <input id="d18O_threshold_min" name="d18O_threshold_min"
+                        type="text" class="validate" required>
+                        <label for="d18O_threshold_min">Min.
+                            &delta;<sup>18</sup>O threshold value [&permil;]
+                            <small>Required</small></label>
+                    </div>
+                    <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'String uniquely identifying the sample. All characters are accepted',
+                                5000)">info_outline</i></a>
+                        <input id="d18O_threshold_max" name="d18O_threshold_max"
+                        type="text" class="validate" required>
+                        <label for="d18O_threshold_max">Max.
+                            &delta;<sup>18</sup>O threshold value [&permil;]
+                            <small>Required</small></label>
+                    </div>
                 </div>
 
                 <!--
