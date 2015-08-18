@@ -5,22 +5,22 @@
 
 //$missing_fields = ''; // string of missing field names
 $missing_fields = array(); // array of missing field names
+//die('"' . $_POST['sample_id'] . '", ' . isset($_POST['sample_id']));
 
 // Check required fields one by one
-if (!isset($_POST['sample_id'])) {
+if (!isset($_POST['sample_id']) || $_POST['sample_id'] == '') {
     array_push($missing_fields, 'Sample ID');
-    die('sample_id missing');
 }
-if (!isset($_POST['your_name'])) {
+if (!isset($_POST['your_name']) || $_POST['your_name'] == '') {
     array_push($missing_fields, 'Your Name');
 }
-if (!isset($_POST['email'])) {
+if (!isset($_POST['email']) || $_POST['email'] == '') {
     array_push($missing_fields, 'Email');
 }
-if (!isset($_POST['lat'])) {
+if (!isset($_POST['lat']) || $_POST['lat'] == '') {
     array_push($missing_fields, 'Latitude');
 }
-if (!isset($_POST['long'])) {
+if (!isset($_POST['long']) || $_POST['long'] == '') {
     array_push($missing_fields, 'Longitude');
 }
 
@@ -29,11 +29,18 @@ if (count($missing_fields) > 0) {
     $error_msg = '<html><body>' .
         '<h2>Invalid input</h2>' .
         '<p>The following values are missing: <b>';
-    foreach ($missing_fields as $field) {
-        $error_msg .= $field . ', ';
+    // generate comma-separated list of missing field names
+    for ($i = 0; $i < count($missing_fields); $i++) {
+        if (1 == count($missing_fields)) { // just a single missing field
+            $error_msg .= $missing_fields[$i];
+        } elseif ($i + 1 == count($missing_fields)) { // no comma for last word
+            $error_msg .= ' and ' . $missing_fields[$i];
+        } else {
+            $error_msg .= $missing_fields[$i] . ', ';
+        }
     }
     $error_msg .= '</b></p><p>Please <a href="javascript:history.back()">go' .
-       ' back</a> and fill in the missing field values.</p></body></html>';
+       ' back</a> and fill in the missing fields.</p></body></html>';
     die($error_msg); // end this script, print error
 }
 
