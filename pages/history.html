@@ -35,7 +35,8 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'String uniquely identifying the sample. All characters are accepted',
+                                'String uniquely identifying the sample. All ' +
+                                'characters are accepted',
                                 5000)">info_outline</i></a>
                         <input placeholder="" id="sample_id" name="sample_id"
                         type="text" class="validate" required>
@@ -46,7 +47,8 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'If necessary your name is used for personal support communication',
+                                'If necessary your name is used for personal ' +
+                                'support communication',
                                 5000)">info_outline</i></a>
                         <input id="your_name" name="your_name" type="text"
                         class="validate" aria-describedby="name-format" required
@@ -60,8 +62,9 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Used for communication in case of technical problems. No spam or exchange to third parties.',
-                                5000)">info_outline</i></a>
+                                'Used for communication in case of technical ' +
+                                'problems. No spam or exchange to third ' +
+                                'parties.', 5000)">info_outline</i></a>
                         <input id="email" name="email" type="email"
                         class="validate" required>
                         <label for="email">Email <small>Required</small></label>
@@ -72,7 +75,11 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Latitude of sampling location. Used for anonymous statistical purposes. Format: signed degrees format (DDD.ddd). South latitudes must be preceded with a minus sign.',
+                                '<p>Latitude of sampling location. Used for ' +
+                                'anonymous statistical purposes. Format: ' +
+                                'signed degrees format (DDD.ddd). South ' +
+                                'latitudes must be preceded with a minus' +
+                                'sign</p>.',
                                 5000)">info_outline</i></a>
                         <input id="lat" name="lat" type="text"
                         class="validate" required>
@@ -195,13 +202,14 @@
                 </div>
 
                 <div class="row">
-                    <b>Erosion rate limits during glacials and interglacials</b><br>
+                    <b>Erosion rate limits during glacials and
+                        interglacials</b><br>
                     <div class="input-field col s6">
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Lowest possible erosion rate during glaciations',
-                                5000)">info_outline</i></a>
+                                'Lowest possible erosion rate during ' +
+                                'glaciations', 5000)">info_outline</i></a>
                         <input id="epsilon_gla_min" name="epsilon_gla_min"
                         type="text" class="validate" required>
                         <label for="epsilon_gla_min">Min. glacial erosion rate
@@ -211,8 +219,8 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Highest possible erosion rate during glaciations',
-                                5000)">info_outline</i></a>
+                                'Highest possible erosion rate during ' +
+                                'glaciations', 5000)">info_outline</i></a>
                         <input id="epsilon_gla_max" name="epsilon_gla_max"
                         type="text" class="validate" required>
                         <label for="epsilon_gla_max">Max. glacial erosion rate
@@ -224,23 +232,25 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Lowest possible erosion rate during interglaciations',
-                                5000)">info_outline</i></a>
+                                'Lowest possible erosion rate during ' +
+                                'interglaciations', 5000)">info_outline</i></a>
                         <input id="epsilon_int_min" name="epsilon_int_min"
                         type="text" class="validate" required>
                         <label for="epsilon_int_min">Min. inter-glacial erosion
-                            rate [mm yr<sup>-1</sup>] <small>Required</small></label>
+                            rate [mm yr<sup>-1</sup>]
+                            <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Highest possible erosion rate during interglaciations',
-                                5000)">info_outline</i></a>
+                                'Highest possible erosion rate during ' +
+                                'interglaciations', 5000)">info_outline</i></a>
                         <input id="epsilon_int_max" name="epsilon_int_max"
                         type="text" class="validate" required>
                         <label for="epsilon_int_max">Max. inter-glacial erosion
-                            rate [mm yr<sup>-1</sup>] <small>Required</small></label>
+                            rate [mm yr<sup>-1</sup>]
+                            <small>Required</small></label>
                     </div>
 
                 </div>
@@ -255,7 +265,8 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Estimated number of years since the deglaciation at the site of sampling',
+                                'Estimated number of years since the' +
+                                'deglaciation at the site of sampling',
                                 5000)">info_outline</i></a>
                         <input id="t_degla" name="t_degla" type="text"
                         class="validate" required>
@@ -322,8 +333,8 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Lower limit of threshold value in climate record',
-                                5000)">info_outline</i></a>
+                                'Lower limit of threshold value in climate ' +
+                                'record', 5000)">info_outline</i></a>
                         <input id="d18O_threshold_min" name="d18O_threshold_min"
                         type="text" class="validate" required>
                         <label for="d18O_threshold_min">Min.
@@ -334,8 +345,8 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Upper limit of threshold value in climate record',
-                                5000)">info_outline</i></a>
+                                'Upper limit of threshold value in climate ' +
+                                'record', 5000)">info_outline</i></a>
                         <input id="d18O_threshold_max" name="d18O_threshold_max"
                         type="text" class="validate" required>
                         <label for="d18O_threshold_max">Max.
