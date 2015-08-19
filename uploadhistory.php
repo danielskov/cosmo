@@ -108,26 +108,71 @@ if (count($missing_fields) > 0) {
 
 
 // If this is reached, input is ok and it is time to write the file for matlab
-if (isset($_POST['sample_id'])) {
-    // generate string containing all user input.
-    // addslashes adds backslashes before characters that need to be escaped.
-    $data = addslashes($_POST['sample_id']) . '\t';
-    $tmpfile = tempnam('/tmp', 'cosmo_');
-    $returnstatus = file_put_contents($tmpfile, $data);
 
-    if ($returnstatus === false) {
-        die('There was an error writing to the output file: ' . $tmpfile);
+// generate string containing all user input.
+// addslashes adds backslashes before characters that need to be escaped.
+
+$fieldnames = array(
+    'sample_id',
+    'your_name',
+    'email',
+    'lat',
+    'long',
+    'conc_10Be',
+    'conc_26Al',
+    'conc_14C',
+    'conc_21Ne',
+    'uncer_10Be',
+    'uncer_26Al',
+    'uncer_14C',
+    'uncer_21Ne',
+    'prod_10Be',
+    'prod_26Al',
+    'prod_14C',
+    'prod_21Ne',
+    'rock_density',
+    'epsilon_gla_min',
+    'epsilon_gla_max',
+    'epsilon_int_min',
+    'epsilon_int_max',
+    'd18O_smoothing', // check if set missing
+    'd18O_threshold_min',
+    'd18O_threshold_max');
+
+// Generate unique output file name
+$outputfile = tempnam('/tmp', 'cosmo_');
+if (is_writable($outputfile)) {
+
+    if (!$handle = fopen($outputfile, 'w')) {
+        die("The php server could not open $outputfile.");
     }
 
+    // write to file
+    foreach ($fieldnames as $fieldname) {
+        if (fwrite($handle, addslashes($_POST[$fieldname]) . '\t') === false) {
+            die("The php server could not write $fieldname to $outputfile.");
+        }
+    }
 
-    // delete temporary file
-    //unlink($tmpfile);
 } else {
-    die('Invalid post data sent');
+    die("The php server output file $outputfile is not writable");
 }
 
-// redirect user after processing uploaded data, header function call must be 
-// before any output!
+
+//$data = addslashes($_POST['sample_id']) . '\t';
+//$returnstatus = file_put_contents($tmpfile, $data);
+//if ($returnstatus === false) {
+//    die('There was an error writing to the output file: ' . $tmpfile);
+//}
+
+
+// delete temporary file
+//unlink($tmpfile);
+
+
+
+// Finally redirect user after processing uploaded data. This header function 
+// call must be before any output!
 header("Location: /cosmo");
 
 ?>
