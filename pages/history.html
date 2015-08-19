@@ -13,7 +13,8 @@
             <a onclick="Materialize.toast('Help will appear here', 5000)">
                 <i class="material-icons">info_outline</i>
             </a>
-            symbols for more information on the parameter and the input format.
+            symbols for more information on the parameters and their input
+            formats.
             </p>
         </div>
 
@@ -75,11 +76,11 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                '<p>Latitude of sampling location. Used for ' +
+                                'Latitude of sampling location. Used for ' +
                                 'anonymous statistical purposes. Format: ' +
                                 'signed degrees format (DDD.ddd). South ' +
                                 'latitudes must be preceded with a minus' +
-                                'sign</p>.',
+                                'sign.',
                                 5000)">info_outline</i></a>
                         <input id="lat" name="lat" type="text"
                         class="validate" required>
@@ -90,7 +91,11 @@
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Longitude of sampling location. Used for anonymous statistical purposes. Format: signed degrees format (DDD.ddd). West longitudes must be preceded with a minus sign.',
+                                'Longitude of sampling location. Used for ' +
+                                'anonymous statistical purposes. Format: ' +
+                                'signed degrees format (DDD.ddd). West ' +
+                                'longitudes must be preceded with a minus ' +
+                                'sign.',
                                 5000)">info_outline</i></a>
                         <input id="long" name="long" type="text"
                         class="validate" required>

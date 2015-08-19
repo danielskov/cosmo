@@ -116,7 +116,8 @@
         <!-- import jQuery before materialize.js (use materialize.min.js) -->
         <script type="text/javascript"
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
+        <script type="text/javascript" src="js/materialize.js"></script>
         <script type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <script type="text/javascript"
