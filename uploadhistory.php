@@ -158,6 +158,10 @@ if (is_writable($outputfile)) {
     die("The php server output file $outputfile is not writable");
 }
 
+// change permissions of output file
+if (!chmod($outputfile, 0777)) {
+    die("The php server could not set proper permissions for $outputfile.");
+}
 
 //$data = addslashes($_POST['sample_id']) . '\t';
 //$returnstatus = file_put_contents($tmpfile, $data);

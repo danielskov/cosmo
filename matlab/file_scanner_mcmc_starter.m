@@ -6,7 +6,8 @@
 %
 
 % folder of input files
-infolder = '~/src/cosmo/matlab';
+%infolder = '~/src/cosmo/matlab';
+infolder = '/tmp';
 
 % infinite loop
 while 1
