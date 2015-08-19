@@ -173,6 +173,6 @@ if (is_writable($outputfile)) {
 
 // Finally redirect user after processing uploaded data. This header function 
 // call must be before any output!
-header("Location: /cosmo");
+header("Location: /~adc/cosmo");
 
 ?>
