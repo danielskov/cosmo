@@ -14,7 +14,6 @@
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <meta name="msapplication-TileImage" content="img/favicon-mstile-144x144.png">
         <link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
-        <link rel="icon" type="image/png" href="img/favicon.png" />
 
         <!--  Android 5 Chrome Color-->
         <meta name="theme-color" content="#00aeed">
