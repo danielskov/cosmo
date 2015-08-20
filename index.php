@@ -9,7 +9,7 @@
 
 
         <title>MCMC Cosmo Calculator</title>
-        <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+        <link rel="icon" type="image/png" href="img/favicon.png" />
 
         <!-- CSS  -->
 

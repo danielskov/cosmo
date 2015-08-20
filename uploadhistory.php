@@ -147,12 +147,21 @@ if (is_writable($outputfile)) {
         die("The php server could not open $outputfile.");
     }
 
-    // write to file
+    // write header to file
     foreach ($fieldnames as $fieldname) {
-        if (fwrite($handle, addslashes($_POST[$fieldname]) . '\t') === false) {
+        if (fwrite($handle, addslashes($fieldname) . "\t") === false) {
             die("The php server could not write $fieldname to $outputfile.");
         }
     }
+    fwrite($handle, "\n");
+
+    // write values to file
+    foreach ($fieldnames as $fieldname) {
+        if (fwrite($handle, addslashes($_POST[$fieldname]) . "\t") === false) {
+            die("The php server could not write $fieldname to $outputfile.");
+        }
+    }
+    fwrite($handle, "\n");
 
 } else {
     die("The php server output file $outputfile is not writable");
@@ -177,6 +186,6 @@ if (!chmod($outputfile, 0777)) {
 
 // Finally redirect user after processing uploaded data. This header function 
 // call must be before any output!
-header("Location: /~adc/cosmo");
+header("Location: /~ad/cosmo");
 
 ?>
