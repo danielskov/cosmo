@@ -16,7 +16,8 @@
         <link rel="icon" href="img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
         <link rel="icon" type="image/png" href="img/favicon.png" />
 
-        <!-- CSS  -->
+        <!--  Android 5 Chrome Color-->
+        <meta name="theme-color" content="#00aeed">
 
         <!-- Google material icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
