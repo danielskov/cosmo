@@ -1,16 +1,28 @@
-%  file_scanner_mcmc_starter.m
+%%  file_scanner_mcmc_starter.m
 %  This file is started by run.sh.
 %  The script watches an input folder (infolder) for input files generated
 %  by the web interface. The content of the input files is used to start
 %  calls to the MCMC functions.
 %
 
-% folder of input files
-%infolder = '~/src/cosmo/matlab';
+%% folder and file configuration
+
+% folder containing input files from web interface ("uploadhistory.php")
 infolder = '/tmp';
+
+% uniquely identifying file name prefix for input files
 prefix = 'cosmo_';
 
-% infinite loop
+% folder where completed input files are archived. This folder should be
+% outside of the webserver document root so others cannot acces this
+% information
+archivefolder = '/Users/ad/tmp/cosmo-archive';
+
+
+%% general settings
+debug = true; % show debugging output to matlab console
+
+%% main loop
 while 1
     
     % detect all files in infolder starting with prefix
@@ -22,8 +34,15 @@ while 1
     
     % process files sequentially
     for i = 1:length(infiles);
+        
+        % read full file name and path
         infile = strcat(infolder, '/', infiles(i).name);
-        disp(infile)
+        
+        if debug
+            disp(infile);
+        end
+        
+        % read file and save data to local scope
         [sampleid, name, email, lat, long, ...
             be_conc,  al_conc,  c_conc,  ne_conc, ...
             be_uncer, al_uncer, c_uncer, ne_uncer, ...
@@ -35,7 +54,12 @@ while 1
             record, ...
             record_threshold_min, record_threshold_max] ...
             = import_php_file(infile, 1, 1);
-%        delete(infile)
+        
+        % delete or archive the file so it is not processed again
+        %delete(infile)
+        %movefile(infile, archivefolder);
+
+
     end
 
 
