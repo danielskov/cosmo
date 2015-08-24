@@ -1,5 +1,7 @@
 %% Import data from text file.
-% Script for importing data from the following text file:
+% NOT USED! But kept in case it becomes useful later on.
+
+%  Script for importing data from the following text file:
 %
 %    /tmp/cosmo_pgpzvt
 %

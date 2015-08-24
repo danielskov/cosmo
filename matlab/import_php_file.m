@@ -1,4 +1,10 @@
 function [sampleid,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max] = import_php_file(filename, startRow, endRow)
+
+% import_php_file.m
+% Automatically generated using the `uiimport` tool in Matlab.
+% If the output format in "uploadhistory.php" is changed, update this file
+% accordingly.
+
 %IMPORTFILE Import numeric data from a text file as column vectors.
 %   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
 %   = IMPORTFILE(FILENAME) Reads data from text file FILENAME for the
