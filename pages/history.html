@@ -261,12 +261,11 @@
                 </div>
                 <div class="row">
                     <b>Deglaciation age</b><br>
-                    Specify the estimated age for the deglaciation at the site
-                    of sampling. This value is most often estimated from
-                    traditional exposure ages, calculated with <a
-                        href="http://hess.ess.washington.edu"
-                        target="_blank">CRONUS-Earth</a>.<br>
-                    <div class="input-field col s12">
+                    Estimate the deglaciation age and its uncertainty at the
+                    site of sampling. This value is most often constrained from
+                    best knowledge, <sup>14</sup>C dating, or traditional
+                    exposure dating.<br>
+                    <div class="input-field col s6">
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
@@ -276,6 +275,17 @@
                         <input id="t_degla" name="t_degla" type="text"
                         class="validate" required>
                         <label for="t_degla">Time since deglaciation [a]
+                            <small>Required</small></label>
+                    </div>
+                    <div class="input-field col s6">
+                        <a class="prefix">
+                            <i class="material-icons"
+                                onclick="Materialize.toast(
+                                'Uncertainty for the deglaciation age',
+                                5000)">info_outline</i></a>
+                        <input id="uncer_t_degla" name="uncer_t_degla"
+                        type="text" class="validate" required>
+                        <label for="uncer_t_degla">Uncertainty [a]
                             <small>Required</small></label>
                     </div>
 

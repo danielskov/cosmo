@@ -148,12 +148,12 @@ if (is_writable($outputfile)) {
     }
 
     // write header to file
-    foreach ($fieldnames as $fieldname) {
+    /*foreach ($fieldnames as $fieldname) {
         if (fwrite($handle, addslashes($fieldname) . "\t") === false) {
             die("The php server could not write $fieldname to $outputfile.");
         }
     }
-    fwrite($handle, "\n");
+    fwrite($handle, "\n");*/
 
     // write values to file
     foreach ($fieldnames as $fieldname) {
@@ -161,7 +161,7 @@ if (is_writable($outputfile)) {
             die("The php server could not write $fieldname to $outputfile.");
         }
     }
-    fwrite($handle, "\n");
+    //fwrite($handle, "\n");
 
 } else {
     die("The php server output file $outputfile is not writable");
