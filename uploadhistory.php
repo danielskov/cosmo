@@ -41,6 +41,9 @@ if (!isset($_POST['epsilon_int_max']) || $_POST['epsilon_int_max'] == '') {
 if (!isset($_POST['t_degla']) || $_POST['t_degla'] == '') {
     array_push($missing_fields, 'Time since deglaciation');
 }
+if (!isset($_POST['uncer_t_degla']) || $_POST['uncer_t_degla'] == '') {
+    array_push($missing_fields, 'Uncertainty of time since deglaciation');
+}
 if (!isset($_POST['d18O_threshold_min']) || $_POST['d18O_threshold_min'] == ''){
     array_push($missing_fields, 'Min. &delta;<sup>18</sup>O threshold value');
 }
@@ -135,6 +138,8 @@ $fieldnames = array(
     'epsilon_gla_max',
     'epsilon_int_min',
     'epsilon_int_max',
+    't_degla',
+    'uncer_t_degla',
     'd18O_smoothing', // check if set missing
     'd18O_threshold_min',
     'd18O_threshold_max');
