@@ -8,17 +8,27 @@
 % folder of input files
 %infolder = '~/src/cosmo/matlab';
 infolder = '/tmp';
+prefix = 'cosmo_';
 
 % infinite loop
 while 1
-
-    infile = 'testinput.txt';
-    infile_full_path = strcat(infolder, '/', infile);
     
-    if exist(infile_full_path, 'file') == 2
-        disp('file exists')
-        delete(infile_full_path)
-        %break
+    % detect all files in infolder starting with prefix
+    infiles = dir(strcat(infolder, '/', prefix, '*'));
+    
+    % sort files according to modification time
+    [sorteddates, sortidx] = sort([infiles.datenum]);
+    infiles = infiles(sortidx);
+    
+    % process files sequentially
+    for i = 1:length(infiles);
+        infile = strcat(infolder, '/', infiles(i).name);
+        disp(infile)
+        import_php_file(infile);
+%        delete(infile)
     end
+
+
+    break
 
 end
