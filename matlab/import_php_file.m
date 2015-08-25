@@ -99,31 +99,33 @@ rawCellColumns = raw(:, [1,2,3,4,5,14,15,16,17]);
 
 
 %% Allocate imported array to column variable names
-sample_id = rawCellColumns(:, 1);
-name = rawCellColumns(:, 2);
-email = rawCellColumns(:, 3);
-lat = rawCellColumns(:, 4);
-long = rawCellColumns(:, 5);
-be_conc = cell2mat(rawNumericColumns(:, 1));
-al_conc = cell2mat(rawNumericColumns(:, 2));
-c_conc = cell2mat(rawNumericColumns(:, 3));
-ne_conc = cell2mat(rawNumericColumns(:, 4));
-be_uncer = cell2mat(rawNumericColumns(:, 5));
-al_uncer = cell2mat(rawNumericColumns(:, 6));
-c_uncer = cell2mat(rawNumericColumns(:, 7));
-ne_uncer = cell2mat(rawNumericColumns(:, 8));
-be_prod = rawCellColumns(:, 6);
-al_prod = rawCellColumns(:, 7);
-c_prod = rawCellColumns(:, 8);
-ne_prod = rawCellColumns(:, 9);
-rock_density = cell2mat(rawNumericColumns(:, 9));
-epsilon_gla_min = cell2mat(rawNumericColumns(:, 10));
-epsilon_gla_max = cell2mat(rawNumericColumns(:, 11));
-epsilon_int_min = cell2mat(rawNumericColumns(:, 12));
-epsilon_int_max = cell2mat(rawNumericColumns(:, 13));
-t_degla = cell2mat(rawNumericColumns(:, 14));
-t_degla_uncer = cell2mat(rawNumericColumns(:, 15));
-record = cell2mat(rawNumericColumns(:, 16));
+% use rawCellColumns(:, i) for text fields and 
+% cell2mat(rawNumericColumns(:, i)) for numeric fields
+sample_id            = rawCellColumns(:, 1);
+name                 = rawCellColumns(:, 2);
+email                = rawCellColumns(:, 3);
+lat                  = rawCellColumns(:, 4);
+long                 = rawCellColumns(:, 5);
+be_conc     	     = cell2mat(rawNumericColumns(:, 1));
+al_conc              = cell2mat(rawNumericColumns(:, 2));
+c_conc               = cell2mat(rawNumericColumns(:, 3));
+ne_conc              = cell2mat(rawNumericColumns(:, 4));
+be_uncer             = cell2mat(rawNumericColumns(:, 5));
+al_uncer             = cell2mat(rawNumericColumns(:, 6));
+c_uncer              = cell2mat(rawNumericColumns(:, 7));
+ne_uncer             = cell2mat(rawNumericColumns(:, 8));
+be_prod              = cell2mat(rawNumericColumns(:, 6));
+al_prod              = cell2mat(rawNumericColumns(:, 7));
+c_prod               = cell2mat(rawNumericColumns(:, 8));
+ne_prod              = cell2mat(rawNumericColumns(:, 9));
+rock_density         = cell2mat(rawNumericColumns(:, 9));
+epsilon_gla_min      = cell2mat(rawNumericColumns(:, 10));
+epsilon_gla_max      = cell2mat(rawNumericColumns(:, 11));
+epsilon_int_min      = cell2mat(rawNumericColumns(:, 12));
+epsilon_int_max      = cell2mat(rawNumericColumns(:, 13));
+t_degla              = cell2mat(rawNumericColumns(:, 14));
+t_degla_uncer        = cell2mat(rawNumericColumns(:, 15));
+record               = cell2mat(rawNumericColumns(:, 16));
 record_threshold_min = cell2mat(rawNumericColumns(:, 17));
 record_threshold_max = cell2mat(rawNumericColumns(:, 18));
 
