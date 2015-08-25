@@ -51,10 +51,10 @@
                                 'If necessary your name is used for personal ' +
                                 'support communication',
                                 5000)">info_outline</i></a>
-                        <input id="your_name" name="your_name" type="text"
+                        <input id="name" name="name" type="text"
                         class="validate" aria-describedby="name-format" required
                         aria-required="true">
-                        <label for="your_name">Your Name
+                        <label for="name">Your Name
                             <small>Required</small></label>
                     </div>
                 </div>
@@ -110,24 +110,24 @@
                     Fill in <b>at least one</b> field, leave unknown values
                     blank.<br>
                     <div class="input-field col s3">
-                        <input id="conc_10Be" name="conc_10Be" type="text"
+                        <input id="be_conc" name="be_conc" type="text"
                         class="validate">
-                        <label for="conc_10Be"><sup>10</sup>Be</label>
+                        <label for="be_conc"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="conc_26Al" name="conc_26Al" type="text"
+                        <input id="al_conc" name="al_conc" type="text"
                         class="validate">
-                        <label for="conc_26Al"><sup>26</sup>Al</label>
+                        <label for="al_conc"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="conc_14C" name="conc_14C" type="text"
+                        <input id="c_conc" name="c_conc" type="text"
                         class="validate">
-                        <label for="conc_14C"><sup>14</sup>C</label>
+                        <label for="c_conc"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="conc_21Ne" name="conc_21Ne" type="text"
+                        <input id="ne_conc" name="ne_conc" type="text"
                         class="validate">
-                        <label for="conc_21Ne"><sup>21</sup>Ne</label>
+                        <label for="ne_conc"><sup>21</sup>Ne</label>
                     </div>
                 </div>
 
@@ -136,27 +136,27 @@
                     For each TCN concentration inserted above, please specify
                     the percentwise concentration uncertainty.<br>
                     <div class="input-field col s3">
-                        <input id="uncer_10Be" name="uncer_10Be" type="text"
+                        <input id="be_uncer" name="be_uncer" type="text"
                         class="validate" value="5">
-                        <label for="uncer_10Be"
+                        <label for="be_uncer"
                             class="active"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="uncer_26Al" name="uncer_26Al" type="text"
+                        <input id="al_uncer" name="al_uncer" type="text"
                         class="validate" value="5">
-                        <label for="uncer_26Al"
+                        <label for="al_uncer"
                             class="active"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="uncer_14C" name="uncer_14C" type="text"
+                        <input id="c_uncer" name="c_uncer" type="text"
                         class="validate" value="5">
-                        <label for="uncer_14C"
+                        <label for="c_uncer"
                             class="active"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="uncer_21Ne" name="uncer_21Ne" type="text"
+                        <input id="ne_uncer" name="ne_uncer" type="text"
                         class="validate" value="5">
-                        <label for="uncer_21Ne"
+                        <label for="ne_uncer"
                             class="active"><sup>21</sup>Ne</label>
                     </div>
                 </div>
@@ -170,24 +170,24 @@
                         href="http://hess.ess.washington.edu"
                         target="_blank">CRONUS-Earth</a>.<br>
                     <div class="input-field col s3">
-                        <input id="prod_10Be" name="prod_10Be" type="text"
+                        <input id="be_prod" name="be_prod" type="text"
                         class="validate">
-                        <label for="prod_10Be"><sup>10</sup>Be</label>
+                        <label for="be_prod"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="prod_26Al" name="prod_26Al" type="text"
+                        <input id="al_prod" name="al_prod" type="text"
                         class="validate">
-                        <label for="prod_26Al"><sup>26</sup>Al</label>
+                        <label for="al_prod"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="prod_14C" name="prod_14C" type="text"
+                        <input id="c_prod" name="c_prod" type="text"
                         class="validate">
-                        <label for="prod_14C"><sup>14</sup>C</label>
+                        <label for="c_prod"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="prod_21Ne" name="prod_21Ne" type="text"
+                        <input id="ne_prod" name="ne_prod" type="text"
                         class="validate">
-                        <label for="prod_21Ne"><sup>21</sup>Ne</label>
+                        <label for="ne_prod"><sup>21</sup>Ne</label>
                     </div>
                 </div>
 
@@ -283,9 +283,9 @@
                                 onclick="Materialize.toast(
                                 'Uncertainty for the deglaciation age',
                                 5000)">info_outline</i></a>
-                        <input id="uncer_t_degla" name="uncer_t_degla"
+                        <input id="t_degla_uncer" name="t_degla_uncer"
                         type="text" class="validate" required>
-                        <label for="uncer_t_degla">Uncertainty [a]
+                        <label for="t_degla_uncer">Uncertainty [a]
                             <small>Required</small></label>
                     </div>
 
@@ -299,7 +299,7 @@
                     record. Smoothed records have fewer short-lived peaks and
                     troughs.
                         <p>
-                        <input name="d18O_smoothing" type="radio" id="rec_5kyr"
+                        <input name="record" type="radio" id="rec_5kyr"
                         value="rec_5kyr">
                         <label for="rec_5kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
@@ -308,7 +308,7 @@
                             triangular smoothing, 5 kyr width)</label>
                         </p>
                         <p>
-                        <input name="d18O_smoothing" type="radio" id="rec_20kyr"
+                        <input name="record" type="radio" id="rec_20kyr"
                         value="rec_20kyr">
                         <label for="rec_20kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
@@ -317,7 +317,7 @@
                             triangular smoothing, 20 kyr width)</label>
                         </p>
                         <p>
-                        <input name="d18O_smoothing" type="radio" id="rec_30kyr"
+                        <input name="record" type="radio" id="rec_30kyr"
                         value="rec_30kyr">
                         <label for="rec_30kyr">Benthic &delta;<sup>18</sup>O
                             record (<a
@@ -326,7 +326,7 @@
                             triangular smoothing, 30 kyr width)</label>
                         </p>
                         <p>
-                        <input name="d18O_smoothing" type="radio" id="rec_own"
+                        <input name="record" type="radio" id="rec_own"
                         value="rec_own">
                         <label for="rec_own">Upload own record
                         <a class="prefix">
@@ -350,9 +350,9 @@
                                 onclick="Materialize.toast(
                                 'Lower limit of threshold value in climate ' +
                                 'record', 5000)">info_outline</i></a>
-                        <input id="d18O_threshold_min" name="d18O_threshold_min"
+                        <input id="record_threshold_min" name="record_threshold_min"
                         type="text" class="validate" required>
-                        <label for="d18O_threshold_min">Min.
+                        <label for="record_threshold_min">Min.
                             &delta;<sup>18</sup>O threshold value [&permil;]
                             <small>Required</small></label>
                     </div>
@@ -362,9 +362,9 @@
                                 onclick="Materialize.toast(
                                 'Upper limit of threshold value in climate ' +
                                 'record', 5000)">info_outline</i></a>
-                        <input id="d18O_threshold_max" name="d18O_threshold_max"
+                        <input id="record_threshold_max" name="record_threshold_max"
                         type="text" class="validate" required>
-                        <label for="d18O_threshold_max">Max.
+                        <label for="record_threshold_max">Max.
                             &delta;<sup>18</sup>O threshold value [&permil;]
                             <small>Required</small></label>
                     </div>
@@ -406,7 +406,7 @@
         }
         function validateForm() {
             if (nonBlankField("sample_id", "Sample ID") ||
-                    nonBlankField("your_name", "Your Name") ||
+                    nonBlankField("name", "Your Name") ||
                     nonBlankField("email", "Email") ||
                     nonBlankField("lat", "Latitude") ||
                     nonBlankField("long", "Longitude")) {
