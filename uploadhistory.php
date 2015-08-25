@@ -11,7 +11,7 @@ $missing_fields = array(); // array of missing field names
 if (!isset($_POST['sample_id']) || $_POST['sample_id'] == '') {
     array_push($missing_fields, 'Sample ID');
 }
-if (!isset($_POST['your_name']) || $_POST['your_name'] == '') {
+if (!isset($_POST['name']) || $_POST['name'] == '') {
     array_push($missing_fields, 'Your Name');
 }
 if (!isset($_POST['email']) || $_POST['email'] == '') {
@@ -41,47 +41,50 @@ if (!isset($_POST['epsilon_int_max']) || $_POST['epsilon_int_max'] == '') {
 if (!isset($_POST['t_degla']) || $_POST['t_degla'] == '') {
     array_push($missing_fields, 'Time since deglaciation');
 }
-if (!isset($_POST['uncer_t_degla']) || $_POST['uncer_t_degla'] == '') {
+if (!isset($_POST['t_degla_uncer']) || $_POST['t_degla_uncer'] == '') {
     array_push($missing_fields, 'Uncertainty of time since deglaciation');
 }
-if (!isset($_POST['d18O_threshold_min']) || $_POST['d18O_threshold_min'] == ''){
-    array_push($missing_fields, 'Min. &delta;<sup>18</sup>O threshold value');
+if (!isset($_POST['record']) || $_POST['record'] == ''){
+    array_push($missing_fields, 'Climate record');
 }
-if (!isset($_POST['d18O_threshold_max']) || $_POST['d18O_threshold_max'] == ''){
-    array_push($missing_fields, 'Max. &delta;<sup>18</sup>O threshold value');
+if (!isset($_POST['record_threshold_min']) || $_POST['record_threshold_min'] == ''){
+    array_push($missing_fields, 'Min. climate record threshold value');
+}
+if (!isset($_POST['record_threshold_max']) || $_POST['record_threshold_max'] == ''){
+    array_push($missing_fields, 'Max. climate record threshold value');
 }
 
 // Check TCN concentrations, at least one value is needed
-if ((!isset($_POST['conc_10Be']) || $_POST['conc_10Be'] == '') &&
-    (!isset($_POST['conc_26Al']) || $_POST['conc_26Al'] == '') &&
-    (!isset($_POST['conc_14C'])  || $_POST['conc_14C'] == '') &&
-    (!isset($_POST['conc_21Ne']) || $_POST['conc_21Ne']) == '') {
+if ((!isset($_POST['be_conc']) || $_POST['be_conc'] == '') &&
+    (!isset($_POST['al_conc']) || $_POST['al_conc'] == '') &&
+    (!isset($_POST['c_conc'])  || $_POST['c_conc'] == '') &&
+    (!isset($_POST['ne_conc']) || $_POST['ne_conc']) == '') {
         array_push($missing_fields, 'at least 1 TCN concentration');
 }
 
 // For each isotope concentration there should be uncertainty and production 
 // rate
-if ((isset($_POST['conc_10Be']) && $_POST['conc_10Be'] != '') &&
-    (!isset($_POST['prod_10Be']) || $_POST['prod_10Be'] == '' ||
-    !isset($_POST['uncer_10Be']) || $_POST['uncer_10Be'] == '')) {
+if ((isset($_POST['be_conc']) && $_POST['be_conc'] != '') &&
+    (!isset($_POST['be_prod']) || $_POST['be_prod'] == '' ||
+    !isset($_POST['be_uncer']) || $_POST['be_uncer'] == '')) {
         array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>10</sup>Be');
 }
-if ((isset($_POST['conc_26Al']) && $_POST['conc_26Al'] != '') &&
-    (!isset($_POST['prod_26Al']) || $_POST['prod_26Al'] == '' ||
-    !isset($_POST['uncer_26Al']) || $_POST['uncer_26Al'] == '')) {
+if ((isset($_POST['al_conc']) && $_POST['al_conc'] != '') &&
+    (!isset($_POST['al_prod']) || $_POST['al_prod'] == '' ||
+    !isset($_POST['al_uncer']) || $_POST['al_uncer'] == '')) {
         array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>26</sup>Al');
 }
-if ((isset($_POST['conc_14C']) && $_POST['conc_14C'] != '') &&
-    (!isset($_POST['prod_14C']) || $_POST['prod_14C'] == '' ||
-    !isset($_POST['uncer_14C']) || $_POST['uncer_14C'] == '')) {
+if ((isset($_POST['c_conc']) && $_POST['c_conc'] != '') &&
+    (!isset($_POST['c_prod']) || $_POST['c_prod'] == '' ||
+    !isset($_POST['c_uncer']) || $_POST['c_uncer'] == '')) {
         array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>14</sup>C');
 }
-if ((isset($_POST['conc_21Ne']) && $_POST['conc_21Ne'] != '') &&
-    (!isset($_POST['prod_21Ne']) || $_POST['prod_21Ne'] == '' ||
-    !isset($_POST['uncer_21Ne']) || $_POST['uncer_21Ne'] == '')) {
+if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
+    (!isset($_POST['ne_prod']) || $_POST['ne_prod'] == '' ||
+    !isset($_POST['ne_uncer']) || $_POST['ne_uncer'] == '')) {
         array_push($missing_fields, 'Production rate and/or uncertainty for ' .
         '<sup>21</sup>Ne');
 }
@@ -117,32 +120,32 @@ if (count($missing_fields) > 0) {
 
 $fieldnames = array(
     'sample_id',
-    'your_name',
+    'name',
     'email',
     'lat',
     'long',
-    'conc_10Be',
-    'conc_26Al',
-    'conc_14C',
-    'conc_21Ne',
-    'uncer_10Be',
-    'uncer_26Al',
-    'uncer_14C',
-    'uncer_21Ne',
-    'prod_10Be',
-    'prod_26Al',
-    'prod_14C',
-    'prod_21Ne',
+    'be_conc',
+    'al_conc',
+    'c_conc',
+    'ne_conc',
+    'be_uncer',
+    'al_uncer',
+    'c_uncer',
+    'ne_uncer',
+    'be_prod',
+    'al_prod',
+    'c_prod',
+    'ne_prod',
     'rock_density',
     'epsilon_gla_min',
     'epsilon_gla_max',
     'epsilon_int_min',
     'epsilon_int_max',
     't_degla',
-    'uncer_t_degla',
-    'd18O_smoothing', // check if set missing
-    'd18O_threshold_min',
-    'd18O_threshold_max');
+    't_degla_uncer',
+    'record', // check if set missing
+    'record_threshold_min',
+    'record_threshold_max');
 
 // Generate unique output file name
 $outputfile = tempnam('/tmp', 'cosmo_');

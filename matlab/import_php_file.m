@@ -1,4 +1,4 @@
-function [sampleid,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max] = import_php_file(filename, startRow, endRow)
+function [sample_id,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max] = import_php_file(filename, startRow, endRow)
 
 %% import_php_file.m
 % Automatically generated using the `uiimport` tool in Matlab.
@@ -99,7 +99,7 @@ rawCellColumns = raw(:, [1,2,3,4,5,14,15,16,17]);
 
 
 %% Allocate imported array to column variable names
-sampleid = rawCellColumns(:, 1);
+sample_id = rawCellColumns(:, 1);
 name = rawCellColumns(:, 2);
 email = rawCellColumns(:, 3);
 lat = rawCellColumns(:, 4);
