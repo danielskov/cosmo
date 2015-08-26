@@ -125,7 +125,7 @@ epsilon_int_min      = cell2mat(rawNumericColumns(:, 12));
 epsilon_int_max      = cell2mat(rawNumericColumns(:, 13));
 t_degla              = cell2mat(rawNumericColumns(:, 14));
 t_degla_uncer        = cell2mat(rawNumericColumns(:, 15));
-record               = cell2mat(rawNumericColumns(:, 16));
+record               = rawNumericColumns(:, 16);
 record_threshold_min = cell2mat(rawNumericColumns(:, 17));
 record_threshold_max = cell2mat(rawNumericColumns(:, 18));
 
