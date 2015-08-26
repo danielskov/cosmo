@@ -18,9 +18,14 @@ prefix = 'cosmo_';
 % information
 archivefolder = '/Users/ad/tmp/cosmo-archive';
 
+% folder containing matlab scripts to path
+matlab_scripts_folder = 'm_pakke2014maj11/';
 
 %% general settings
 debug = true; % show debugging output to matlab console
+
+%% initialization
+addpath(matlab_scripts_folder);
 
 %% main loop
 while 1
@@ -55,13 +60,24 @@ while 1
             record_threshold_min, record_threshold_max] ...
             = import_php_file(infile, 1, 1); % only read first line
         
+        % run inversion
+        mcmc_inversion(matlab_scripts_folder, debug, ...
+            be_conc,  al_conc,  c_conc,  ne_conc, ...
+            be_uncer, al_uncer, c_uncer, ne_uncer, ...
+            be_prod,  al_prod,  c_prod,  ne_prod, ...
+            rock_density, ...
+            epsilon_gla_min, epsilon_gla_max, ...
+            epsilon_int_min, epsilon_int_max, ...
+            t_degla, t_degla_uncer, ...
+            record, ...
+            record_threshold_min, record_threshold_max);
+        
         % delete or archive the file so it is not processed again
         %delete(infile)
         %movefile(infile, archivefolder);
-
-
+        
+        %keyboard
     end
-
 
     % for debugging purposes; ends loop after first iteration
     break
