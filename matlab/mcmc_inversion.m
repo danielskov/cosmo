@@ -13,7 +13,8 @@ function [] = mcmc_inversion(matlab_scripts_folder, debug, ...
 % function is called from `file_scanner_mcmc_starter.m`
 
 
-%clear; close all; format compact
+%clear; close all; 
+format compact;
 
 %Set path so that we can find other required m-files
 addpath(matlab_scripts_folder)
@@ -66,7 +67,7 @@ switch fs.g_case
     if strcmp(fs.dobsMode,'ObservedData')
         fs.d_obs = [];
         %fs.d_obs = repmat([5.3e8;3.7e9]',length(fs.zobs),1); %<<<<<< put in values as best you can
-        fs.d_obs = repmat([5.3e8;3.7e9]',length(fs.zobs),1);
+        fs.d_obs = repmat(concentrations',length(fs.zobs),1);
         fs.d_obs = fs.d_obs(:);
     end
     if length(fs.RelErrorObs) == 1
@@ -229,9 +230,9 @@ for iwalk=1:fixed_stuff.Nwalkers
     sound(sin(1:0.5:500))
 end
 
-sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
-pause(0.6)
-sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
+% sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
+% pause(0.6)
+% sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
 
 save_file = ['Walks_',datestr(now,'yyyymmdd_HHMMSS')];
 save(save_file,'Ss','save_file')
