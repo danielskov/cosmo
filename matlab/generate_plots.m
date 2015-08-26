@@ -195,16 +195,7 @@ set(fh(4),'pos',figpos4)
 set(fh(1),'pos',figpos1)
 figure(fh(1))
 
-%% save figures
-basename = 'plot';
-for i=1:length(formats)
-    format = formats(i);
-    if strcmp(format, fig)
-        savefig(strcat(basename, '.fig'));
-    else
-        print(basename, strcat('-', format));
-    end
-end
+
 
 % for i1 = 1:M
 %   hold off
