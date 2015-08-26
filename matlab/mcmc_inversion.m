@@ -1,4 +1,4 @@
-function [] = mcmc_inversion(matlab_scripts_folder, debug, ...
+function [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
     be_conc,  al_conc,  c_conc,  ne_conc, ...
     be_uncer, al_uncer, c_uncer, ne_uncer, ...
     be_prod,  al_prod,  c_prod,  ne_prod, ...
@@ -98,8 +98,17 @@ switch fs.g_case
             fs.tStarts = NaN; %load or compute fixed times of more or less glaciated periods
             fs.relExpos = NaN; %load or compute degree of exposure in periods
         case 'd18OTimes'
-            %         fs.d18Ofn = 'lisiecki_triinterp_2p6Ma_5ky.mat';
-            fs.d18O_filename = 'lisiecki_triinterp_2p6Ma_30ky.mat'; %  zachos_triinterp_2p6Ma
+            %fs.d18Ofn = 'lisiecki_triinterp_2p6Ma_5ky.mat';
+            %fs.d18O_filename = 'lisiecki_triinterp_2p6Ma_30ky.mat'; %  zachos_triinterp_2p6Ma
+            if strcmp(record, 'rec_5kyr')
+                fs.d18O_filename = 'lisiecki_triinterp_2p6Ma_5ky.mat'; %  zachos_triinterp_2p6Ma
+            elseif strcmp(record, 'rec_20kyr')
+                fs.d18O_filename = 'lisiecki_triinterp_2p6Ma_20ky.mat'; %  zachos_triinterp_2p6Ma
+            elseif strcmp(record, 'rec_30kyr')
+                fs.d18O_filename = 'lisiecki_triinterp_2p6Ma_30ky.mat'; %  zachos_triinterp_2p6Ma
+            else
+                error(['record ' record ' not understood']);
+            end
             fs.tStarts = NaN; %load or compute fixed times of more or less glaciated periods
             fs.relExpos = NaN; %load or compute degree of exposure in periods
     end
