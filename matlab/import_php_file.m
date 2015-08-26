@@ -4,6 +4,8 @@ function [sample_id,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,
 % Automatically generated using the `uiimport` tool in Matlab.
 % If the output format in "uploadhistory.php" is changed, update this file
 % accordingly.
+% All columns are initially read as strings. Some of the columns (specified
+% by the col vector) are converted to numbers.
 
 %IMPORTFILE Import numeric data from a text file as column vectors.
 %   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
@@ -60,7 +62,8 @@ for col=1:length(dataArray)-1
 end
 numericData = NaN(size(dataArray{1},1),size(dataArray,2));
 
-for col=[6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,25,26,27]
+% the columns in col are numeric
+for col=[6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,26,27]
     % Converts strings in the input cell array to numbers. Replaced non-numeric
     % strings with NaN.
     rawData = dataArray{col};
@@ -94,8 +97,12 @@ end
 
 
 %% Split data into numeric and cell columns.
-rawNumericColumns = raw(:, [6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,25,26,27]);
-rawCellColumns = raw(:, [1,2,3,4,5,14,15,16,17]);
+
+% rows with numbers
+rawNumericColumns = raw(:, [6:24, 26:27]);
+
+% rows with strings
+rawCellColumns = raw(:, [1:5, 25]);
 
 
 %% Allocate imported array to column variable names
@@ -114,19 +121,19 @@ be_uncer             = cell2mat(rawNumericColumns(:, 5));
 al_uncer             = cell2mat(rawNumericColumns(:, 6));
 c_uncer              = cell2mat(rawNumericColumns(:, 7));
 ne_uncer             = cell2mat(rawNumericColumns(:, 8));
-be_prod              = cell2mat(rawNumericColumns(:, 6));
-al_prod              = cell2mat(rawNumericColumns(:, 7));
-c_prod               = cell2mat(rawNumericColumns(:, 8));
-ne_prod              = cell2mat(rawNumericColumns(:, 9));
-rock_density         = cell2mat(rawNumericColumns(:, 9));
-epsilon_gla_min      = cell2mat(rawNumericColumns(:, 10));
-epsilon_gla_max      = cell2mat(rawNumericColumns(:, 11));
-epsilon_int_min      = cell2mat(rawNumericColumns(:, 12));
-epsilon_int_max      = cell2mat(rawNumericColumns(:, 13));
-t_degla              = cell2mat(rawNumericColumns(:, 14));
-t_degla_uncer        = cell2mat(rawNumericColumns(:, 15));
-record               = rawCellColumns(:, 16);
-record_threshold_min = cell2mat(rawNumericColumns(:, 17));
-record_threshold_max = cell2mat(rawNumericColumns(:, 18));
+be_prod              = cell2mat(rawNumericColumns(:, 9));
+al_prod              = cell2mat(rawNumericColumns(:, 10));
+c_prod               = cell2mat(rawNumericColumns(:, 11));
+ne_prod              = cell2mat(rawNumericColumns(:, 12));
+rock_density         = cell2mat(rawNumericColumns(:, 13));
+epsilon_gla_min      = cell2mat(rawNumericColumns(:, 14));
+epsilon_gla_max      = cell2mat(rawNumericColumns(:, 15));
+epsilon_int_min      = cell2mat(rawNumericColumns(:, 16));
+epsilon_int_max      = cell2mat(rawNumericColumns(:, 17));
+t_degla              = cell2mat(rawNumericColumns(:, 18));
+t_degla_uncer        = cell2mat(rawNumericColumns(:, 19));
+record               = rawCellColumns(:, 6);
+record_threshold_min = cell2mat(rawNumericColumns(:, 20));
+record_threshold_max = cell2mat(rawNumericColumns(:, 21));
 
 
