@@ -12,6 +12,7 @@ function [] = mcmc_inversion(matlab_scripts_folder, debug, ...
 %% mcmc_inversion.m
 % function is called from `file_scanner_mcmc_starter.m`
 
+beeps = false;
 
 %clear; close all; 
 format compact;
@@ -227,12 +228,16 @@ for iwalk=1:fixed_stuff.Nwalkers
     Ss{iwalk}=S;
 %     S.ms{iwalk}=ms
 %     S.lump_MetHass{iwalk}=lump_MetHas;
-    sound(sin(1:0.5:500))
+    if beeps 
+        sound(sin(1:0.5:500))
+    end
 end
 
-% sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
-% pause(0.6)
-% sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
+if beeps
+    sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
+    pause(0.6)
+    sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
+end
 
 save_file = ['Walks_',datestr(now,'yyyymmdd_HHMMSS')];
 save(save_file,'Ss','save_file')
