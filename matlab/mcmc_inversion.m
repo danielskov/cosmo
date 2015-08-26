@@ -126,12 +126,16 @@ switch fs.g_case
     fs.mname{4} = 'd18Oth';
     %>........ Prior information
     % m = [ErateInt,ErateGla,tDegla,dtGla,dtIdtG];
-    fs.ErateIntminmax = [1e-7,1e-3]; %0.26m to 2600 m pr. Quaternary
-    fs.ErateGlaminmax = [1e-7,1e-3];
-    fs.tDeglaminmax   = [10e3,12e3]; %8000 to 10000 yr Holocene
+    %fs.ErateIntminmax = [1e-7,1e-3]; %0.26m to 2600 m pr. Quaternary
+    %fs.ErateGlaminmax = [1e-7,1e-3];
+    fs.ErateIntminmax = [epsilon_int_min, epsilon_int_max]; %0.26m to 2600 m pr. Quaternary
+    fs.ErateGlaminmax = [epsilon_gla_min, epsilon_gla_max];
+    %fs.tDeglaminmax   = [10e3,12e3]; %8000 to 10000 yr Holocene
+    fs.tDeglaminmax   = [t_degla - t_degla_uncer, t_degla + t_degla_uncer];
     %     fs.dtGlaminmax    = [40e3,200e3];
     %     fs.dtIdtGminmax   = [0,0.5];
-    fs.d18Othminmax = [3.6,4.4];
+    %fs.d18Othminmax = [3.6,4.4];
+    fs.d18Othminmax = [record_threshold_min, record_threshold_max];
     
     fs.ErateIntDistr = 'logunif';
     fs.ErateGlaDistr = 'logunif';

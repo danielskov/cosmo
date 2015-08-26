@@ -24,6 +24,9 @@ matlab_scripts_folder = 'm_pakke2014maj11/';
 %% general settings
 debug = true; % show debugging output to matlab console
 
+% output graphics formats
+graphics_formats = ['fig', 'png', 'pdf'];
+
 %% initialization
 addpath(matlab_scripts_folder);
 
@@ -73,7 +76,8 @@ while 1
             record_threshold_min, record_threshold_max);
         
         % generate plots
-        CompareWalks2(Ss, save_file)
+        %CompareWalks2(Ss, save_file)
+        generate_plots(Ss, save_file, graphics_formats)
         
         % delete or archive the file so it is not processed again
         %delete(infile)
