@@ -90,6 +90,9 @@ while 1
         %CompareWalks2(Ss, save_file)
         generate_plots(Ss, save_file, graphics_formats, show_figures);
         
+        % close all figures
+        close all;
+        
         % delete or archive the file so it is not processed again
         %delete(infile)
         %movefile(infile, archivefolder);
