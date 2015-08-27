@@ -5,17 +5,11 @@ function figure_save_multiformat(fig, basename, formats)
 % Example: 
 %    figure_save_multiformat(gcf, 'first_plot', ['fig', 'png', 'pdf'])
 
-%keyboard
-
 for i=1:length(formats)
     format = formats(i);
     if strcmp(format, 'fig')
-        %disp('saving as fig')
         savefig(fig, strcat(basename, '.fig'));
     else
-        %disp(['saving as ' format])
-        %keyboard
-        %figure(fig); % set current figure
         print(fig, basename, strcat('-d', cell2mat(format)));
     end
 end

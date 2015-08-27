@@ -27,6 +27,9 @@ debug = true; % show debugging output to matlab console
 % output graphics formats
 graphics_formats = {'fig', 'png', 'pdf'};
 
+% number of MCMC walkers
+n_walkers = 1;
+
 %% initialization
 addpath(matlab_scripts_folder);
 
@@ -65,6 +68,7 @@ while 1
         
         % run inversion
         [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
+            n_walkers, ...
             be_conc,  al_conc,  c_conc,  ne_conc, ...
             be_uncer, al_uncer, c_uncer, ne_uncer, ...
             be_prod,  al_prod,  c_prod,  ne_prod, ...

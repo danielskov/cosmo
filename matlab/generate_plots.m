@@ -196,7 +196,6 @@ set(fh(1),'pos',figpos1)
 figure(fh(1))
 
 for i=1:4
-    figure_to_save = fh(i);
     figure_save_multiformat(figure(fh(i)), ...
         strcat(save_file, '-', num2str(i)), ...
         formats);
