@@ -1,4 +1,4 @@
-function generate_plots(Ss, save_file, formats)
+function generate_plots(Ss, save_file, formats, show_figures)
 
 %% Copied from m_pakke2014maj11/CompareWalks2.m
 % Generates and saves all relevant figures
@@ -9,7 +9,9 @@ Nwalkers = fixed_stuff.Nwalkers;
 M = size(fixed_stuff.mminmax,1);
 
 %Compare BurnIn
-fh(1)=figure;
+
+fh(1) = figure('visible', show_figures);
+    
 for iwalk=1:min(4,Nwalkers) %only up to the first four walks
   QsBurnIns(:,iwalk)=Ss{iwalk}.QsBurnIn;
   Qss(:,iwalk)       =Ss{iwalk}.Qs;
@@ -94,7 +96,7 @@ axis ij
 box on
 
 %Compare sampling cross-plots
-fh = [fh;figure];
+fh = [fh;figure('visible', show_figures)];
 Nbin = 50;
 
 mminmax = fixed_stuff.mminmax; %bounds of uniform prior intervals
@@ -137,7 +139,7 @@ for i1=1:M
       isub2 = iwalk; isub = isub2 + (isub1-1)*4;
       if isub>4*5
         isub1 = 1; isub=1;
-        fh = [fh;figure];
+        fh = [fh;figure('visible', show_figures)];
       end
       subplot(5,4,isub)
       pcolor(xbins{i1},ybins,smoothgrid);
@@ -157,7 +159,7 @@ for i1=1:M
   end
 end
 
-fh = [fh;figure];
+fh = [fh;figure('visible', show_figures)];
 for i1 = 1:M
   for iwalk=1:min(4,Nwalkers)
     isub = (i1-1)*4 + iwalk;
@@ -174,26 +176,33 @@ for i1 = 1:M
   end
 end
 
+
+
 %Putting in titles over figure 2:4
-figure(fh(2))
+
+figure(fh(2)); set(fh(2), 'Visible', show_figures)
 subplot(5,4,2)
 title(['Density cross-plots A. Result file =',save_file],'interp','none')
-figure(fh(3))
+
+figure(fh(3)); set(fh(3), 'Visible', show_figures)
 subplot(5,4,2)
 title(['Density cross-plots B. Result file =',save_file],'interp','none')
-figure(fh(4))
+
+figure(fh(4)); set(fh(4), 'Visible', show_figures)
 subplot(5,4,2)
 title(['Histograms. Result file =',save_file],'interp','none')
 
-figpos1 = [6         474        1910         504];
-figpos2 =[    12 94 645 887];
-figpos3 =[   610 94 645 887];
-figpos4 =[  1207 94 740 887];
-set(fh(2),'pos',figpos2)
-set(fh(3),'pos',figpos3)
-set(fh(4),'pos',figpos4)
-set(fh(1),'pos',figpos1)
-figure(fh(1))
+if strcmp(show_figures, 'on')
+    figpos1 = [6         474        1910         504];
+    figpos2 =[    12 94 645 887];
+    figpos3 =[   610 94 645 887];
+    figpos4 =[  1207 94 740 887];
+    set(fh(2),'pos',figpos2)
+    set(fh(3),'pos',figpos3)
+    set(fh(4),'pos',figpos4)
+    set(fh(1),'pos',figpos1)
+    figure(fh(1))
+end
 
 for i=1:4
     figure_save_multiformat(figure(fh(i)), ...

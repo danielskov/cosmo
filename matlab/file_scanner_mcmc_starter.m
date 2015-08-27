@@ -30,6 +30,10 @@ debug = true; % show debugging output to matlab console
 % output graphics formats
 graphics_formats = {'fig', 'png', 'pdf'};
 
+% show figures after they are generated in addition to saving them,
+% values: 'on' or 'off'
+show_figures = 'off';
+
 % number of MCMC walkers
 n_walkers = 1;
 
@@ -84,7 +88,7 @@ while 1
         
         % generate plots
         %CompareWalks2(Ss, save_file)
-        generate_plots(Ss, save_file, graphics_formats)
+        generate_plots(Ss, save_file, graphics_formats, show_figures);
         
         % delete or archive the file so it is not processed again
         %delete(infile)
