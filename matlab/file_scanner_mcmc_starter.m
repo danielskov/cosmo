@@ -84,7 +84,7 @@ while 1
         
         % generate plots
         %CompareWalks2(Ss, save_file)
-        generate_plots(Ss, outfolder, save_file, graphics_formats)
+        generate_plots(Ss, save_file, graphics_formats)
         
         % delete or archive the file so it is not processed again
         %delete(infile)
