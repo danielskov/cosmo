@@ -25,7 +25,7 @@ matlab_scripts_folder = 'm_pakke2014maj11/';
 debug = true; % show debugging output to matlab console
 
 % output graphics formats
-graphics_formats = ['fig', 'png', 'pdf'];
+graphics_formats = {'fig', 'png', 'pdf'};
 
 %% initialization
 addpath(matlab_scripts_folder);
