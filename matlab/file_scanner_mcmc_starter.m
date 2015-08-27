@@ -10,6 +10,9 @@
 % folder containing input files from web interface ("uploadhistory.php")
 infolder = '/tmp';
 
+% folder for generated plots
+outfolder = 'output/';
+
 % uniquely identifying file name prefix for input files
 prefix = 'cosmo_';
 
@@ -68,7 +71,7 @@ while 1
         
         % run inversion
         [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
-            n_walkers, ...
+            n_walkers, outfolder, ...
             be_conc,  al_conc,  c_conc,  ne_conc, ...
             be_uncer, al_uncer, c_uncer, ne_uncer, ...
             be_prod,  al_prod,  c_prod,  ne_prod, ...
@@ -81,7 +84,7 @@ while 1
         
         % generate plots
         %CompareWalks2(Ss, save_file)
-        generate_plots(Ss, save_file, graphics_formats)
+        generate_plots(Ss, output_folder, save_file, graphics_formats)
         
         % delete or archive the file so it is not processed again
         %delete(infile)

@@ -1,4 +1,4 @@
-function generate_plots(Ss, save_file, formats)
+function generate_plots(Ss, folder, save_file, formats)
 
 %% Copied from m_pakke2014maj11/CompareWalks2.m
 % Generates and saves all relevant figures
@@ -197,7 +197,7 @@ figure(fh(1))
 
 for i=1:4
     figure_save_multiformat(figure(fh(i)), ...
-        strcat(save_file, '-', num2str(i)), ...
+        strcat(folder, '/', save_file, '-', num2str(i)), ...
         formats);
 end
 
