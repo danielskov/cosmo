@@ -7,4 +7,4 @@ open:
 	open "http://localhost/~ad/cosmo"
 
 deploy:
-	sudo rsync -rav index.php uploadhistory.php pages matlab js img font css archive $(documentroot)/
+	sudo rsync -rav index.php uploadhistory.php pages js img font css $(documentroot)/
