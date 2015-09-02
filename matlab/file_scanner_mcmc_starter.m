@@ -19,7 +19,7 @@ prefix = 'cosmo_';
 % folder where completed input files are archived. This folder should be
 % outside of the webserver document root so others cannot acces this
 % information
-archivefolder = '/Users/ad/tmp/cosmo-archive';
+archivefolder = '/Users/ad/cosmo/archive';
 
 % folder containing matlab scripts to path
 matlab_scripts_folder = 'm_pakke2014maj11/';
@@ -95,12 +95,12 @@ while 1
         
         % delete or archive the file so it is not processed again
         %delete(infile)
-        %movefile(infile, archivefolder);
+        movefile(infile, archivefolder);
         
         %keyboard
     end
 
     % for debugging purposes; ends loop after first iteration
-    break
+    %break
 
 end
