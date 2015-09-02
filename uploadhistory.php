@@ -195,6 +195,6 @@ if (!chmod($outputfile, 0777)) {
 // Finally redirect user after processing uploaded data. This header function 
 // call must be before any output!
 //header("Location: /~ad/cosmo");
-header("Location: /");
+header("Location: /index.php?wait_id=". $outputfile);
 
 ?>
