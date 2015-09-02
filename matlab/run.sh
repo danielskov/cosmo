@@ -5,5 +5,12 @@
 #  should continue running, until the end of days or the next reboot, whatever
 #  comes first.
 
-/Applications/MATLAB_R2014b.app/bin/matlab -nodesktop -nosplash -nodisplay \
+UNAMESTR=`uname`
+if [[ "$UNAMESTR" == 'Darwin' ]]; then # OS X
+    matlabbin=/Applications/MATLAB_R2015a.app/bin/matlab
+else # Linux
+    matlabbin=/usr/local/MATLAB/R2015a/bin/matlab
+fi
+
+$matlabbin -nodesktop -nosplash -nodisplay \
     -nojvm -r "run('file_scanner_mcmc_starter.m')"
