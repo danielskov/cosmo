@@ -79,7 +79,7 @@
                     All rights reserved.
                     </p>
                     <div>
-                        <a href="https://www.au.dk/en/">
+                        <a href="http://www.au.dk/en/">
                         <img src="img/au-logo.png" alt="Aarhus University logo" 
                         height="61" width="289">
                         </a>
