@@ -8,7 +8,7 @@
 %% folder and file configuration
 
 % folder containing input files from web interface ("uploadhistory.php")
-infolder = '/tmp';
+infolder = '/home/adc/cosmo/input';
 
 % folder for generated plots
 outfolder = 'output/';

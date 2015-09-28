@@ -148,7 +148,8 @@ $fieldnames = array(
     'record_threshold_max');
 
 // Generate unique output file name
-$outputfile = tempnam('/tmp', 'cosmo_');
+//$outputfile = tempnam('/tmp', 'cosmo_');
+$outputfile = tempnam('/home/adc/cosmo/input', 'cosmo_');
 if (is_writable($outputfile)) {
 
     if (!$handle = fopen($outputfile, 'w')) {
