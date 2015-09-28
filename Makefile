@@ -7,7 +7,7 @@ open:
 	open "http://localhost/~ad/cosmo"
 
 folders:
-	mkdir input && chmod 777 input && mkdir archive
+	mkdir -p input && chmod 777 input && mkdir -p archive
 
 deploy:
 	sudo rsync -rav index.php uploadhistory.php pages js img font css $(documentroot)/
