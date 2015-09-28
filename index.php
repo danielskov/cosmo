@@ -29,6 +29,15 @@
             media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/materialize.css"
             media="screen,projection"/>
+
+<?php
+if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
+    // refresh the page every 5 seconds while computations are running
+?>
+    <meta http-equiv="refresh" content="5" >
+<?php
+}
+?>
     </head>
 
     <!--<body ng-controller="mainController">-->
