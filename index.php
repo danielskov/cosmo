@@ -65,17 +65,23 @@
 <?php
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 ?>
-    <h2 class="header center orange-text valign">
-    Please wait while the inversion computations are taking place</h2>
 
-    <div class="row center valign-wrapper">
-    <p class="flow-text">This make take several minutes to complete.
-    Please <b>do not</b> press the browser navigation buttons and stay on this 
-    page.</p>
-    </div>
+    <div class="container">
 
-    <div class="progress center-align">
-        <div class="indeterminate"></div>
+        <h2 class="header center orange-text valign">
+        Please wait while the inversion computations are taking place</h2>
+
+        <div class="row center valign-wrapper">
+
+        <p class="flow-text row s4 center">
+        This make take several minutes to complete.  Please <b>do not</b> press
+        the browser navigation buttons and stay on this page.</p>
+
+        </div>
+
+        <div class="row progress center-align s4">
+            <div class="indeterminate"></div>
+        </div>
     </div>
 
 <?php
