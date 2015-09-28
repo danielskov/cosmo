@@ -81,7 +81,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
         <p class="flow-text">
         Please wait while the inversion computations are taking place.
-        This make take several minutes to complete.  <b>Do not</b> press
+        These may make take several minutes to complete.  <b>Do not</b> press
         the browser navigation buttons or leave this page.</p>
 
         </div>
