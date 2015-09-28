@@ -83,7 +83,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         </div>
 
         <div class="row progress center-align s12">
-            <div class="indeterminate" style="width: 50%"></div>
+            <div class="indeterminate"></div>
         </div>
 
         <div class="row center valign-wrapper">
