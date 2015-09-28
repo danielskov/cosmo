@@ -63,7 +63,7 @@
 
         <main>
 <?php
-if (isset($_POST['wait_id']) || $_POST['wait_id'] != '') {
+if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 ?>
     <div class="valign-wrapper">
     <h2 class="valign">
