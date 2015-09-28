@@ -6,6 +6,9 @@ documentroot=/var/www/html
 open:
 	open "http://localhost/~ad/cosmo"
 
+folders:
+	mkdir input && chmod 777 input && mkdir archive
+
 deploy:
 	sudo rsync -rav index.php uploadhistory.php pages js img font css $(documentroot)/
 
