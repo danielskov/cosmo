@@ -68,20 +68,24 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
     <div class="container">
 
-        <h2 class="header center orange-text valign">
-        Please wait while the inversion computations are taking place</h2>
+        <br><br><br><br>
+        <div class="row center">
+            <h2 class="header col s12">Please wait</h2>
+        </div>
+
+        <div class="row progress center-align s12">
+            <div class="indeterminate"></div>
+        </div>
 
         <div class="row center valign-wrapper">
 
-        <p class="flow-text row s4 center">
-        This make take several minutes to complete.  Please <b>do not</b> press
-        the browser navigation buttons and stay on this page.</p>
+        <p class="flow-text">
+        Please wait while the inversion computations are taking place.
+        This make take several minutes to complete.  <b>Do not</b> press
+        the browser navigation buttons or leave this page.</p>
 
         </div>
 
-        <div class="row progress center-align s4">
-            <div class="indeterminate"></div>
-        </div>
     </div>
 
 <?php
