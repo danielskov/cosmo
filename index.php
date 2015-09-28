@@ -68,7 +68,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
     <div class="container">
 
-        <br><br><br><br>
+        <br><br><br><br><br><br><br><br>
         <div class="row center">
             <h2 class="header col s12">Please wait</h2>
         </div>
@@ -85,6 +85,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         the browser navigation buttons or leave this page.</p>
 
         </div>
+        <br><br><br><br><br><br><br><br>
 
     </div>
 
