@@ -13,4 +13,5 @@ else # Linux
 fi
 
 $matlabbin -nodesktop -nosplash -nodisplay \
-    -nojvm -r "run('file_scanner_mcmc_starter.m')"
+    -r "run('file_scanner_mcmc_starter.m')"
+    #-nojvm -r "run('file_scanner_mcmc_starter.m')"
