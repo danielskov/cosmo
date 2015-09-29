@@ -91,7 +91,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
     <div class="container">
 
-        <br><br><br><br><br><br><br><br>
+        <br><br><br><br>
         <div class="row center">
             <h2 class="header col s12 orange-text">Please wait</h2>
         </div>
@@ -133,18 +133,26 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
 
             <div class="row">
-              <div class="col s12 m7">
+              <div class="col s12 m7 center">
                 <div class="card">
                   <div class="card-image">
-                  <img src="output/<?php echo($_GET['results_id']); ?>-Walks-1.png">
+                  <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-1.png">
                     <span class="card-title">First figure</span>
                   </div>
                   <div class="card-content">
                     <p>This is the first figure, and it shows this and that.</p>
                   </div>
                   <div class="card-action">
-                  <a href="output/<?php echo($_GET['results_id']); ?>-Walks-1.pdf">Link to PDF</a>
-                  <a href="output/<?php echo($_GET['results_id']); ?>-Walks-1.fig">Link to FIG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-1.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-1.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-1.fig"
+                    target="_blank">Link to FIG</a>
                   </div>
                 </div>
               </div>
