@@ -93,6 +93,10 @@ while 1
             record_threshold_min, record_threshold_max, ...
             statusfile);
         
+        fid = fopen(statusfile, 'w');
+        fprintf(fid, 'Generating plots');
+        fclose(fid);
+        
         % generate plots
         %CompareWalks2(Ss, save_file)
         generate_plots(Ss, save_file, graphics_formats, show_figures);
@@ -103,6 +107,10 @@ while 1
         % delete or archive the file so it is not processed again
         %delete(infile)
         movefile(infile, archivefolder);
+        
+        fid = fopen(statusfile, 'w');
+        fprintf(fid, 'Computations complete');
+        fclose(fid);
         
         diary off;
         
