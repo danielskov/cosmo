@@ -257,5 +257,5 @@ if beeps
 end
 
 %save_file = [outfolder, '/', id, '_Walks_',datestr(now,'yyyymmdd_HHMMSS')];
-save_file = strcat(outfolder, '/', sim_id, '_Walks');
+save_file = strcat(outfolder, '/', char(sim_id), '_Walks');
 save(save_file,'Ss','save_file')
