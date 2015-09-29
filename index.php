@@ -135,7 +135,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <div class="row">
               <div class="col s12 m8 offset-m2">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image hoverable">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-1.png">
                     <span class="card-title">First figure</span>
@@ -161,7 +161,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <div class="row">
               <div class="col s12 m8 offset-m2">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image hoverable">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-2.png">
                     <span class="card-title">Second figure</span>
@@ -187,7 +187,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <div class="row">
               <div class="col s12 m8 offset-m2">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image hoverable">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-3.png">
                     <span class="card-title">Third figure</span>
@@ -213,7 +213,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <div class="row">
               <div class="col s12 m8 offset-m2">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image hoverable">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-4.png">
                     <span class="card-title">Fourth figure</span>
