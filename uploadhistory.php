@@ -157,21 +157,12 @@ if (is_writable($outputfile)) {
         die("The php server could not open $outputfile.");
     }
 
-    // write header to file
-    /*foreach ($fieldnames as $fieldname) {
-        if (fwrite($handle, addslashes($fieldname) . "\t") === false) {
-            die("The php server could not write $fieldname to $outputfile.");
-        }
-    }
-    fwrite($handle, "\n");*/
-
     // write values to file
     foreach ($fieldnames as $fieldname) {
         if (fwrite($handle, addslashes($_POST[$fieldname]) . "\t") === false) {
             die("The php server could not write $fieldname to $outputfile.");
         }
     }
-    //fwrite($handle, "\n");
 
 } else {
     die("The php server output file $outputfile is not writable");
@@ -182,38 +173,25 @@ if (!chmod($outputfile, 0777)) {
     die("The php server could not set proper permissions for $outputfile.");
 }
 
-//$data = addslashes($_POST['sample_id']) . '\t';
-//$returnstatus = file_put_contents($tmpfile, $data);
-//if ($returnstatus === false) {
-//    die('There was an error writing to the output file: ' . $tmpfile);
-//}
-
-
-// delete temporary file
-//unlink($tmpfile);
-
 // Create inversion status output file
-//$statusfile = ("/home/adc/cosmo/input/status_" . $id);
-$statusfile = ("/var/www/html/output/status_" . $id);
-if (is_writable($statusfile)) {
-    if (!$handle = fopen($statusfile, 'w')) {
-        die("The php server could not open $statusfile.");
-    }
-
-    // write status to file
-    if (fwrite($handle, "Queued") === false) {
-        die("The php server could not write the status to $statusfile.");
-    }
-
-} else {
-    die("The php server output file $statusfile is not writable");
+$statusfile = ("/home/adc/cosmo/input/status_" . $id);
+if (!$handle = fopen($statusfile, 'w')) {
+    die("The php server could not open $statusfile.");
 }
 
+// write status to file
+if (fwrite($handle, "Queued") === false) {
+    die("The php server could not write the status to $statusfile.");
+}
+
+// change permissions of status file
+if (!chmod($statusfile, 0777)) {
+    die("The php server could not set proper permissions for $statusfile.");
+}
 
 
 // Finally redirect user after processing uploaded data. This header function 
 // call must be before any output!
-//header("Location: /~ad/cosmo");
 header("Location: /index.php?wait_id=" . $id);
 
 ?>

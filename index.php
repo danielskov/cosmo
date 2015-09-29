@@ -85,8 +85,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         <div class="row center">
             <h2 class="header col s12 orange">Inversion status: 
 <?php
-    //if (!$statusfile = fopen("/home/adc/cosmo/input/status_" . $_GET['wait_id'], "r")) {
-    if (!$statusfile = fopen("/var/www/html/output/status_" . $_GET['wait_id'], "r")) {
+    if (!$statusfile = fopen("/home/adc/cosmo/input/status_" . $_GET['wait_id'], "r")) {
         echo("Error! Sample data not found.");
     }
 
