@@ -8,7 +8,8 @@ function [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
     epsilon_int_min, epsilon_int_max, ...
     t_degla, t_degla_uncer, ...
     record, ...
-    record_threshold_min, record_threshold_max)
+    record_threshold_min, record_threshold_max, ...
+    statusfile)
 
 %% mcmc_inversion.m
 % function is called from `file_scanner_mcmc_starter.m`
@@ -215,7 +216,7 @@ fs.Sampling = CompleteFsSampling(fs.Sampling);
 fixed_stuff = fs;
 
 fixed_stuff.StartTime = now; %This should allow the program to predict time of finish
-% AD: consider parfor for parallel computing
+% ANDERS: consider parfor for parallel computing
 for iwalk=1:fixed_stuff.Nwalkers
     iwalk
     fixed_stuff.iwalk = iwalk; %Helps program keep user updated on progress.
@@ -226,7 +227,8 @@ for iwalk=1:fixed_stuff.Nwalkers
     seed = fixed_stuff.WalkerSeeds(iwalk); 
     isBurnIn=1; 
     [S.msBurnIn,S.acceptsBurnIn,S.QsBurnIn,S.QdsBurnIn,S.lump_MetHas_BurnIn]=MetHasLongstep4(...
-        m_starts(:,iwalk),seed,isBurnIn,fixed_stuff);
+        m_starts(:,iwalk),seed,isBurnIn,fixed_stuff, ...
+        statusfile); %%%% ADDED BY ANDERS
     mStartSampling = S.msBurnIn(:,end);
     %<<<<< ... End Burn in
     

@@ -59,8 +59,8 @@ while 1
         
         idstring = strsplit(infile, '_');
         id = idstring(2);
-        
-        diary(char(strcat(infolder, '/status_', id)));
+        statusfile = char(strcat(infolder, '/status_', id));
+        diary(char(strcat(infolder, '/log_', id)));
         
         if debug
             disp(infile);
@@ -90,7 +90,8 @@ while 1
             epsilon_int_min, epsilon_int_max, ...
             t_degla, t_degla_uncer, ...
             record, ...
-            record_threshold_min, record_threshold_max);
+            record_threshold_min, record_threshold_max, ...
+            statusfile);
         
         % generate plots
         %CompareWalks2(Ss, save_file)
