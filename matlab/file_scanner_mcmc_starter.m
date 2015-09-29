@@ -60,7 +60,7 @@ while 1
         idstring = strsplit(infile, '_');
         id = idstring(2);
         
-        diary(strcat(infolder, '/status_', id));
+        diary(char(strcat(infolder, '/status_', id)));
         
         if debug
             disp(infile);
