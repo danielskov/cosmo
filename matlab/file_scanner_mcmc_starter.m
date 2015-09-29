@@ -8,6 +8,7 @@
 %% folder and file configuration
 
 % folder containing input files from web interface ("uploadhistory.php")
+% and status file
 infolder = '/home/adc/cosmo/input';
 
 % folder for generated plots
@@ -56,6 +57,10 @@ while 1
         % read full file name and path
         infile = strcat(infolder, '/', infiles(i).name);
         
+        id = strsplit(infile, '_')(2);
+        
+        diary(strcat(infolder, '/status_', id));
+        
         if debug
             disp(infile);
         end
@@ -96,6 +101,8 @@ while 1
         % delete or archive the file so it is not processed again
         %delete(infile)
         movefile(infile, archivefolder);
+        
+        diary off;
         
         %keyboard
     end
