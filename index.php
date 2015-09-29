@@ -158,6 +158,84 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
               </div>
             </div>
 
+            <div class="row">
+              <div class="col s12 m8 offset-m2">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-2.png">
+                    <span class="card-title">Second figure</span>
+                  </div>
+                  <div class="card-content">
+                    <p>This is the second figure, and it shows this and that.</p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-2.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-2.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-2.fig"
+                    target="_blank">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m8 offset-m2">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-3.png">
+                    <span class="card-title">Third figure</span>
+                  </div>
+                  <div class="card-content">
+                    <p>This is the third figure, and it shows this and that.</p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-3.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-3.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-3.fig"
+                    target="_blank">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m8 offset-m2">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-4.png">
+                    <span class="card-title">Fourth figure</span>
+                  </div>
+                  <div class="card-content">
+                    <p>This is the fourth figure, and it shows this and that.</p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-4.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-4.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-4.fig"
+                    target="_blank">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 <?php
 } else {
 ?>
