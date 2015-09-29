@@ -192,12 +192,27 @@ if (!chmod($outputfile, 0777)) {
 // delete temporary file
 //unlink($tmpfile);
 
+// Create inversion status output file
+$statusfile = ("/home/adc/cosmo/input/status_" . $id);
+if (is_writable($statusfile)) {
+    if (!$handle = fopen($statusfile, 'w')) {
+        die("The php server could not open $statusfile.");
+    }
+
+    // write status to file
+    if (fwrite($handle, "Queued") === false) {
+        die("The php server could not write the status to $statusfile.");
+    }
+
+} else {
+    die("The php server output file $statusfile is not writable");
+}
 
 
 
 // Finally redirect user after processing uploaded data. This header function 
 // call must be before any output!
 //header("Location: /~ad/cosmo");
-header("Location: /index.php?wait_id=". $id);
+header("Location: /index.php?wait_id=" . $id);
 
 ?>

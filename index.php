@@ -82,6 +82,19 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <h2 class="header col s12">Please wait</h2>
         </div>
 
+        <div class="row center">
+            <h2 class="header col s12 orange">Inversion status: 
+<?php
+    if (!$statusfile = fopen("/home/adc/cosmo/input/status_" . $_GET['wait_id'], "r")) {
+        echo("Error! Sample data not found.");
+    }
+
+    echo fgets($statusfile);
+    fclose($statusfile);
+?>
+            </h2>
+        </div>
+
         <div class="row progress center-align s12">
             <div class="indeterminate"></div>
         </div>
