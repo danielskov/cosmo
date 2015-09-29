@@ -32,6 +32,20 @@
 
 <?php
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
+
+    // read status file contents
+    if (!$statusfile = fopen("/home/adc/cosmo/input/status_" . $_GET['wait_id'], "r")) {
+        echo("Error! Sample data not found.");
+    }
+
+    $status = fgets($statusfile);
+    fclose($statusfile);
+
+    // redirect to results page if computations are complete
+    if (strcmp($status, "Computations complete") == 0) {
+        header("Location: /index.php?results_id=" . $_GET['wait_id']);
+    }
+
     // refresh the page every 5 seconds while computations are running
 ?>
     <meta http-equiv="refresh" content="5" >
@@ -85,12 +99,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         <div class="row center">
             <h4 class="header col s12">
 <?php
-    if (!$statusfile = fopen("/home/adc/cosmo/input/status_" . $_GET['wait_id'], "r")) {
-        echo("Error! Sample data not found.");
-    }
-
-    echo fgets($statusfile);
-    fclose($statusfile);
+    echo $status;
 ?>
             </h4>
         </div>
