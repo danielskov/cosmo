@@ -42,6 +42,8 @@ n_walkers = 1;
 %% initialization
 addpath(matlab_scripts_folder);
 
+disp('Entering main loop, waiting for input from web interface...');
+
 %% main loop
 while 1
     
