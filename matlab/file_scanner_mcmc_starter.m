@@ -57,7 +57,8 @@ while 1
         % read full file name and path
         infile = strcat(infolder, '/', infiles(i).name);
         
-        id = strsplit(infile, '_')(2);
+        idstring = strsplit(infile, '_');
+        id = idstring(2);
         
         diary(strcat(infolder, '/status_', id));
         
