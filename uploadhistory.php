@@ -150,6 +150,7 @@ $fieldnames = array(
 // Generate unique output file name
 //$outputfile = tempnam('/tmp', 'cosmo_');
 $outputfile = tempnam('/home/adc/cosmo/input', 'cosmo_');
+$id = explode('_', $outputfile)[1];
 if (is_writable($outputfile)) {
 
     if (!$handle = fopen($outputfile, 'w')) {
@@ -193,9 +194,10 @@ if (!chmod($outputfile, 0777)) {
 
 
 
+
 // Finally redirect user after processing uploaded data. This header function 
 // call must be before any output!
 //header("Location: /~ad/cosmo");
-header("Location: /index.php?wait_id=". explode("_", $outputfile)[1]);
+header("Location: /index.php?wait_id=". $id);
 
 ?>
