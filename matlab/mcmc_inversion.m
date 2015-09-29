@@ -236,7 +236,8 @@ for iwalk=1:fixed_stuff.Nwalkers
     seed = fixed_stuff.WalkerSeeds(iwalk); 
     isBurnIn=0; %<<<<<<<<<<<<<<<<<< ------------------- must be changed when Sampling
     [S.ms,S.accepts,S.Qs,S.Qds,S.lump_MetHas]=MetHasLongstep4(...
-        mStartSampling,seed,isBurnIn,fixed_stuff);
+        mStartSampling,seed,isBurnIn,fixed_stuff,  ...
+        statusfile); %%%% ADDED BY ANDERS
     %<<<<< ... End Sampling the posterior
     S.fs = fixed_stuff;
     S.m_start = m_starts(:,iwalk);

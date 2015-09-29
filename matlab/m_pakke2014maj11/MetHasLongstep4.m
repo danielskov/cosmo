@@ -110,9 +110,7 @@ for it=1:N_run
     
 %%% INSERTED BY ANDERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     fid = fopen(statusfile, 'w');
-    statusinfo = strcat(...
-        'Elapsed: ', num2str(datestr(ElapsedTime,13)), ...
-        ', Remaining: ', num2str(datestr(RemainingTime,13)));
+    statusinfo = strcat(num2str(datestr(RemainingTime,13), ' remaining'));
     fprintf(fid, statusinfo);
     fclose(fid);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
