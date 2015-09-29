@@ -67,6 +67,7 @@ while 1
         
         if debug
             disp(infile);
+            disp(strcat('Simulation id: ', id));
         end
         
         % read file and save data to local scope

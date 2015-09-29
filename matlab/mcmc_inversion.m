@@ -9,7 +9,7 @@ function [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
     t_degla, t_degla_uncer, ...
     record, ...
     record_threshold_min, record_threshold_max, ...
-    statusfile, id)
+    statusfile, sim_id)
 
 %% mcmc_inversion.m
 % function is called from `file_scanner_mcmc_starter.m`
@@ -257,5 +257,5 @@ if beeps
 end
 
 %save_file = [outfolder, '/', id, '_Walks_',datestr(now,'yyyymmdd_HHMMSS')];
-save_file = strcat(outfolder, '/', id, '_Walks');
+save_file = strcat(outfolder, '/', sim_id, '_Walks');
 save(save_file,'Ss','save_file')
