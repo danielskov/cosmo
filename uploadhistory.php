@@ -165,7 +165,7 @@ if (is_writable($outputfile)) {
     }
 
 } else {
-    die("The php server output file $outputfile is not writable");
+    die("The php server output file $outputfile does not exist or is not writable");
 }
 
 // change permissions of output file
