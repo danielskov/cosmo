@@ -121,6 +121,36 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
     </div>
 
 <?php
+} elseif (isset($_GET['results_id']) && !empty($_GET['results_id'])) {
+    // show plots
+?>
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <!-- page header -->
+            <h2 class="header center orange-text">Inversion results</h2>
+
+
+            <div class="row">
+              <div class="col s12 m7">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php echo($_GET['results_id']); ?>-Walks-1.png">
+                    <span class="card-title">First figure</span>
+                  </div>
+                  <div class="card-content">
+                    <p>This is the first figure, and it shows this and that.</p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php echo($_GET['results_id']); ?>-Walks-1.pdf">Link to PDF</a>
+                  <a href="output/<?php echo($_GET['results_id']); ?>-Walks-1.fig">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<?php
 } else {
 ?>
         <div ng-view>
