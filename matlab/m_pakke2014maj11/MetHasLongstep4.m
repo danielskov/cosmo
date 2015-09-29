@@ -107,9 +107,6 @@ for it=1:N_run
         [ElapsedTime,RemainingTime,TotalTime,EndTime,IterationsPerSecond,PrintString] = ...
             RuntimeStatus(it,isBurnIn,fixed_stuff);
         disp([num2str(it),': ',PrintString])
-    end
-    
-    
     
 %%% INSERTED BY ANDERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     fid = fopen(statusfile, 'w');
@@ -119,9 +116,7 @@ for it=1:N_run
     fprintf(fid, statusinfo);
     fclose(fid);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-
-
+    end
 
   if rem(it,fsSampling.StepsPerFactorUpdate)==0
     %update StepFact
