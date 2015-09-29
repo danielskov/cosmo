@@ -12,7 +12,8 @@
 infolder = '/home/adc/cosmo/input';
 
 % folder for generated plots
-outfolder = 'output/';
+%outfolder = 'output/';
+outfolder = '/var/www/html/output/';
 
 % uniquely identifying file name prefix for input files
 prefix = 'cosmo_';
@@ -91,7 +92,7 @@ while 1
             t_degla, t_degla_uncer, ...
             record, ...
             record_threshold_min, record_threshold_max, ...
-            statusfile);
+            statusfile, id);
         
         fid = fopen(statusfile, 'w');
         fprintf(fid, 'Generating plots');
