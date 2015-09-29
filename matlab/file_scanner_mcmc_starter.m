@@ -62,6 +62,9 @@ while 1
         
         diary(char(strcat(infolder, '/status_', id)));
         
+        % increase frequency of writes to diary file
+        set(0, 'diaryflushinterval', 4);
+        
         if debug
             disp(infile);
         end
