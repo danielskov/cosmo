@@ -193,7 +193,8 @@ if (!chmod($outputfile, 0777)) {
 //unlink($tmpfile);
 
 // Create inversion status output file
-$statusfile = ("/home/adc/cosmo/input/status_" . $id);
+//$statusfile = ("/home/adc/cosmo/input/status_" . $id);
+$statusfile = ("/var/www/html/output/status_" . $id);
 if (is_writable($statusfile)) {
     if (!$handle = fopen($statusfile, 'w')) {
         die("The php server could not open $statusfile.");
