@@ -133,9 +133,9 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
 
             <div class="row">
-              <div class="col s12 m7 center">
+              <div class="col s12 m7">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image center">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-1.png">
                     <span class="card-title">First figure</span>
