@@ -115,15 +115,15 @@ if (count($missing_fields) > 0) {
 
         // text before list of field names
         if ($i == 0 && count($missing_fields) == 1) {
-            $error_msg .= '<p>The following value is missing: <ul class="collection">';
+            $error_msg .= '<p><b>The following value is missing:</b> <ul class="collection">';
         } elseif ($i == 0) {
-            $error_msg .= '<p>The following values are missing: <ul class="collection">';
+            $error_msg .= '<p><b>The following values are missing:</b> <ul class="collection">';
         }
 
         $error_msg .= '<li class="collection-item">' . $missing_fields[$i] . '</li>';
     }
-    $error_msg .= '</ul></p><p>Please <a href="javascript:history.back()">go' .
-       ' back</a> and fill in the missing fields.</p></div></div></main>';
+    $error_msg .= '</ul></p><p><b>Please <a href="javascript:history.back()">go' .
+       ' back</a> and fill in the missing fields.</b></p></div></div></main>';
        //' back</a> and fill in the missing fields.</p></main></html>';
     //die($error_msg); // end this script, print error
     include('head.html');
