@@ -102,7 +102,13 @@ if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
 if (count($missing_fields) > 0) {
     //$error_msg = '<html><body>' .
         //'<h2>Invalid input</h2>';
-    $error_msg = '<main><h2>Invalid input</h2>';
+    $error_msg = '
+<main>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <!-- page header -->
+        <h1 class="header center orange-text">Invalid input</h1>';
 
     // generate comma-separated list of missing field names
     for ($i = 0; $i < count($missing_fields); $i++) {
@@ -117,7 +123,7 @@ if (count($missing_fields) > 0) {
         $error_msg .= '<li>' . $missing_fields[$i] . '</li>';
     }
     $error_msg .= '</ul></p><p>Please <a href="javascript:history.back()">go' .
-       ' back</a> and fill in the missing fields.</p></main>';
+       ' back</a> and fill in the missing fields.</p></div></div></main>';
        //' back</a> and fill in the missing fields.</p></main></html>';
     //die($error_msg); // end this script, print error
     include('head.html');
