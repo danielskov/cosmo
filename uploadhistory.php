@@ -100,7 +100,9 @@ if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
 
 // If something is missing, send error to user and make him/her go back
 if (count($missing_fields) > 0) {
-    $error_msg = '<html><body>' .
+    //$error_msg = '<html><body>' .
+        //'<h2>Invalid input</h2>';
+    $error_msg = '</head><body>' .
         '<h2>Invalid input</h2>';
 
     // generate comma-separated list of missing field names
@@ -117,7 +119,11 @@ if (count($missing_fields) > 0) {
     }
     $error_msg .= '</ul></p><p>Please <a href="javascript:history.back()">go' .
        ' back</a> and fill in the missing fields.</p></body></html>';
-    die($error_msg); // end this script, print error
+    //die($error_msg); // end this script, print error
+    include('head.html');
+    echo($error_msg); // end this script, print error
+    include('foot.html');
+    die();
 }
 
 
