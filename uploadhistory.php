@@ -59,7 +59,7 @@ if ((!isset($_POST['be_conc']) || $_POST['be_conc'] == '') &&
     (!isset($_POST['al_conc']) || $_POST['al_conc'] == '') &&
     (!isset($_POST['c_conc'])  || $_POST['c_conc'] == '') &&
     (!isset($_POST['ne_conc']) || $_POST['ne_conc']) == '') {
-        array_push($missing_fields, 'at least 1 TCN concentration');
+        array_push($missing_fields, 'At least 1 TCN concentration');
 }
 
 // For each isotope concentration there should be uncertainty and production 
