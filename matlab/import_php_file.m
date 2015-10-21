@@ -1,4 +1,4 @@
-function [sample_id,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max] = import_php_file(filename, startRow, endRow)
+function [sample_id,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_zobs,al_zobs,c_zobs,ne_zobs,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max] = import_php_file(filename, startRow, endRow)
 
 %% import_php_file.m
 % Automatically generated using the `uiimport` tool in Matlab.
@@ -8,16 +8,16 @@ function [sample_id,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,
 % by the col vector) are converted to numbers.
 
 %IMPORTFILE Import numeric data from a text file as column vectors.
-%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
+%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_ZOBS,AL_ZOBS,C_ZOBS,NE_ZOBS,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
 %   = IMPORTFILE(FILENAME) Reads data from text file FILENAME for the
 %   default selection.
 %
-%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
+%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_ZOBS,AL_ZOBS,C_ZOBS,NE_ZOBS,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
 %   = IMPORTFILE(FILENAME, STARTROW, ENDROW) Reads data from rows STARTROW
 %   through ENDROW of text file FILENAME.
 %
 % Example:
-%   [sampleid,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max]
+%   [sampleid,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_zobs,al_zobs,c_zobs,ne_zobs,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max]
 %   = importfile('cosmo_pgpzvt',1, 1);
 %
 %    See also TEXTSCAN.
@@ -33,7 +33,8 @@ end
 
 %% Read columns of data as strings:
 % For more information, see the TEXTSCAN documentation.
-formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
+%formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
+formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
 
 %% Open the text file.
 fileID = fopen(filename,'r');
@@ -63,7 +64,8 @@ end
 numericData = NaN(size(dataArray{1},1),size(dataArray,2));
 
 % the columns in col are numeric
-for col=[6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,26,27]
+%for col=[6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,26,27]
+for col=[6:28, 30:31]
     % Converts strings in the input cell array to numbers. Replaced non-numeric
     % strings with NaN.
     rawData = dataArray{col};
@@ -98,42 +100,47 @@ end
 
 %% Split data into numeric and cell columns.
 
-% rows with numbers
-rawNumericColumns = raw(:, [6:24, 26:27]);
+% rows with numbers, check that range matches values in for loop l. 68 and
+% the list below
+rawNumericColumns = raw(:, [6:28, 30:31]);
 
 % rows with strings
-rawCellColumns = raw(:, [1:5, 25]);
+rawCellColumns = raw(:, [1:5, 29]);
 
 
 %% Allocate imported array to column variable names
 % use rawCellColumns(:, i) for text fields and 
 % cell2mat(rawNumericColumns(:, i)) for numeric fields
-sample_id            = rawCellColumns(:, 1);
-name                 = rawCellColumns(:, 2);
-email                = rawCellColumns(:, 3);
-lat                  = rawCellColumns(:, 4);
-long                 = rawCellColumns(:, 5);
-be_conc     	     = cell2mat(rawNumericColumns(:, 1));
-al_conc              = cell2mat(rawNumericColumns(:, 2));
-c_conc               = cell2mat(rawNumericColumns(:, 3));
-ne_conc              = cell2mat(rawNumericColumns(:, 4));
-be_uncer             = cell2mat(rawNumericColumns(:, 5));
-al_uncer             = cell2mat(rawNumericColumns(:, 6));
-c_uncer              = cell2mat(rawNumericColumns(:, 7));
-ne_uncer             = cell2mat(rawNumericColumns(:, 8));
-be_prod              = cell2mat(rawNumericColumns(:, 9));
-al_prod              = cell2mat(rawNumericColumns(:, 10));
-c_prod               = cell2mat(rawNumericColumns(:, 11));
-ne_prod              = cell2mat(rawNumericColumns(:, 12));
-rock_density         = cell2mat(rawNumericColumns(:, 13));
-epsilon_gla_min      = cell2mat(rawNumericColumns(:, 14));
-epsilon_gla_max      = cell2mat(rawNumericColumns(:, 15));
-epsilon_int_min      = cell2mat(rawNumericColumns(:, 16));
-epsilon_int_max      = cell2mat(rawNumericColumns(:, 17));
-t_degla              = cell2mat(rawNumericColumns(:, 18));
-t_degla_uncer        = cell2mat(rawNumericColumns(:, 19));
-record               = rawCellColumns(:, 6);
-record_threshold_min = cell2mat(rawNumericColumns(:, 20));
-record_threshold_max = cell2mat(rawNumericColumns(:, 21));
+sample_id            = rawCellColumns(:, 1);               % 1
+name                 = rawCellColumns(:, 2);               % 2
+email                = rawCellColumns(:, 3);               % 3
+lat                  = rawCellColumns(:, 4);               % 4
+long                 = rawCellColumns(:, 5);               % 5
+be_conc     	     = cell2mat(rawNumericColumns(:, 1));  % 6
+al_conc              = cell2mat(rawNumericColumns(:, 2));  % 7
+c_conc               = cell2mat(rawNumericColumns(:, 3));  % 8
+ne_conc              = cell2mat(rawNumericColumns(:, 4));  % 9
+be_uncer             = cell2mat(rawNumericColumns(:, 5));  % 10
+al_uncer             = cell2mat(rawNumericColumns(:, 6));  % 11
+c_uncer              = cell2mat(rawNumericColumns(:, 7));  % 12
+ne_uncer             = cell2mat(rawNumericColumns(:, 8));  % 13
+be_zobs              = cell2mat(rawNumericColumns(:, 9));  % 14
+al_zobs              = cell2mat(rawNumericColumns(:, 10)); % 15
+c_zobs               = cell2mat(rawNumericColumns(:, 11)); % 16
+ne_zobs              = cell2mat(rawNumericColumns(:, 12)); % 17
+be_prod              = cell2mat(rawNumericColumns(:, 13)); % 18
+al_prod              = cell2mat(rawNumericColumns(:, 14)); % 19
+c_prod               = cell2mat(rawNumericColumns(:, 15)); % 20
+ne_prod              = cell2mat(rawNumericColumns(:, 16)); % 21
+rock_density         = cell2mat(rawNumericColumns(:, 17)); % 22
+epsilon_gla_min      = cell2mat(rawNumericColumns(:, 18)); % 23
+epsilon_gla_max      = cell2mat(rawNumericColumns(:, 19)); % 24
+epsilon_int_min      = cell2mat(rawNumericColumns(:, 20)); % 25
+epsilon_int_max      = cell2mat(rawNumericColumns(:, 21)); % 26
+t_degla              = cell2mat(rawNumericColumns(:, 22)); % 27
+t_degla_uncer        = cell2mat(rawNumericColumns(:, 23)); % 28
+record               = rawCellColumns(:, 6);               % 29
+record_threshold_min = cell2mat(rawNumericColumns(:, 24)); % 30
+record_threshold_max = cell2mat(rawNumericColumns(:, 25)); % 31
 
 

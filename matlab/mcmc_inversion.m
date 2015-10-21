@@ -2,6 +2,7 @@ function [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
     n_walkers, outfolder, ...
     be_conc,  al_conc,  c_conc,  ne_conc, ...
     be_uncer, al_uncer, c_uncer, ne_uncer, ...
+    be_zobs, al_zobs, c_zobs, ne_zobs, ...
     be_prod,  al_prod,  c_prod,  ne_prod, ...
     rock_density, ...
     epsilon_gla_min, epsilon_gla_max, ...
@@ -21,6 +22,8 @@ format compact;
 
 %Set path so that we can find other required m-files
 addpath(matlab_scripts_folder)
+
+fs.rho = rock_density;
 
 fs.g_case = 'CosmoLongsteps'; %must match a case in function gz = linspace(0,10,100);
 
@@ -58,7 +61,8 @@ switch fs.g_case
         %    fs.RelErrorObs = 0.01*[2.0;2.04]';%0.02; %0.02 means 2% observational error
         
         % one depth per nuclide or not?
-        fs.zobs = [0]; %Depths where nucleides are observed
+        %fs.zobs = [0]; %Depths where nucleides are observed
+        fs.zobs = [be_zobs, al_zobs, c_zobs, ne_zobs];
         %    fs.zobs = [0,0.3,1,3,10]; %Depths where nucleides are observed
         
         if debug
