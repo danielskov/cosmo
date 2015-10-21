@@ -66,26 +66,34 @@ if ((!isset($_POST['be_conc']) || $_POST['be_conc'] == '') &&
 // rate
 if ((isset($_POST['be_conc']) && $_POST['be_conc'] != '') &&
     (!isset($_POST['be_prod']) || $_POST['be_prod'] == '' ||
+    !isset($_POST['be_zobs']) || $_POST['be_zobs'] == '' ||
     !isset($_POST['be_uncer']) || $_POST['be_uncer'] == '')) {
-        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
+    array_push($missing_fields,
+        'Production rate, sample depth, and/or uncertainty for ' .
         '<sup>10</sup>Be');
 }
 if ((isset($_POST['al_conc']) && $_POST['al_conc'] != '') &&
     (!isset($_POST['al_prod']) || $_POST['al_prod'] == '' ||
+    !isset($_POST['al_zobs']) || $_POST['al_zobs'] == '' ||
     !isset($_POST['al_uncer']) || $_POST['al_uncer'] == '')) {
-        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
+        array_push($missing_fields,
+        'Production rate, sample depth, and/or uncertainty for ' .
         '<sup>26</sup>Al');
 }
 if ((isset($_POST['c_conc']) && $_POST['c_conc'] != '') &&
     (!isset($_POST['c_prod']) || $_POST['c_prod'] == '' ||
+    !isset($_POST['c_zobs']) || $_POST['c_zobs'] == '' ||
     !isset($_POST['c_uncer']) || $_POST['c_uncer'] == '')) {
-        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
+        array_push($missing_fields,
+        'Production rate, sample depth, and/or uncertainty for ' .
         '<sup>14</sup>C');
 }
 if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
     (!isset($_POST['ne_prod']) || $_POST['ne_prod'] == '' ||
+    !isset($_POST['ne_zobs']) || $_POST['ne_zobs'] == '' ||
     !isset($_POST['ne_uncer']) || $_POST['ne_uncer'] == '')) {
-        array_push($missing_fields, 'Production rate and/or uncertainty for ' .
+        array_push($missing_fields,
+        'Production rate, sample depth, and/or uncertainty for ' .
         '<sup>21</sup>Ne');
 }
 
