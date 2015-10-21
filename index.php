@@ -60,7 +60,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
         <!-- Navigation bar -->
         <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="/"
+        <div class="nav-wrapper container"><a id="logo-container"
+                href="https://cosmo.au.dk"
                 class="brand-logo"><img src="img/logo.png" alt="logo"
                 height="92" width="220"></a>
 
