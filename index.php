@@ -20,39 +20,9 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
     <meta http-equiv="refresh" content="5" >
 <?php
 }
+
+include('navigation.html');
 ?>
-    </head>
-
-    <!--<body ng-controller="mainController">-->
-    <body ng-app="cosmoApp">
-        <div ng-controller="mainController">
-
-        <!-- Navigation bar -->
-        <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="/#/"
-                class="brand-logo"><img src="img/logo.png" alt="logo"
-                height="92" width="220"></a>
-
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#/">Calculator</a></li>
-                <li><a href="#/methods">Methods</a></li>
-                <!--<li><a href="#/about">About</a></li>-->
-                <li><a href="#/help">Help</a></li>
-            </ul>
-
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="#/">Calculator</a></li>
-                <li><a href="#/methods">Methods</a></li>
-                <!--<li><a href="#/about">About</a></li>-->
-                <li><a href="#/help">Help</a></li>
-            </ul>
-
-            <a href="#" data-activates="nav-mobile"
-                class="button-collapse"><i
-                    class="material-icons">menu</i></a>
-        </div>
-        </nav>
-
         <main>
 <?php
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
@@ -216,3 +186,5 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         </main>
 
 <?php include('foot.html'); ?>
+
+
