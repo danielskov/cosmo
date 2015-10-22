@@ -8,8 +8,7 @@ fixed_stuff = S.fs;
 Nwalkers = fixed_stuff.Nwalkers;
 M = size(fixed_stuff.mminmax,1);
 
-%Compare BurnIn
-
+% Burn-in and convergence overview MCMC plot, fh(1)
 fh(1) = figure('visible', show_figures);
     
 for iwalk=1:min(4,Nwalkers) %only up to the first four walks
@@ -95,7 +94,7 @@ axis([-0.03,1,0,10])
 axis ij
 box on
 
-%Compare sampling cross-plots
+% Compare sampling cross-plots, fh(2) and fh(3)
 fh = [fh;figure('visible', show_figures)];
 Nbin = 50;
 
@@ -159,10 +158,12 @@ for i1=1:M
   end
 end
 
+% Histogram plots for all four parameters, one subplot per walker, fh(4)
 fh = [fh;figure('visible', show_figures)];
 for i1 = 1:M
   for iwalk=1:min(4,Nwalkers)
     isub = (i1-1)*4 + iwalk;
+    %subplot(5,4,isub)
     subplot(5,4,isub)
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
@@ -177,9 +178,35 @@ for i1 = 1:M
 end
 
 
+% Plot epsilon_rate_int in one histogram per walker
+fh = [fh;figure('visible', show_figures)];
+for i1 = 1:M
+  for iwalk=1:min(4,Nwalkers)
+    isub = (i1-1)*4 + iwalk;
+    subplot(4,Nwalkers,isub)
+    Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
+    bar(xbins{i1},Nhistc,'histc')
+    xlabel(fixed_stuff.mname{i1})
+    if i1 == 1
+        xlabel('Interglacial erosion rate [mm/yr]')
+    elseif i1 == 2
+        xlabel('Glacial erosion rate [mm/yr]')
+    elseif i1 == 3
+        xlabel('Timing of last deglaciation [yr]')
+    elseif i1 == 4
+        xlabel('$\delta^{18} O_\text{threshold}$','Interpreter','LaTeX')
+    end
+    %set (gca,'xtick',[1e-7:1e-3]);
+    
+    switch mDistr(i1,:)
+      case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:))
+      case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
+    end
+  end
+end
+
 
 %Putting in titles over figure 2:4
-
 figure(fh(2)); set(fh(2), 'Visible', show_figures)
 subplot(5,4,2)
 title(['Density cross-plots A. Result file =',save_file],'interp','none')
@@ -190,8 +217,10 @@ title(['Density cross-plots B. Result file =',save_file],'interp','none')
 
 figure(fh(4)); set(fh(4), 'Visible', show_figures)
 subplot(5,4,2)
-title(['Histograms. Result file =',save_file],'interp','none')
+%title(['Histograms. Result file =',save_file],'interp','none')
+title(['Distribution of model parameter values','interp','none')
 
+% position figure windows at certain coordinates on the screen
 if strcmp(show_figures, 'on')
     figpos1 = [6         474        1910         504];
     figpos2 =[    12 94 645 887];
@@ -204,12 +233,12 @@ if strcmp(show_figures, 'on')
     figure(fh(1))
 end
 
+% save all figures
 for i=1:4
     figure_save_multiformat(fh(i), ...
         strcat(save_file, '-', num2str(i)), ...
         formats);
 end
-
 
 % for i1 = 1:M
 %   hold off
