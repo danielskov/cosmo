@@ -189,7 +189,7 @@ for i1 = 1:M
     xlabel(fixed_stuff.mname{i1})
     if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')
-        text(0.02,0.98,'a', Units', ...
+        text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
         xlabel('Glacial erosion rate [mm/yr]')

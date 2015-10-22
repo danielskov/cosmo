@@ -162,11 +162,12 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       interglacial erosion rate, (b) glacial erosion rate, (c)
                       timing of last deglaciation, and (d)
                       d<sup>18</sup>O<sub>threshold</sub> levels that provide
-                      the best fit to the supplied TCN concentrations. The
-                      <!--fraction indicates the number of simulations included in-->
-                      vertical axis indicates the number of simulations included
-                      in each bin out of the 10,000 simulations that followed
-                      the MCMC burn-in phase.</p>
+                      the best fit to the supplied TCN concentrations. There is
+                      one histogram per model parameter for each MCMC walker.
+                      The <!--fraction indicates the number of simulations
+                      included in--> vertical axis indicates the number of
+                      simulations included in each bin out of the 10,000
+                      simulations that followed the MCMC burn-in phase.</p>
                   </div>
                   <div class="card-action">
                   <a href="output/<?php
