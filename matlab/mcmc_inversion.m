@@ -228,8 +228,10 @@ fixed_stuff.StartTime = now; %This should allow the program to predict time of f
 % ANDERS: consider parfor for parallel computing. However, fixed_stuff and
 % S structures are incompatible with parfor.
 for iwalk=1:fixed_stuff.Nwalkers
-
-    disp(['\n#### iwalk = ' iwalk ' ####'])
+    
+    disp(' ')
+    disp(['#### iwalk = ' num2str(iwalk) '/' ...
+        num2str(fixed_stuff.Nwalkers) ' ####'])
 
     fixed_stuff.iwalk = iwalk; %Helps program keep user updated on progress.
     m_starts(:,iwalk) = WalkerStarter(iwalk,fixed_stuff);

@@ -178,11 +178,12 @@ for i1 = 1:M
 end
 
 
-% Plot epsilon_rate_int in one histogram per walker
+% Plot one histogram per model parameter per walker
 fh = [fh;figure('visible', show_figures)];
-for i1 = 1:M
-  for iwalk=1:min(4,Nwalkers)
+for i1 = 1:M % for each model parameter
+  for iwalk=1:min(4,Nwalkers) % for each walker
     isub = (i1-1)*4 + iwalk;
+    i1, M, iwalk, Nwalkers
     subplot(4,Nwalkers,isub)
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
