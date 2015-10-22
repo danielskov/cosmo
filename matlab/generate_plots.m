@@ -218,7 +218,7 @@ title(['Density cross-plots B. Result file =',save_file],'interp','none')
 figure(fh(4)); set(fh(4), 'Visible', show_figures)
 subplot(5,4,2)
 %title(['Histograms. Result file =',save_file],'interp','none')
-title(['Distribution of model parameter values','interp','none')
+title('Distribution of model parameter values','interp','none')
 
 % position figure windows at certain coordinates on the screen
 if strcmp(show_figures, 'on')
