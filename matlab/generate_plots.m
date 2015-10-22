@@ -8,6 +8,9 @@ fixed_stuff = S.fs;
 Nwalkers = fixed_stuff.Nwalkers;
 M = size(fixed_stuff.mminmax,1);
 
+% put titles on figures?
+titles = 0;
+
 % Burn-in and convergence overview MCMC plot, fh(1)
 fh(1) = figure('visible', show_figures);
     
@@ -190,6 +193,7 @@ for i1 = 1:M % for each model parameter
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
     
+    i1
     if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')
         text(0.02,0.98,'a', 'Units', ...
@@ -210,6 +214,7 @@ for i1 = 1:M % for each model parameter
     else
         disp(['Using mname for i1 = ' i1])
         xlabel(fixed_stuff.mname{i1})
+        keyboard
     end
     %set (gca,'xtick',[1e-7:1e-3]);
     
@@ -220,20 +225,21 @@ for i1 = 1:M % for each model parameter
   end
 end
 
+if titles
+    %Putting in titles over figure 2:4
+    figure(fh(2)); set(fh(2), 'Visible', show_figures)
+    subplot(5,4,1)
+    title(['Density cross-plots A. Result file = ',save_file])
 
-%Putting in titles over figure 2:4
-figure(fh(2)); set(fh(2), 'Visible', show_figures)
-%subplot(5,4,2)
-title(['Density cross-plots A. Result file = ',save_file],'interp','none')
+    figure(fh(3)); set(fh(3), 'Visible', show_figures)
+    subplot(5,4,1)
+    title(['Density cross-plots B. Result file = ',save_file])
 
-figure(fh(3)); set(fh(3), 'Visible', show_figures)
-%subplot(5,4,2)
-title(['Density cross-plots B. Result file = ',save_file],'interp','none')
-
-figure(fh(4)); set(fh(4), 'Visible', show_figures)
-%subplot(4,Nwalkers,2)
-%title(['Histograms. Result file =',save_file],'interp','none')
-title('Distribution of model parameter values')
+    figure(fh(4)); set(fh(4), 'Visible', show_figures)
+    subplot(M,Nwalkers,1)
+    %title(['Histograms. Result file =',save_file],'interp','none')
+    title('Distribution of model parameter values')
+end
 
 % position figure windows at certain coordinates on the screen
 if strcmp(show_figures, 'on')
