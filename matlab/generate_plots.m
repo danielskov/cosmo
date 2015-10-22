@@ -182,9 +182,11 @@ end
 fh = [fh;figure('visible', show_figures)];
 for i1 = 1:M % for each model parameter
   for iwalk=1:min(4,Nwalkers) % for each walker
-    isub = (i1-1)*4 + iwalk;
-    i1, M, iwalk, Nwalkers
-    subplot(4,Nwalkers,isub)
+    %isub = (i1-1)*4 + iwalk;
+    isub = (iwalk-1)*M + i1;
+    %i1, M, iwalk, Nwalkers, isub
+    %subplot(5,2,isub)
+    subplot(M,Nwalkers,isub)
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
     
