@@ -186,7 +186,7 @@ for i1 = 1:M
     subplot(4,Nwalkers,isub)
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
-    xlabel(fixed_stuff.mname{i1})
+    
     if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')
         text(0.02,0.98,'a', 'Units', ...
@@ -204,6 +204,9 @@ for i1 = 1:M
             'Interpreter', 'LaTeX')
         text(0.02,0.98,'d','Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
+    else
+        disp(['Using mname for i1 = ' i1])
+        xlabel(fixed_stuff.mname{i1})
     end
     %set (gca,'xtick',[1e-7:1e-3]);
     
@@ -225,7 +228,7 @@ subplot(5,4,2)
 title(['Density cross-plots B. Result file =',save_file],'interp','none')
 
 figure(fh(4)); set(fh(4), 'Visible', show_figures)
-subplot(5,4,2)
+subplot(4,Nwalkers,2)
 %title(['Histograms. Result file =',save_file],'interp','none')
 title('Distribution of model parameter values','interp','none')
 
