@@ -223,15 +223,15 @@ end
 
 %Putting in titles over figure 2:4
 figure(fh(2)); set(fh(2), 'Visible', show_figures)
-subplot(5,4,2)
+%subplot(5,4,2)
 title(['Density cross-plots A. Result file = ',save_file],'interp','none')
 
 figure(fh(3)); set(fh(3), 'Visible', show_figures)
-subplot(5,4,2)
+%subplot(5,4,2)
 title(['Density cross-plots B. Result file = ',save_file],'interp','none')
 
 figure(fh(4)); set(fh(4), 'Visible', show_figures)
-subplot(4,Nwalkers,2)
+%subplot(4,Nwalkers,2)
 %title(['Histograms. Result file =',save_file],'interp','none')
 title('Distribution of model parameter values')
 
