@@ -37,7 +37,7 @@ graphics_formats = {'fig', 'png', 'pdf'};
 show_figures = 'off';
 
 % number of MCMC walkers
-n_walkers = 1;
+n_walkers = 2;
 
 %% initialization
 addpath(matlab_scripts_folder);
