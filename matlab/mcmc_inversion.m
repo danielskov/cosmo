@@ -225,9 +225,12 @@ fs.Sampling = CompleteFsSampling(fs.Sampling);
 fixed_stuff = fs;
 
 fixed_stuff.StartTime = now; %This should allow the program to predict time of finish
-% ANDERS: consider parfor for parallel computing
+% ANDERS: consider parfor for parallel computing. However, fixed_stuff and
+% S structures are incompatible with parfor.
 for iwalk=1:fixed_stuff.Nwalkers
-    iwalk
+
+    disp(['\n#### iwalk = ' iwalk ' ####'])
+
     fixed_stuff.iwalk = iwalk; %Helps program keep user updated on progress.
     m_starts(:,iwalk) = WalkerStarter(iwalk,fixed_stuff);
     d_starts(:,iwalk) = g(m_starts(:,iwalk),fixed_stuff);
