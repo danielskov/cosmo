@@ -68,7 +68,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         <div class="container">
             <br><br>
             <!-- page header -->
-            <h2 class="header center orange-text">Inversion results</h2>
+            <h2 class="header center orange-text">MCMC Inversion results</h2>
 
 
             <div class="row">
@@ -158,7 +158,15 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                     <span class="card-title">Fourth figure</span>
                   </div>
                   <div class="card-content">
-                    <p>This is the fourth figure, and it shows this and that.</p>
+                      <p>The histograms show the distribution of (a)
+                      interglacial erosion rate, (b) glacial erosion rate, (c)
+                      timing of last deglaciation, and (d)
+                      d<sup>18</sup>O<sub>threshold</sub> levels that provide
+                      the best fit to the supplied TCN concentrations. The
+                      <!--fraction indicates the number of simulations included in-->
+                      vertical axis indicates the number of simulations included
+                      in each bin out of the 10,000 simulations that followed
+                      the MCMC burn-in phase.</p>
                   </div>
                   <div class="card-action">
                   <a href="output/<?php

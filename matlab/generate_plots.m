@@ -189,12 +189,21 @@ for i1 = 1:M
     xlabel(fixed_stuff.mname{i1})
     if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')
+        text(0.02,0.98,'a', Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
         xlabel('Glacial erosion rate [mm/yr]')
+        text(0.02,0.98,'b', 'Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
         xlabel('Timing of last deglaciation [yr]')
+        text(0.02,0.98,'c', 'Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 4
-        xlabel('$\delta^{18} O_\text{threshold}$','Interpreter','LaTeX')
+        xlabel('$\delta^{18} O_\mathrm{threshold}$', ...
+            'Interpreter', 'LaTeX')
+        text(0.02,0.98,'d','Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
     end
     %set (gca,'xtick',[1e-7:1e-3]);
     
