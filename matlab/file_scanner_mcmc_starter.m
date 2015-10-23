@@ -11,7 +11,7 @@
 % and status file
 infolder = '~/cosmo/input';
 
-% folder for generated plots
+% outfolder: folder for generated plots
 [status, hostname] = system('hostname');
 if strfind(hostname, 'flaptop') % laptop
     outfolder = 'output/';
@@ -22,10 +22,10 @@ end
 % uniquely identifying file name prefix for input files
 prefix = 'cosmo_';
 
-% folder where completed input files are archived. This folder should be
-% outside of the webserver document root so others cannot acces this
-% information
-archivefolder = '/home/adc/cosmo/archive';
+% archivefolder: folder where completed input files are archived. This 
+% folder should be outside of the webserver document root so others cannot
+% access this information
+archivefolder = '~/cosmo/archive';
 
 % folder containing matlab scripts to path
 matlab_scripts_folder = 'm_pakke2014maj11/';

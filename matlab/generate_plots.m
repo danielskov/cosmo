@@ -242,6 +242,8 @@ for i1 = 1:M % for each model parameter
 end
 
 
+
+
 %% Plot d18O curve, from PlotSmoothZachos.m
 fh = [fh;figure('visible', show_figures)];
 
@@ -309,6 +311,53 @@ ErateInt=1e-6; ErateGla=1e-7;
 
 linkaxes(axh,'x')
 % stairs(-tStarts,relExpos+2,'r')
+
+
+
+%% Plot one histogram per model parameter, including data from all walkers
+fh = [fh;figure('visible', show_figures)];
+for i1 = 1:M % for each model parameter
+
+    subplot(M,1,i1)
+    
+    data = [];
+    for iwalker=1:Nwalkers
+        data = [data, Ss{iwalker}.ms(i1,:)];
+    end
+    Nhistc=histc(data, xbins{i1});
+    bar(xbins{i1},Nhistc,'histc')
+
+    med = median(data);
+    plot([med, med], get(gca,'YLim'), 'm-', linewidth=2)
+    
+    if i1 == 1
+        xlabel('Interglacial erosion rate [mm/yr]')
+        text(0.02,0.98,'a', 'Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
+    elseif i1 == 2
+        xlabel('Glacial erosion rate [mm/yr]')
+        text(0.02,0.98,'b', 'Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
+    elseif i1 == 3
+        xlabel('Timing of last deglaciation [yr]')
+        text(0.02,0.98,'c', 'Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
+    elseif i1 == 4
+        xlabel('$\delta^{18}$O$_\mathrm{threshold}$', ...
+            'Interpreter', 'LaTeX')
+        text(0.02,0.98,'d','Units', ...
+            'Normalized', 'VerticalAlignment', 'Top')
+    else
+        disp(['Using mname for i1 = ' i1])
+        xlabel(fixed_stuff.mname{i1})
+    end
+    %set (gca,'xtick',[1e-7:1e-3]);
+    
+    switch mDistr(i1,:)
+        case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:))
+        case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
+    end
+end
 
 
 %% position figure windows at certain coordinates on the screen
