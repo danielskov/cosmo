@@ -242,8 +242,6 @@ for i1 = 1:M % for each model parameter
 end
 
 
-
-
 %% Plot d18O curve, from PlotSmoothZachos.m
 fh = [fh;figure('visible', show_figures)];
 
@@ -265,7 +263,7 @@ ys = d18O_triang;
 colpos = [0,0,1];
 %colneg = [0.5,1,0.5];
 colneg = [1,0,0];
-midvalue = 3.75;
+midvalue = 3.75;  %%% THIS IS THE THRESHOLD
 axh(1)=subplot(3,1,1);
 [~,~,~,i_cross]=fill_red_blue(xs,ys,colpos,colneg,midvalue);
 ylabel('\delta18O')

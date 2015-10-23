@@ -12,8 +12,11 @@
 infolder = '~/cosmo/input';
 
 % folder for generated plots
-%outfolder = 'output/';
-outfolder = '/var/www/html/output/';
+if strcmp(system('hostname'), 'flaptop') % laptop
+    outfolder = 'output/';
+else % server
+    outfolder = '/var/www/html/output/';
+end
 
 % uniquely identifying file name prefix for input files
 prefix = 'cosmo_';
