@@ -193,24 +193,19 @@ for i1 = 1:M % for each model parameter
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
     
-    disp(['isub = ' num2str(isub)])
     if i1 == 1
-        disp('Interglacial erosion rate [mm/yr]')
         xlabel('Interglacial erosion rate [mm/yr]')
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
-        disp('Glacial erosion rate [mm/yr]')
         xlabel('Glacial erosion rate [mm/yr]')
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
-        disp('Timing of last deglaciation [yr]')
         xlabel('Timing of last deglaciation [yr]')
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 4
-        disp('d180')
         xlabel('$\delta^{18} O_\mathrm{threshold}$', ...
             'Interpreter', 'LaTeX')
         text(0.02,0.98,'d','Units', ...
