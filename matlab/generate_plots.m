@@ -193,7 +193,7 @@ for i1 = 1:M % for each model parameter
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
     
-    disp(isub)
+    disp(['isub = ' num2str(isub)])
     if i1 == 1
         disp('Interglacial erosion rate [mm/yr]')
         xlabel('Interglacial erosion rate [mm/yr]')
@@ -218,7 +218,6 @@ for i1 = 1:M % for each model parameter
     else
         disp(['Using mname for i1 = ' i1])
         xlabel(fixed_stuff.mname{i1})
-        keyboard
     end
     %set (gca,'xtick',[1e-7:1e-3]);
     
@@ -259,7 +258,7 @@ if strcmp(show_figures, 'on')
 end
 
 % save all figures
-for i=1:4
+for i=1:length(fh)
     figure_save_multiformat(fh(i), ...
         strcat(save_file, '-', num2str(i)), ...
         formats);

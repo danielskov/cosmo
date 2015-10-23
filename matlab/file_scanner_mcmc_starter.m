@@ -9,7 +9,7 @@
 
 % folder containing input files from web interface ("uploadhistory.php")
 % and status file
-infolder = '/home/adc/cosmo/input';
+infolder = '~/cosmo/input';
 
 % folder for generated plots
 %outfolder = 'output/';
@@ -34,6 +34,7 @@ graphics_formats = {'fig', 'png', 'pdf'};
 
 % show figures after they are generated in addition to saving them,
 % values: 'on' or 'off'
+%show_figures = 'on';
 show_figures = 'off';
 
 % number of MCMC walkers
@@ -117,6 +118,8 @@ while 1
         fid = fopen(statusfile, 'w');
         fprintf(fid, 'Computations complete');
         fclose(fid);
+        
+        disp('Computations complete');
         
         diary off;
         
