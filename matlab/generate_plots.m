@@ -193,7 +193,7 @@ for i1 = 1:M % for each model parameter
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
     
-    i1
+    disp(isub)
     if i1 == 1
         disp('Interglacial erosion rate [mm/yr]')
         xlabel('Interglacial erosion rate [mm/yr]')
