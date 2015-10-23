@@ -187,7 +187,7 @@ for i1 = 1:M % for each model parameter
   for iwalk=1:min(4,Nwalkers) % for each walker
     %isub = (i1-1)*4 + iwalk;
     %isub = (iwalk-1)*M + i1;
-    isub = (i1-1)*M + iwalk;
+    isub = (i1-1)*Nwalkers + iwalk;
     %i1, M, iwalk, Nwalkers, isub
     %subplot(5,2,isub)
     subplot(M,Nwalkers,isub)
