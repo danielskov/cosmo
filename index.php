@@ -76,7 +76,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-image">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-5.png">
-                    <span class="card-title">Fourth figure</span>
+                    <span class="card-title">Model parameter values</span>
                   </div>
                   <div class="card-content">
                       <p>The histograms show the distribution of (a)
@@ -99,6 +99,40 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                     target="_blank">Link to PDF</a>
                   <a href="output/<?php
                         echo($_GET['results_id']); ?>_Walks-5.fig"
+                    target="_blank">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m8 offset-m2">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-6.png">
+                    <span class="card-title">Erosion history</span>
+                  </div>
+                  <div class="card-content">
+                      <p>
+                      (a) Two-stage glacial-interglacial model based on the
+                      selected climate record.
+                      
+                      (b) Timing and duration of glacial and interglacial
+                      periods are defined by a threshold value (d18Othreshold)
+                      that is applied to the climate record. 
+                      
+                      </p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-6.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-6.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-6.fig"
                     target="_blank">Link to FIG</a>
                   </div>
                 </div>

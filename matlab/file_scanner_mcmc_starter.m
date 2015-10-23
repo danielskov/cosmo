@@ -106,7 +106,8 @@ while 1
         
         % generate plots
         %CompareWalks2(Ss, save_file)
-        generate_plots(Ss, save_file, graphics_formats, show_figures);
+        generate_plots(Ss, record, matlab_scripts_folder, ...
+            save_file, graphics_formats, show_figures);
         
         % close all figures
         close all;
