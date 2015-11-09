@@ -74,10 +74,10 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                 <!--<div class="col s12 m8 offset-m2">-->
               <div class="col s12 m10 offset-m1">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image hoverable">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-5.png">
-                        <span class="card-title blue-text text-darken-2">
+                        <span class="card-title blue-text text-darken-2 center-align">
                             Model parameter values per inversion walker</span>
                   </div>
                   <div class="card-content">
@@ -110,7 +110,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <div class="row">
               <div class="col s12 m10 offset-m1">
                 <div class="card">
-                  <div class="card-image">
+                  <div class="card-image hoverable">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-6.png">
                         <span class="card-title blue-text text-darken-2">
