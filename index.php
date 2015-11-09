@@ -76,7 +76,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                 <div class="card">
                   <div class="card-image">
                   <img src="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-7.png">
+                        echo($_GET['results_id']); ?>_Walks-6.png">
                         <span class="card-title blue-text text-darken-2">
                             Generalized model parameter values</span>
                   </div>
@@ -96,13 +96,13 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   </div>
                   <div class="card-action">
                   <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-7.png"
+                        echo($_GET['results_id']); ?>_Walks-6.png"
                     target="_blank">Link to PNG</a>
                   <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-7.pdf"
+                        echo($_GET['results_id']); ?>_Walks-6.pdf"
                     target="_blank">Link to PDF</a>
                   <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-7.fig"
+                        echo($_GET['results_id']); ?>_Walks-6.fig"
                     target="_blank">Link to FIG</a>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                 <div class="card">
                   <div class="card-image">
                   <img src="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-6.png">
+                        echo($_GET['results_id']); ?>_Walks-7.png">
                         <span class="card-title blue-text text-darken-2">
                             Erosion history</span>
                   </div>
@@ -169,13 +169,13 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   </div>
                   <div class="card-action">
                   <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-6.png"
+                        echo($_GET['results_id']); ?>_Walks-7.png"
                     target="_blank">Link to PNG</a>
                   <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-6.pdf"
+                        echo($_GET['results_id']); ?>_Walks-7.pdf"
                     target="_blank">Link to PDF</a>
                   <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-6.fig"
+                        echo($_GET['results_id']); ?>_Walks-7.fig"
                     target="_blank">Link to FIG</a>
                   </div>
                 </div>

@@ -250,76 +250,6 @@ end
 
 
 
-%% Plot d18O curve, from PlotSmoothZachos.m
-fh = [fh;figure('visible', show_figures)];
-
-if strcmp(record, 'rec_5kyr')
-    d18O_filename = 'lisiecki_triinterp_2p6Ma_5ky.mat'; %  zachos_triinterp_2p6Ma
-elseif strcmp(record, 'rec_20kyr')
-    d18O_filename = 'lisiecki_triinterp_2p6Ma_20ky.mat'; %  zachos_triinterp_2p6Ma
-elseif strcmp(record, 'rec_30kyr')
-    d18O_filename = 'lisiecki_triinterp_2p6Ma_30ky.mat'; %  zachos_triinterp_2p6Ma
-else
-    error(['record ' record ' not understood']);
-end
-
-load([matlab_scripts_folder, d18O_filename])
-xs = ti;
-dt = diff(ti(1:2));
-ys = d18O_triang;
-%colpos = [0.5,0.5,1];
-colpos = [0,0,1];
-%colneg = [0.5,1,0.5];
-colneg = [1,0,0];
-midvalue = 3.75;  %%% THIS IS THE THRESHOLD
-axh(1)=subplot(3,1,1);
-[~,~,~,i_cross]=fill_red_blue(xs,ys,colpos,colneg,midvalue);
-ylabel('\delta18O')
-axis tight
-axis([-0.1,2.7,3.0,5.2])
-%axis([-0.05,0.3,3.0,5.2])
-xlim([-0.1,2.7])
-%xlim([-0.05,0.3])
-hold on
-%plot(A(:,1)/1000,A(:,2),'.-m')
-axis ij
-xs_cross = (i_cross-1)*dt;
-xs_cross = [0;xs_cross];
-%title([fn,'.  minrad = ',num2str(minrad),' Ma'],'interp','none')
-
-xs_cross(2) = 0.011;
-
-axh(2)=subplot(3,1,2);
-stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'b','linewidth',1.5);
-hold on
-start1 = [xs_cross(end),2.7];
-start2 = [1,1];
-plot(start1,start2,'b','linewidth',1.5);
-%title('Exposure. 0 = glaciated, 1 = not glaciated')
-axis([-0.1,2.7,-0.5,1.5])
-%axis([-0.05,0.3,-0.5,1.5])
-xlabel('Age BP [Ma]')
-
-axh(2)=subplot(3,1,3);
-stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'r','linewidth',1.5);
-hold on
-plot(start1,start2,'r','linewidth',1.5);
-%title('Exposure. 0 = glaciated, 1 = not glaciated')
-axis([-0.1,2.7,-1,2])
-%axis([-0.05,0.3,-1,2])
-xlabel('Age BP [Ma]')
-
-
-hold on
-d18Oth = midvalue;
-ErateInt=1e-6; ErateGla=1e-7;
-[~,~] = ExtractHistory2(ti,d18O_triang,d18Oth,ErateInt,ErateGla);
-
-linkaxes(axh,'x')
-% stairs(-tStarts,relExpos+2,'r')
-
-
-
 %% Plot one histogram per model parameter, including data from all walkers
 fh = [fh;figure('visible', show_figures)];
 for i1 = 1:M % for each model parameter
@@ -339,6 +269,19 @@ for i1 = 1:M % for each model parameter
     % 2nd quartile = median = 50th percentile
     med = median(data);
     plot([med, med], get(gca,'YLim'), 'm-')
+    
+    % save median values for later
+    if i1 == 1
+        epsilon_int_med = med;
+    elseif i1 == 2
+        epsilon_gla_med = med;
+    elseif i1 == 3
+        t_degla_med = med;
+    elseif i1 == 4
+        record_threshold_med = med;
+    else
+        error('Unknown parametr');
+    end
     %ylims = get(gca,'YLim');
     %text(med, ylims(1) + (ylims(2) - ylims(1))*0.9, ...
         %['\leftarrow' num2str(med)]);
@@ -387,6 +330,79 @@ for i1 = 1:M % for each model parameter
         case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
     end
 end
+
+
+
+
+%% Plot d18O curve, from PlotSmoothZachos.m
+fh = [fh;figure('visible', show_figures)];
+
+if strcmp(record, 'rec_5kyr')
+    d18O_filename = 'lisiecki_triinterp_2p6Ma_5ky.mat'; %  zachos_triinterp_2p6Ma
+elseif strcmp(record, 'rec_20kyr')
+    d18O_filename = 'lisiecki_triinterp_2p6Ma_20ky.mat'; %  zachos_triinterp_2p6Ma
+elseif strcmp(record, 'rec_30kyr')
+    d18O_filename = 'lisiecki_triinterp_2p6Ma_30ky.mat'; %  zachos_triinterp_2p6Ma
+else
+    error(['record ' record ' not understood']);
+end
+
+load([matlab_scripts_folder, d18O_filename])
+xs = ti;
+dt = diff(ti(1:2));
+ys = d18O_triang;
+%colpos = [0.5,0.5,1];
+colpos = [0,0,1];
+%colneg = [0.5,1,0.5];
+colneg = [1,0,0];
+%midvalue = 3.75;  %%% THIS IS THE THRESHOLD
+midvalue = record_threshold_med;
+axh(1)=subplot(3,1,1);
+[~,~,~,i_cross]=fill_red_blue(xs,ys,colpos,colneg,midvalue);
+ylabel('\delta18O')
+axis tight
+axis([-0.1,2.7,3.0,5.2])
+%axis([-0.05,0.3,3.0,5.2])
+xlim([-0.1,2.7])
+%xlim([-0.05,0.3])
+hold on
+%plot(A(:,1)/1000,A(:,2),'.-m')
+axis ij
+xs_cross = (i_cross-1)*dt;
+xs_cross = [0;xs_cross];
+%title([fn,'.  minrad = ',num2str(minrad),' Ma'],'interp','none')
+
+xs_cross(2) = 0.011;
+
+axh(2)=subplot(3,1,2);
+stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'b','linewidth',1.5);
+hold on
+start1 = [xs_cross(end),2.7];
+start2 = [1,1];
+plot(start1,start2,'b','linewidth',1.5);
+%title('Exposure. 0 = glaciated, 1 = not glaciated')
+axis([-0.1,2.7,-0.5,1.5])
+%axis([-0.05,0.3,-0.5,1.5])
+xlabel('Age BP [Ma]')
+
+axh(2)=subplot(3,1,3);
+stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'r','linewidth',1.5);
+hold on
+plot(start1,start2,'r','linewidth',1.5);
+%title('Exposure. 0 = glaciated, 1 = not glaciated')
+axis([-0.1,2.7,-1,2])
+%axis([-0.05,0.3,-1,2])
+xlabel('Age BP [Ma]')
+
+
+hold on
+d18Oth = midvalue;
+ErateInt=1e-6; ErateGla=1e-7;
+[~,~] = ExtractHistory2(ti,d18O_triang,d18Oth,ErateInt,ErateGla);
+
+linkaxes(axh,'x')
+% stairs(-tStarts,relExpos+2,'r')
+
 
 
 %% position figure windows at certain coordinates on the screen
