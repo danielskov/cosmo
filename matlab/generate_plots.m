@@ -359,7 +359,8 @@ colneg = [1,0,0];
 midvalue = record_threshold_med;
 axh(1)=subplot(3,1,1);
 [~,~,~,i_cross]=fill_red_blue(xs,ys,colpos,colneg,midvalue);
-ylabel('\delta18O')
+xlabel('Age BP [Ma]')
+ylabel('\delta^{18}O')
 axis tight
 axis([-0.1,2.7,3.0,5.2])
 %axis([-0.05,0.3,3.0,5.2])

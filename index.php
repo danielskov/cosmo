@@ -159,7 +159,9 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-content">
                       <p>
                       (a) Two-stage glacial-interglacial model based on the
-                      selected climate record.
+                      selected climate record, based on the median
+                      &delta;<sup>18</sup>O<sub>threshold</sub> value from the
+                      first figure.
                       
                       (b) Timing and duration of glacial and interglacial
                       periods are defined by a threshold value (d18Othreshold)
