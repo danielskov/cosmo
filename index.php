@@ -68,7 +68,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         <div class="container">
             <br><br>
             <!-- page header -->
-            <h2 class="header center orange-text">MCMC Inversion results</h2>
+            <h2 class="header center orange-text">MCMC inversion results</h2>
 
             <div class="row">
                 <!--<div class="col s12 m8 offset-m2">-->
