@@ -209,9 +209,8 @@ for i1 = 1:M % for each model parameter
     %subplot(5,2,isub)
     subplot(M,Nwalkers,isub)
     %Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
-    Nhistc = histcounts(Ss{iwalk}.ms(i1,:),xbins{i1});
-    bar(xbins{i1},Nhistc,'histc')
-
+    %bar(xbins{i1},Nhistc,'histc')
+    histogram(Ss{iwalk}.ms(i1,:), xbins{i1}, 'Normalization', 'probability');
     
     if i1 == 1
         title(['MCMC walker ' num2str(iwalk)])
