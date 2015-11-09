@@ -210,7 +210,7 @@ for i1 = 1:M % for each model parameter
     subplot(M,Nwalkers,isub)
     %Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     %bar(xbins{i1},Nhistc,'histc')
-    histogram(Ss{iwalk}.ms(i1,:), xbins{i1}, 'Normalization', 'probability');
+    histogram(Ss{iwalk}.ms(i1,:), xbins{i1});
     
     if i1 == 1
         title(['MCMC walker ' num2str(iwalk)])
@@ -329,11 +329,25 @@ for i1 = 1:M % for each model parameter
     for iwalker=1:Nwalkers
         data = [data, Ss{iwalker}.ms(i1,:)];
     end
-    Nhistc=histc(data, xbins{i1});
-    bar(xbins{i1},Nhistc,'histc')
+    
+    hold on
+    %Nhistc=histc(data, xbins{i1});
+    %bar(xbins{i1},Nhistc,'histc')
+    histogram(data, xbins{i1});
 
+    % 2nd quartile = median = 50th percentile
     med = median(data);
     plot([med, med], get(gca,'YLim'), 'm-')
+    
+    % 1st quartile = 25th percentile
+    prctile25 = prctile(data, 25);
+    plot([prctile25, prctile25], get(gca,'YLim'), 'm--')
+    
+    % 3rd quartile = 75th percentile
+    prctile75 = prctile(data, 75);
+    plot([prctile75, prctile75], get(gca,'YLim'), 'm--')
+    
+    hold off
     
     if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')

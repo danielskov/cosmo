@@ -76,6 +76,46 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                 <div class="card">
                   <div class="card-image">
                   <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-7.png">
+                        <span class="card-title blue-text text-darken-2">
+                            Generalized model parameter values</span>
+                  </div>
+                  <div class="card-content">
+                      <p>The histograms show the distribution of (a)
+                      interglacial erosion rate, (b) glacial erosion rate, (c)
+                      timing of last deglaciation, and (d)
+                      d<sup>18</sup>O<sub>threshold</sub> levels that provide
+                      the best fit to the supplied TCN concentrations. 
+                      The vertical axis indicates the number of
+                      simulations included in each bin out of the 10,000
+                      simulations that followed the MCMC burn-in phase from each
+                      MCMC walker.  The solid magenta lines denote the median
+                      values (second quartile), while the dashed magenta lines
+                      denote the lower and upper quartiles (25th and 75th
+                      percentiles, respectively).</p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-7.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-7.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-7.fig"
+                    target="_blank">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+                <!--<div class="col s12 m8 offset-m2">-->
+              <div class="col s12 m10 offset-m1">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-5.png">
                         <span class="card-title blue-text text-darken-2">
                             Model parameter values per inversion walker</span>
