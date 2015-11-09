@@ -210,6 +210,7 @@ for i1 = 1:M % for each model parameter
     subplot(M,Nwalkers,isub)
     Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     bar(xbins{i1},Nhistc,'histc')
+    delete(findobj('marker', '*'));
     
     if i1 == 1
         title(['MCMC walker ' num2str(iwalk)])
