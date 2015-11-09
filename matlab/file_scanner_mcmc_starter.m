@@ -128,6 +128,9 @@ while 1
         
         diary off;
         
+        % sleep 1 second in order to reduce system load
+        pause(1)
+        
         %keyboard
     end
 
