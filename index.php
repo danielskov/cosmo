@@ -77,7 +77,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-image">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-5.png">
-                    <span class="card-title">Model parameter values</span>
+                        <span class="card-title blue-text text-darken-2">
+                            Model parameter values</span>
                   </div>
                   <div class="card-content">
                       <p>The histograms show the distribution of (a)
@@ -112,7 +113,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-image">
                   <img src="output/<?php
                         echo($_GET['results_id']); ?>_Walks-6.png">
-                    <span class="card-title">Erosion history</span>
+                        <span class="card-title blue-text text-darken-2">
+                            Erosion history</span>
                   </div>
                   <div class="card-content">
                       <p>
