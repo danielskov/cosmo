@@ -229,7 +229,7 @@ for i1 = 1:M % for each model parameter
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 4
-        xlabel('$\delta^{18}$O$_\mathrm{threshold}$', ...
+        xlabel(['$\delta^{18}$O$_\mathrm{threshold}$ [' char(8240) ']'],...
             'Interpreter', 'LaTeX')
         text(0.02,0.98,'d','Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
@@ -338,13 +338,16 @@ for i1 = 1:M % for each model parameter
     % 2nd quartile = median = 50th percentile
     med = median(data);
     plot([med, med], get(gca,'YLim'), 'm-')
+    ylims = get(gca,'YLim');
+    text(med, ylims(1) + (ylims(2) - ylims(1))*0.9, ...
+        [' \leftarrow ' num2str(med)]);
     
     % 1st quartile = 25th percentile
     prctile25 = prctile(data, 25);
     plot([prctile25, prctile25], get(gca,'YLim'), 'm--')
     
     % 3rd quartile = 75th percentile
-    prctile75 = prctile(data, 75);
+    prctile75 = prctile(data, 75); 
     plot([prctile75, prctile75], get(gca,'YLim'), 'm--')
     
     hold off
@@ -362,7 +365,7 @@ for i1 = 1:M % for each model parameter
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 4
-        xlabel('$\delta^{18}$O$_\mathrm{threshold}$', ...
+        xlabel(['$\delta^{18}$O$_\mathrm{threshold}$ [' char(8240) ']'],...
             'Interpreter', 'LaTeX')
         text(0.02,0.98,'d','Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
