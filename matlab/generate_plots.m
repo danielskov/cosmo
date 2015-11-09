@@ -355,17 +355,17 @@ for i1 = 1:M % for each model parameter
     
     if i1 == 1
         xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
-            num2str(med) ' mm/yr'])
+            num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
         xlabel(['Glacial erosion rate [mm/yr], median = ' ...
-            num2str(med) ' mm/yr'])
+            num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
         xlabel(['Timing of last deglaciation [yr], median = ' ...
-            num2str(med) ' yr'])
+            num2str(med, 4) ' yr'])
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 4
@@ -373,7 +373,7 @@ for i1 = 1:M % for each model parameter
             %', median = ' num2str(med) ' $^o/_{oo}$'], ...
             %'Interpreter', 'LaTeX')
         xlabel(['\delta^{18}O_{threshold} [' char(8240) '], median = '...
-            num2str(med) ' ' char(8240)])
+            num2str(med, 4) ' ' char(8240)])
         text(0.02,0.98,'d','Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     else
