@@ -108,41 +108,6 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             </div>
 
             <div class="row">
-                <!--<div class="col s12 m8 offset-m2">-->
-              <div class="col s12 m10 offset-m1">
-                <div class="card">
-                  <div class="card-content">
-                        <span class="card-title blue-text text-darken-2">
-                            <b>Model parameter values</b></span>
-                  <img src="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-5.png">
-                      <p>The histograms show the distribution of (a)
-                      interglacial erosion rate, (b) glacial erosion rate, (c)
-                      timing of last deglaciation, and (d)
-                      d<sup>18</sup>O<sub>threshold</sub> levels that provide
-                      the best fit to the supplied TCN concentrations. There is
-                      one histogram per model parameter for each MCMC walker.
-                      The <!--fraction indicates the number of simulations
-                      included in--> vertical axis indicates the number of
-                      simulations included in each bin out of the 10,000
-                      simulations that followed the MCMC burn-in phase.</p>
-                  </div>
-                  <div class="card-action">
-                  <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-5.png"
-                    target="_blank">Link to PNG</a>
-                  <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-5.pdf"
-                    target="_blank">Link to PDF</a>
-                  <a href="output/<?php
-                        echo($_GET['results_id']); ?>_Walks-5.fig"
-                    target="_blank">Link to FIG</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
               <div class="col s12 m10 offset-m1">
                 <div class="card">
                   <div class="card-image">
