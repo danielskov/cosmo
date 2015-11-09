@@ -212,6 +212,10 @@ for i1 = 1:M % for each model parameter
     bar(xbins{i1},Nhistc,'histc')
     
     if i1 == 1
+        title(['MCMC walker ' num2str(iwalk)])
+    end
+    
+    if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
@@ -328,7 +332,7 @@ for i1 = 1:M % for each model parameter
     bar(xbins{i1},Nhistc,'histc')
 
     med = median(data);
-    plot([med, med], get(gca,'YLim'), 'm-', linewidth=2)
+    plot([med, med], get(gca,'YLim'), 'm-')
     
     if i1 == 1
         xlabel('Interglacial erosion rate [mm/yr]')
