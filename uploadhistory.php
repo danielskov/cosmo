@@ -3,6 +3,27 @@
 // Validates form data from pages/history.html and writes a file for the Matlab 
 // script file_scanner_mcmc_starter.m to read as input for the MCMC inversion.
 
+// reCAPTCHA setup
+require_once('recaptchalib.php');
+
+// your secret key
+$secret = "6LeMrRATAAAAAOdcvVGi6PfR__XGOVoUP7lCqHp1";
+ 
+// empty response
+$response = null;
+ 
+// check secret key
+$reCaptcha = new ReCaptcha($secret);
+
+// if submitted check response
+if ($_POST["g-recaptcha-response"]) {
+    $response = $reCaptcha->verifyResponse(
+        $_SERVER["REMOTE_ADDR"],
+        $_POST["g-recaptcha-response"]
+    );
+}
+
+
 //$missing_fields = ''; // string of missing field names
 $missing_fields = array(); // array of missing field names
 //die('"' . $_POST['sample_id'] . '", ' . isset($_POST['sample_id']));
@@ -99,7 +120,7 @@ if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
 
 
 // If something is missing, send error to user and make him/her go back
-if (count($missing_fields) > 0) {
+if (count($missing_fields) > 0 || !$response->success) {
     //$error_msg = '<html><body>' .
         //'<h2>Invalid input</h2>';
     $error_msg = '
