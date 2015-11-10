@@ -165,16 +165,22 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   </div>
                   <div class="card-content">
                       <h4 class="blue-text">
-                          Erosion history</h4>
+                          Sample history</h4>
                       <p>
                       (a) Two-stage glacial-interglacial model based on the
-                      selected climate record, based on the median
+                      selected climate record and the median
                       &delta;<sup>18</sup>O<sub>threshold</sub> value from the
-                      first figure.
-                      
-                      (b) Timing and duration of glacial and interglacial
-                      periods are defined by a threshold value (d18Othreshold)
+                      first figure above.  Timing and duration of glacial and
+                      interglacial periods are defined by the threshold value
                       that is applied to the climate record. 
+
+                      (b) Binary exposure history between glaciations
+                      characterized by total exposure and interglacials without
+                      any exposure.
+
+                      (c) Erosion rate through time which alternates between
+                      interglacial and glacial erosion rate magnitude, based on
+                      median values presented above.
                       
                       </p>
                   </div>
