@@ -10,7 +10,10 @@ folders:
 	mkdir -p input && chmod 777 input && mkdir -p archive
 
 deploy:
-	sudo rsync -rav index.php uploadhistory.php head.html navigation.html foot.html pages js img font css $(documentroot)/
+	sudo rsync -rav index.php recaptchalib.php \
+		uploadhistory.php head.html navigation.html \
+		foot.html pages js img font css $(documentroot)/
 
 sync-matlab:
-	cosmo-sshfs && rsync -rav matlab/m_pakke2014maj11 ~/cosmo-server/cosmo/matlab/
+	cosmo-sshfs && \
+		rsync -rav matlab/m_pakke2014maj11 ~/cosmo-server/cosmo/matlab/
