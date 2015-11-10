@@ -165,7 +165,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   </div>
                   <div class="card-content">
                       <h4 class="blue-text">
-                          Sample history</h4>
+                          Median-based model of sample history</h4>
                       <p>
                       (a) Two-stage glacial-interglacial model based on the
                       selected climate record and the median
@@ -181,6 +181,9 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       (c) Erosion rate through time which alternates between
                       interglacial and glacial erosion rate magnitude, based on
                       median values presented above.
+
+                      In all three figures the vertical dashed lines denotes the
+                      median age of the last deglaciation.
                       
                       </p>
                   </div>
