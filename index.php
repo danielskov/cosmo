@@ -81,8 +81,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                             Generalized model parameter values</span>-->
                   </div>
                   <div class="card-content">
-                      <h4 class="blue-text">
-                          Generalized model parameter values</h4>
+                      <h5 class="blue-text">
+                          Generalized model parameter values</h5>
                       <p>The histograms show the distribution of (a)
                       interglacial erosion rate, (b) glacial erosion rate, (c)
                       timing of last deglaciation, and (d)
@@ -125,8 +125,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                         -->
                   </div>
                   <div class="card-content">
-                      <h4 class="blue-text">
-                          Model parameter values per inversion walker</h4>
+                      <h5 class="blue-text">
+                          Model parameter values per inversion walker</h5>
                       <p>The histograms show the distribution of (a)
                       interglacial erosion rate, (b) glacial erosion rate, (c)
                       timing of last deglaciation, and (d)
@@ -164,8 +164,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                         Erosion history</span>-->
                   </div>
                   <div class="card-content">
-                      <h4 class="blue-text">
-                          Median-based model of sample history</h4>
+                      <h5 class="blue-text">
+                          Median-based model of sample history</h5>
                       <p>
                       (a) Two-stage glacial-interglacial model based on the
                       selected climate record and the median
