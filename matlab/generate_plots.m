@@ -376,6 +376,9 @@ xs_cross = (i_cross-1)*dt;
 xs_cross = [0;xs_cross];
 %title([fn,'.  minrad = ',num2str(minrad),' Ma'],'interp','none')
 
+% deglaciation timing
+plot([t_degla_med, t_degla_med], get(gca,'YLim'), 'k--');
+
 xs_cross(2) = 0.011;
 
 % Exposure
@@ -398,7 +401,8 @@ ylabel('Exposure [%]')
 axis tight
 xlim([min(xs), max(xs)])
 ylim([-20, 120])
-
+% deglaciation timing
+plot([t_degla_med, t_degla_med], get(gca,'YLim'), 'k--');
 
 % Erosion rate
 axh(2)=subplot(3,1,3);
@@ -421,6 +425,9 @@ axis tight
 xlim([min(xs), max(xs)])
 ylims = get(gca,'YLim');
 ylim([ylims(1)*0.95, ylims(2)*1.05])
+
+% deglaciation timing
+plot([t_degla_med, t_degla_med], get(gca,'YLim'), 'k--');
 
 hold on
 d18Oth = midvalue;
