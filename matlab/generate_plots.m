@@ -359,13 +359,16 @@ colneg = [1,0,0];
 midvalue = record_threshold_med;
 axh(1)=subplot(3,1,1);
 [~,~,~,i_cross]=fill_red_blue(xs,ys,colpos,colneg,midvalue);
+text(0.02,0.98,'a', 'Units', 'Normalized', 'VerticalAlignment', 'Top')
 xlabel('Age BP [Ma]')
 ylabel('\delta^{18}O')
 axis tight
-axis([-0.1,2.7,3.0,5.2])
+xlim([min(xs), max(xs)])
+%axis([-0.1,2.7,3.0,5.2])
 %axis([-0.05,0.3,3.0,5.2])
-xlim([-0.1,2.7])
+%xlim([-0.1,2.7])
 %xlim([-0.05,0.3])
+
 hold on
 %plot(A(:,1)/1000,A(:,2),'.-m')
 axis ij
@@ -376,29 +379,48 @@ xs_cross = [0;xs_cross];
 xs_cross(2) = 0.011;
 
 axh(2)=subplot(3,1,2);
-stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'b','linewidth',1.5);
+%stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'b','linewidth',1.5);
+stairs(xs_cross, ...
+    (1+-1*(-1).^(1:length(xs_cross)))/2 * 100, ...
+    'b','linewidth',1.5);
 hold on
 start1 = [xs_cross(end),2.7];
 start2 = [1,1];
+%plot(start1,start2,'b','linewidth',1.5);
 plot(start1,start2,'b','linewidth',1.5);
 %title('Exposure. 0 = glaciated, 1 = not glaciated')
-axis([-0.1,2.7,-0.5,1.5])
+%axis([-0.1,2.7,-0.5,1.5])
 %axis([-0.05,0.3,-0.5,1.5])
+text(0.02,0.98,'b', 'Units', 'Normalized', 'VerticalAlignment', 'Top')
 xlabel('Age BP [Ma]')
+ylabel('Exposure [%]')
+axis tight
+xlim([min(xs), max(xs)])
+ylim([-20, 120])
 
 axh(2)=subplot(3,1,3);
-stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'r','linewidth',1.5);
+%stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2 ,'r','linewidth',1.5);
+stairs(xs_cross, ...
+    epsilon_gla_med + ...
+    -epsilon_gla_med*(1+-1*(-1).^(1:length(xs_cross)))/2 + ...
+    epsilon_int_med*(1+-1*(-1).^(1:length(xs_cross)))/2, ...
+    'r','linewidth',1.5);
 hold on
 plot(start1,start2,'r','linewidth',1.5);
 %title('Exposure. 0 = glaciated, 1 = not glaciated')
-axis([-0.1,2.7,-1,2])
+%axis([-0.1,2.7,-1,2])
 %axis([-0.05,0.3,-1,2])
+text(0.02,0.98,'c', 'Units', 'Normalized', 'VerticalAlignment', 'Top')
 xlabel('Age BP [Ma]')
-
+ylabel('Erosion rate [mm/yr]')
+axis tight
+xlim([min(xs), max(xs)])
 
 hold on
 d18Oth = midvalue;
-ErateInt=1e-6; ErateGla=1e-7;
+%ErateInt=1e-6; ErateGla=1e-7;
+ErateInt = epsilon_int_med;
+ErateGla = epsilon_gla_med;
 [~,~] = ExtractHistory2(ti,d18O_triang,d18Oth,ErateInt,ErateGla);
 
 linkaxes(axh,'x')
