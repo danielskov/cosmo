@@ -420,7 +420,7 @@ ylabel('Erosion rate [mm/yr]')
 axis tight
 xlim([min(xs), max(xs)])
 ylims = get(gca,'YLim');
-ylim([ylims(1)*0.9, ylims(2)*1.1])
+ylim([ylims(1)*0.95, ylims(2)*1.05])
 
 hold on
 d18Oth = midvalue;
