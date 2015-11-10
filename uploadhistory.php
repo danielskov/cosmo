@@ -117,10 +117,14 @@ if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
         'Production rate, sample depth, and/or uncertainty for ' .
         '<sup>21</sup>Ne');
 }
+if (!$response->success) {
+        array_push($missing_fields,
+        'reCAPTCHA challenge');
+}
 
 
 // If something is missing, send error to user and make him/her go back
-if (count($missing_fields) > 0 || !$response->success) {
+if (count($missing_fields) > 0) {
     //$error_msg = '<html><body>' .
         //'<h2>Invalid input</h2>';
     $error_msg = '
