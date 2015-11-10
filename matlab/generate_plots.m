@@ -378,16 +378,17 @@ xs_cross = [0;xs_cross];
 
 xs_cross(2) = 0.011;
 
+% Exposure
 axh(2)=subplot(3,1,2);
 %stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2,'b','linewidth',1.5);
-stairs(xs_cross, ...
-    (1+-1*(-1).^(1:length(xs_cross)))/2 * 100, ...
+exposure = (1+-1*(-1).^(1:length(xs_cross)))/2 * 100;
+stairs(xs_cross, exposure, ...
     'b','linewidth',1.5);
 hold on
-start1 = [xs_cross(end),2.7];
-start2 = [1,1];
-%plot(start1,start2,'b','linewidth',1.5);
+start1 = [xs_cross(end), xs(end)];
+start2 = [exposure(end), exposure(end)];
 plot(start1,start2,'b','linewidth',1.5);
+%plot(start1,start2,'b','linewidth',1.5);
 %title('Exposure. 0 = glaciated, 1 = not glaciated')
 %axis([-0.1,2.7,-0.5,1.5])
 %axis([-0.05,0.3,-0.5,1.5])
@@ -398,14 +399,17 @@ axis tight
 xlim([min(xs), max(xs)])
 ylim([-20, 120])
 
+
+% Erosion rate
 axh(2)=subplot(3,1,3);
 %stairs(xs_cross,(1+-1*(-1).^(1:length(xs_cross)))/2 ,'r','linewidth',1.5);
-stairs(xs_cross, ...
-    epsilon_gla_med + ...
+erosionrate = epsilon_gla_med + ...
     -epsilon_gla_med*(1+-1*(-1).^(1:length(xs_cross)))/2 + ...
-    epsilon_int_med*(1+-1*(-1).^(1:length(xs_cross)))/2, ...
-    'r','linewidth',1.5);
+    epsilon_int_med*(1+-1*(-1).^(1:length(xs_cross)))/2;
+stairs(xs_cross, erosionrate, 'r','linewidth',1.5);
 hold on
+start1 = [xs_cross(end), xs(end)];
+start2 = [erosionrate(end), erosionrate(end)];
 plot(start1,start2,'r','linewidth',1.5);
 %title('Exposure. 0 = glaciated, 1 = not glaciated')
 %axis([-0.1,2.7,-1,2])
