@@ -209,7 +209,7 @@ if (is_writable($outputfile)) {
 
     // write values to file
     foreach ($fieldnames as $fieldname) {
-        if (fwrite($handle, addslashes($_POST[$fieldname]) . "\t") === false) {
+        if (fwrite($handle, addslashes(trim($_POST[$fieldname])) . "\t") === false) {
             die("The php server could not write $fieldname to $outputfile.");
         }
     }
