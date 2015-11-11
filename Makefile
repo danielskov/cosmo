@@ -10,7 +10,7 @@ folders:
 	mkdir -p input && chmod 777 input && mkdir -p archive
 
 deploy:
-	sudo rsync -rav index.php recaptchalib.php \
+	rsync -rav index.php recaptchalib.php \
 		uploadhistory.php head.html navigation.html \
 		foot.html pages js img font css $(documentroot)/
 
