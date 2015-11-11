@@ -444,65 +444,65 @@ linkaxes(axh,'x')
 % stairs(-tStarts,relExpos+2,'r')
 
 
-%% Exhumation history from InspectDepthConcTracks_medTrueDepthIndsat.m
-disp('Exhumation history')
-%[fn,pn]=uigetfile('*.mat')
-%load([pn,fn])
-DoConfLevelTrim = 1;
-
-fh = [fh;figure('visible', show_figures)];
-
-Nwalks = length(Ss);
-for iwalk = 1:Nwalks
-    % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
-    subplot(Nwalks,1,iwalk)
-    lump_MetHas = Ss{iwalk}.lump_MetHas;
-    fixed_stuff = Ss{iwalk}.fs;
-    % if ~isempty(lump_MetHas.zsss{1})
-    % % % % zsss = lump_MetHas.zsss;
-    % % % % tss = lump_MetHas.tss;
-    % % % % dtfine = -1000; tfinemax = -20e5; dzfine = 0.1; zfinemax = 20,
-    % % % % iz = 1;
-    % % % % DepthExposureTimeDens(zsss,tss,dtfine,tfinemax,dzfine,zfinemax,fixed_stuff,iz)
-    % % % % title('z(time)')
-    % % % % axis ij
-    % % % % hold on
-    
-    %making quantiles to plot ontop of exhumation densities:
-    tss = lump_MetHas.tss;
-    dtfine = -1000; tfinemax = -20e5;
-    Xxsss = lump_MetHas.zsss;
-    dXxfine = 0.01; Xxfinemax = 10; iz=1; %Xx may be depth or nucleide concentration or ...
-    dzfine = dXxfine; zfinemax = Xxfinemax;
-    [smoothgrid,histgrid,tsfine,Xxfine]=XxTimeDens(Xxsss,tss,dtfine,tfinemax,dXxfine,Xxfinemax,fixed_stuff,iz);
-    pcolor(tsfine,Xxfine,sqrt(smoothgrid));
-    hold on
-    %plot a selection of depth histories
-    for i=1:ceil(length(tss)/50):length(tss)
-        plot(tss{i},Xxsss{i},'.-w')
-    end
-    %Compute and plot quantiles
-    N = sum(histgrid(:,1));
-    fractions = [0.25,0.5,0.75]; %quartiles
-    tsfine = 0:dtfine:tfinemax; %bin boundaries
-    Ntfine = length(tsfine);
-    zsfine = 0:dzfine:zfinemax; %bin boundaries
-    % quants{iwalk} = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
-    % plot(tsfine,quants{iwalk}(1,:),'r','linewidth',3)
-    % plot(tsfine,quants{iwalk}(2,:),'k','linewidth',3)
-    % plot(tsfine,quants{iwalk}(3,:),'b','linewidth',3)
-    quants(:,:,iwalk) = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
-    
-    grid on; shading flat; axis tight; set(gca,'fontsize',8); hold on
-    lh(1)=plot(tsfine,quants(1,:,iwalk),'r','linewidth',2);
-    lh(2)=plot(tsfine,quants(2,:,iwalk),'k','linewidth',2);
-    lh(3)=plot(tsfine,quants(3,:,iwalk),'g','linewidth',2);
-    legend(lh,'25%','median','75%','location','northwest')
-    axis ij
-    %track_handle=AddTrueModelDepthTrack(Ss{iwalk}.fs,'*-m'); %<<< BHJ: added 2014 dec 09
-end
-colormap(1-copper)
-% subplot(2,2,1);
+% %% Exhumation history from InspectDepthConcTracks_medTrueDepthIndsat.m
+% disp('Exhumation history')
+% %[fn,pn]=uigetfile('*.mat')
+% %load([pn,fn])
+% DoConfLevelTrim = 1;
+% 
+% fh = [fh;figure('visible', show_figures)];
+% 
+% Nwalks = length(Ss);
+% for iwalk = 1:Nwalks
+%     % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
+%     subplot(Nwalks,1,iwalk)
+%     lump_MetHas = Ss{iwalk}.lump_MetHas;
+%     fixed_stuff = Ss{iwalk}.fs;
+%     % if ~isempty(lump_MetHas.zsss{1})
+%     % % % % zsss = lump_MetHas.zsss;
+%     % % % % tss = lump_MetHas.tss;
+%     % % % % dtfine = -1000; tfinemax = -20e5; dzfine = 0.1; zfinemax = 20,
+%     % % % % iz = 1;
+%     % % % % DepthExposureTimeDens(zsss,tss,dtfine,tfinemax,dzfine,zfinemax,fixed_stuff,iz)
+%     % % % % title('z(time)')
+%     % % % % axis ij
+%     % % % % hold on
+%     
+%     %making quantiles to plot ontop of exhumation densities:
+%     tss = lump_MetHas.tss;
+%     dtfine = -1000; tfinemax = -20e5;
+%     Xxsss = lump_MetHas.zsss;
+%     dXxfine = 0.01; Xxfinemax = 10; iz=1; %Xx may be depth or nucleide concentration or ...
+%     dzfine = dXxfine; zfinemax = Xxfinemax;
+%     [smoothgrid,histgrid,tsfine,Xxfine]=XxTimeDens(Xxsss,tss,dtfine,tfinemax,dXxfine,Xxfinemax,fixed_stuff,iz);
+%     pcolor(tsfine,Xxfine,sqrt(smoothgrid));
+%     hold on
+%     %plot a selection of depth histories
+%     for i=1:ceil(length(tss)/50):length(tss)
+%         plot(tss{i},Xxsss{i},'.-w')
+%     end
+%     %Compute and plot quantiles
+%     N = sum(histgrid(:,1));
+%     fractions = [0.25,0.5,0.75]; %quartiles
+%     tsfine = 0:dtfine:tfinemax; %bin boundaries
+%     Ntfine = length(tsfine);
+%     zsfine = 0:dzfine:zfinemax; %bin boundaries
+%     % quants{iwalk} = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
+%     % plot(tsfine,quants{iwalk}(1,:),'r','linewidth',3)
+%     % plot(tsfine,quants{iwalk}(2,:),'k','linewidth',3)
+%     % plot(tsfine,quants{iwalk}(3,:),'b','linewidth',3)
+%     quants(:,:,iwalk) = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
+%     
+%     grid on; shading flat; axis tight; set(gca,'fontsize',8); hold on
+%     lh(1)=plot(tsfine,quants(1,:,iwalk),'r','linewidth',2);
+%     lh(2)=plot(tsfine,quants(2,:,iwalk),'k','linewidth',2);
+%     lh(3)=plot(tsfine,quants(3,:,iwalk),'g','linewidth',2);
+%     legend(lh,'25%','median','75%','location','northwest')
+%     axis ij
+%     %track_handle=AddTrueModelDepthTrack(Ss{iwalk}.fs,'*-m'); %<<< BHJ: added 2014 dec 09
+% end
+% colormap(1-copper)
+% % subplot(2,2,1);
 
 % the figure below is really computationally intensive
 % fh = [fh;figure('visible', show_figures)];
