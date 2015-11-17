@@ -105,10 +105,45 @@
                 </div>
 
                 <div class="row">
+                    <b>TCN sample depth [m]</b><br>
+                    For each TCN concentration inserted above, please specify
+                    the sample depth beneath terrain. Several values may be
+                    entered using comma separation.<br>
+                    <div class="input-field col s3">
+                        <input id="be_zobs" name="be_zobs" type="text"
+                        class="validate" value="0">
+                        <label for="be_zobs"
+                            class="active"><sup>10</sup>Be</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="al_zobs" name="al_zobs" type="text"
+                        class="validate" value="0">
+                        <label for="al_zobs"
+                            class="active"><sup>26</sup>Al</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="c_zobs" name="c_zobs" type="text"
+                        class="validate" value="0">
+                        <label for="c_zobs"
+                            class="active"><sup>14</sup>C</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="ne_zobs" name="ne_zobs" type="text"
+                        class="validate" value="0">
+                        <label for="ne_zobs"
+                            class="active"><sup>21</sup>Ne</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
                     <b>Concentrations of terrestrial cosmogenic nuclides (TCNs)
-                        [atoms kg<sup>-1</sup>]</b>&nbsp;<br>
+                        [atoms g<sup>-1</sup>]</b>&nbsp;<br>
                     Fill in <b>at least one</b> field, leave unknown values
-                    blank. Scientific notation (e.g. 3.5e9) is recommended.<br>
+                    blank. Scientific notation (e.g. 5.67e5) is recommended. If
+                    several depths per isotope are entered above, enter the
+                    corresponding isotope concentrations with comma
+                    separation.<br>
                     <div class="input-field col s3">
                         <input id="be_conc" name="be_conc" type="text"
                         class="validate">
@@ -162,37 +197,7 @@
                 </div>
 
                 <div class="row">
-                    <b>TCN sample depth [m]</b><br>
-                    For each TCN concentration inserted above, please specify
-                    the sample depth beneath terrain.<br>
-                    <div class="input-field col s3">
-                        <input id="be_zobs" name="be_zobs" type="text"
-                        class="validate" value="0">
-                        <label for="be_zobs"
-                            class="active"><sup>10</sup>Be</label>
-                    </div>
-                    <div class="input-field col s3">
-                        <input id="al_zobs" name="al_zobs" type="text"
-                        class="validate" value="0">
-                        <label for="al_zobs"
-                            class="active"><sup>26</sup>Al</label>
-                    </div>
-                    <div class="input-field col s3">
-                        <input id="c_zobs" name="c_zobs" type="text"
-                        class="validate" value="0">
-                        <label for="c_zobs"
-                            class="active"><sup>14</sup>C</label>
-                    </div>
-                    <div class="input-field col s3">
-                        <input id="ne_zobs" name="ne_zobs" type="text"
-                        class="validate" value="0">
-                        <label for="ne_zobs"
-                            class="active"><sup>21</sup>Ne</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <b>TCN production rates [atoms kg<sup>-1</sup> yr]
+                    <b>TCN production rates (muons) [atoms/g/yr]
                     </b>&nbsp;<br>
                     For each TCN concentration inserted above, please specify
                     the production rate.
@@ -200,24 +205,54 @@
                         href="http://hess.ess.washington.edu"
                         target="_blank">CRONUS-Earth</a>.<br>
                     <div class="input-field col s3">
-                        <input id="be_prod" name="be_prod" type="text"
-                        class="validate">
-                        <label for="be_prod"><sup>10</sup>Be</label>
+                        <input id="be_prod_muons" name="be_prod_muons"
+                                                  type="text" class="validate">
+                        <label for="be_prod_muons"><sup>10</sup>Be</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="al_prod" name="al_prod" type="text"
-                        class="validate">
-                        <label for="al_prod"><sup>26</sup>Al</label>
+                        <input id="al_prod_muons" name="al_prod_muons"
+                                                  type="text" class="validate">
+                        <label for="al_prod_muons"><sup>26</sup>Al</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="c_prod" name="c_prod" type="text"
-                        class="validate">
-                        <label for="c_prod"><sup>14</sup>C</label>
+                        <input id="c_prod_muons" name="c_prod_muons"
+                                                 type="text" class="validate">
+                        <label for="c_prod_muons"><sup>14</sup>C</label>
                     </div>
                     <div class="input-field col s3">
-                        <input id="ne_prod" name="ne_prod" type="text"
-                        class="validate">
-                        <label for="ne_prod"><sup>21</sup>Ne</label>
+                        <input id="ne_prod_muons" name="ne_prod_muons"
+                                                  type="text" class="validate">
+                        <label for="ne_prod_muons"><sup>21</sup>Ne</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <b>TCN production rates (spall) [atoms/g/yr]
+                    </b>&nbsp;<br>
+                    For each TCN concentration inserted above, please specify
+                    the production rate.
+                    Values can be estimated using <a
+                        href="http://hess.ess.washington.edu"
+                        target="_blank">CRONUS-Earth</a>.<br>
+                    <div class="input-field col s3">
+                        <input id="be_prod_spall" name="be_prod_spall"
+                                                  type="text" class="validate">
+                        <label for="be_prod_spall"><sup>10</sup>Be</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="al_prod_spall" name="al_prod_spall"
+                                                  type="text" class="validate">
+                        <label for="al_prod_spall"><sup>26</sup>Al</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="c_prod_spall" name="c_prod_spall"
+                                                 type="text" class="validate">
+                        <label for="c_prod_spall"><sup>14</sup>C</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="ne_prod_spall" name="ne_prod_spall"
+                                                  type="text" class="validate">
+                        <label for="ne_prod_spall"><sup>21</sup>Ne</label>
                     </div>
                 </div>
 
@@ -248,7 +283,7 @@
                         <input id="epsilon_gla_min" name="epsilon_gla_min"
                         type="text" class="validate" required>
                         <label for="epsilon_gla_min">Min. glacial erosion rate
-                            [mm yr<sup>-1</sup>] <small>Required</small></label>
+                            [m Myr<sup>-1</sup>] <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
                         <a class="prefix">
@@ -259,7 +294,7 @@
                         <input id="epsilon_gla_max" name="epsilon_gla_max"
                         type="text" class="validate" required>
                         <label for="epsilon_gla_max">Max. glacial erosion rate
-                            [mm yr<sup>-1</sup>] <small>Required</small></label>
+                            [m Myr<sup>-1</sup>] <small>Required</small></label>
                     </div>
                 </div>
                 <div class="row">
@@ -272,7 +307,7 @@
                         <input id="epsilon_int_min" name="epsilon_int_min"
                         type="text" class="validate" required>
                         <label for="epsilon_int_min">Min. inter-glacial erosion
-                            rate [mm yr<sup>-1</sup>]
+                            rate [m Myr<sup>-1</sup>]
                             <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
@@ -284,39 +319,40 @@
                         <input id="epsilon_int_max" name="epsilon_int_max"
                         type="text" class="validate" required>
                         <label for="epsilon_int_max">Max. inter-glacial erosion
-                            rate [mm yr<sup>-1</sup>]
+                            rate [m Myr<sup>-1</sup>]
                             <small>Required</small></label>
                     </div>
 
                 </div>
                 <div class="row">
                     <b>Deglaciation age</b><br>
-                    Estimate the deglaciation age and its uncertainty at the
-                    site of sampling. This value is most often constrained from
-                    best knowledge, <sup>14</sup>C dating, or traditional
-                    exposure dating.<br>
+                    Estimate the lower and upper bounds for the deglaciation age
+                    at the site of sampling. This value is most often
+                    constrained from best knowledge, <sup>14</sup>C dating, or
+                    traditional exposure dating.<br>
                     <div class="input-field col s6">
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Estimated number of years since the' +
+                                'Minimum estimated number of years since the' +
                                 'deglaciation at the site of sampling',
                                 5000)">info_outline</i></a>
-                        <input id="t_degla" name="t_degla" type="text"
+                        <input id="t_degla_min" name="t_degla_min" type="text"
                         class="validate" required>
-                        <label for="t_degla">Time since deglaciation [a]
-                            <small>Required</small></label>
+                        <label for="t_degla_min">Min. time since deglaciation
+                            [yr] <small>Required</small></label>
                     </div>
                     <div class="input-field col s6">
                         <a class="prefix">
                             <i class="material-icons"
                                 onclick="Materialize.toast(
-                                'Uncertainty for the deglaciation age',
+                                'Maximum estimated number of years since the' +
+                                'deglaciation at the site of sampling',
                                 5000)">info_outline</i></a>
-                        <input id="t_degla_uncer" name="t_degla_uncer"
+                        <input id="t_degla_max" name="t_degla_max"
                         type="text" class="validate" required>
-                        <label for="t_degla_uncer">Uncertainty [a]
-                            <small>Required</small></label>
+                        <label for="t_degla_max">Max. time since declaciation
+                            [yr] <small>Required</small></label>
                     </div>
 
                 </div>
