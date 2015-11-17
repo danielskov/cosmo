@@ -440,9 +440,9 @@
                     <b>Number of inversion walkers</b><br>
                     Choose the desired number of Metropolis-Hastings
                     Markov-Chain Monte Carlo random walkers. Low values produce
-                    fast results, more walkers can indicate non-uniqueness of
-                    the solution. Approximate computation time is 1 min per
-                    walker.<br>
+                    results quickly, while more walkers can indicate uniqueness
+                    and certainty of the solution. Approximate computation time
+                    is 1 min per walker.<br>
                     <div class="input-field col s6">
                         <select name="nwalkers">
                             <option value="1">1 walker</option>
@@ -462,7 +462,6 @@ $(document).ready(function() {
 
                 <!-- Google reCAPTCHA -->
                 <div class="row">
-                    <br>
                     <b>To verify that this is not an automated request, please
                         complete the following reCAPTCHA challenge</b><br><br>
                     <div class="g-recaptcha"
