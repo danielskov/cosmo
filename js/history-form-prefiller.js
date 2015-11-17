@@ -34,7 +34,9 @@ var PrefillMachine = {
         $("#t_degla_min").val("10000");
         $("#t_degla_max").val("12000");
 
-        $("input[name='rec_5kyr']").prop("checked", true);
+        $("#record_threshold_min").val("3.7");
+        $("#record_threshold_max").val("4.3");
+
     }
 }
 
