@@ -18,6 +18,13 @@
             </p>
         </div>
 
+        <div class="row center">
+            <div class="col s12 m12">
+                <input id="prefill" type="button" value="Load example data"
+                                onclick="PrefillMachine.prefillCorrectly();">
+            </div>
+        </div>
+
         <!--<div>
             <a class="btn" onclick="Materialize.toast('I am a toast', 5000)">
                 <i class="material-icons tooltipped prefix">info_outline</i>
@@ -75,7 +82,7 @@
                                 'Latitude of sampling location. Used for ' +
                                 'anonymous statistical purposes. Format: ' +
                                 'signed degrees format (DDD.ddd). South ' +
-                                'latitudes must be preceded with a minus' +
+                                'latitudes must be preceded with a minus ' +
                                 'sign.',
                                 5000)">info_outline</i></a>
                         <input id="lat" name="lat" type="text"
@@ -261,7 +268,8 @@
                                 'Measured or estimated rock density',
                                 5000)">info_outline</i></a>
                         <input id="rock_density" name="rock_density" type="text"
-                        class="validate" value="2650" required>
+                        class="validate" required>
+                        <!--class="validate" value="2650" required>-->
                         <label for="rock_density" class="active">Density
                             <small>Required</small></label>
                     </div>
