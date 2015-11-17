@@ -115,10 +115,10 @@ end
 
 % rows with numbers, check that range matches values in for loop l. 68 and
 % the list below
-rawNumericColumns = raw(:, [6:28, 30:31]);
+rawNumericColumns = raw(:, [6:32, 34:36]);
 
 % rows with strings
-rawCellColumns = raw(:, [1:5, 29]);
+rawCellColumns = raw(:, [1:5, 33]);
 
 
 %% Allocate imported array to column variable names
@@ -141,19 +141,24 @@ be_zobs              = cell2mat(rawNumericColumns(:, 9));  % 14
 al_zobs              = cell2mat(rawNumericColumns(:, 10)); % 15
 c_zobs               = cell2mat(rawNumericColumns(:, 11)); % 16
 ne_zobs              = cell2mat(rawNumericColumns(:, 12)); % 17
-be_prod_muon              = cell2mat(rawNumericColumns(:, 13)); % 18
-al_prod_muon              = cell2mat(rawNumericColumns(:, 14)); % 19
-c_prod_muon               = cell2mat(rawNumericColumns(:, 15)); % 20
-ne_prod_muon              = cell2mat(rawNumericColumns(:, 16)); % 21
-rock_density         = cell2mat(rawNumericColumns(:, 17)); % 22
-epsilon_gla_min      = cell2mat(rawNumericColumns(:, 18)); % 23
-epsilon_gla_max      = cell2mat(rawNumericColumns(:, 19)); % 24
-epsilon_int_min      = cell2mat(rawNumericColumns(:, 20)); % 25
-epsilon_int_max      = cell2mat(rawNumericColumns(:, 21)); % 26
-t_degla_min              = cell2mat(rawNumericColumns(:, 22)); % 27
-t_degla_max        = cell2mat(rawNumericColumns(:, 23)); % 28
-record               = rawCellColumns(:, 6);               % 29
-record_threshold_min = cell2mat(rawNumericColumns(:, 24)); % 30
-record_threshold_max = cell2mat(rawNumericColumns(:, 25)); % 31
+be_prod_muon         = cell2mat(rawNumericColumns(:, 13)); % 18
+al_prod_muon         = cell2mat(rawNumericColumns(:, 14)); % 19
+c_prod_muon          = cell2mat(rawNumericColumns(:, 15)); % 20
+ne_prod_muon         = cell2mat(rawNumericColumns(:, 16)); % 21
+be_prod_spall        = cell2mat(rawNumericColumns(:, 17)); % 22
+al_prod_spall        = cell2mat(rawNumericColumns(:, 18)); % 23
+c_prod_spall         = cell2mat(rawNumericColumns(:, 19)); % 24
+ne_prod_spall        = cell2mat(rawNumericColumns(:, 20)); % 25
+rock_density         = cell2mat(rawNumericColumns(:, 21)); % 26
+epsilon_gla_min      = cell2mat(rawNumericColumns(:, 22)); % 27
+epsilon_gla_max      = cell2mat(rawNumericColumns(:, 23)); % 28
+epsilon_int_min      = cell2mat(rawNumericColumns(:, 24)); % 29
+epsilon_int_max      = cell2mat(rawNumericColumns(:, 25)); % 30
+t_degla_min          = cell2mat(rawNumericColumns(:, 26)); % 31
+t_degla_max          = cell2mat(rawNumericColumns(:, 27)); % 32
+record               = rawCellColumns(:, 6);               % 33
+record_threshold_min = cell2mat(rawNumericColumns(:, 28)); % 34
+record_threshold_max = cell2mat(rawNumericColumns(:, 29)); % 35
+nwalkers             = cell2mat(rawNumericColumns(:, 30)); % 36
 
 
