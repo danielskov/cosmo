@@ -80,8 +80,10 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         <p class="flow-text">
         Please wait while the inversion computations are taking place.
         These may make take several minutes to complete.  <b>Do not</b> press
-        the browser navigation buttons or leave this page.</p><br>
+        the browser navigation buttons or leave this page.</p>
+        </div>
 
+        <div class="row center valign-wrapper">
         <p class="flow-text"> If the computations are queued for more than 24
         hours, please contact <a href="mailto:anders.damsgaard@geo.au.dk">Anders
             Damsgaard</a>.</p>
