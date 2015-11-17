@@ -28,7 +28,6 @@ if (isset($_GET['example']) && $_GET['example'] == 1) {
 <script type="text/javascript" src="js/history-form-prefiller.js"></script>
 <?php
 } else {
-    echo("oh hi mark");
     echo("'" . $_GET['example'] . "'");
 }
 
