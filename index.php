@@ -23,6 +23,7 @@ if ($_POST["g-recaptcha-response"]) {
 // include top of html template
 include('head.html');
 
+echo($_GET['example']);
 if (isset($_GET['example']) && $_GET['example'] == 1) {
 ?>
 <script type="text/javascrip" src="js/history-form-prefiller.js"></script>
