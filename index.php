@@ -89,7 +89,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             Damsgaard</a>.</p>
 
         </div>
-        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br>
 
     </div>
 
