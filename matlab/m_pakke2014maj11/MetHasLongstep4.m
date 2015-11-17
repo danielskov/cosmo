@@ -112,7 +112,7 @@ for it=1:N_run
     fid = fopen(statusfile, 'w');
     statusinfo = strcat(num2str(datestr(RemainingTime,13)), ...
         ' remaining', ...
-        ' <!-- ', num2str(ElapsedTime/TotalTime*100., '%3.0f'), ' -->');
+        ' <!-- ', num2str(ElapsedTime/TotalTime*100., '%3.0f'), '-->');
     fprintf(fid, statusinfo);
     fclose(fid);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

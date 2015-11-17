@@ -38,6 +38,14 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
     $status = fgets($statusfile);
     fclose($statusfile);
 
+    $show_percentage = false;
+    if (strpos($status, '<!--') !== false) {
+        $percentage = preg_replace('/.*<!--/', '', $status);
+        $percentage = preg_replace('/-->/', '', $percentage);
+        $percentage = preg_replace('/ /', '', $percentage);
+        $show_percentage = true;
+    }
+
     // redirect to results page if computations are complete
     if (strcmp($status, "Computations complete") == 0) {
         header("Location: /index.php?results_id=" . $_GET['wait_id']);
@@ -72,7 +80,14 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         </div>
 
         <div class="row progress center-align s12">
+<?php
+    if ($show_percentage) { ?>
+            <div class="determinate"
+                style="width: <?php echo($percentage); ?>%"></div>
+<?php
+    } else { ?>
             <div class="indeterminate"></div>
+<?php } ?>
         </div>
 
         <div class="row center valign-wrapper">
