@@ -84,7 +84,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
         </div>
 
         <div class="row center valign-wrapper">
-        <p> If the computations are queued for more than 24
+        <p class="center-align"> If the computations are queued for more than 24
         hours, please contact <a href="mailto:anders.damsgaard@geo.au.dk">Anders
             Damsgaard</a>.</p>
 
