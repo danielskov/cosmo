@@ -26,6 +26,7 @@ include('head.html');
 ?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/history-form-prefiller.js"></script>
+<?php
 
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
