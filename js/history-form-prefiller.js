@@ -5,8 +5,8 @@ var PrefillMachine = {
         $("#name").val("John Doe");
         $("#email").val("john@doe.com");
 
-        $("#latitude").val("56.08");
-        $("#longitude").val("10.11");
+        $("#lat").val("56.08");
+        $("#long").val("10.11");
 
         $("#be_zobs").val("0.0");
         $("#al_zobs").val("0.0");
