@@ -25,10 +25,8 @@ include('head.html');
 
 if (isset($_GET['example']) && $_GET['example'] == 1) {
 ?>
-<script type="text/javascript" src="js/history-form-prefiller.js"></script>
+        <script type="text/javascript" src="js/history-form-prefiller.js"></script>
 <?php
-} else {
-    echo("'" . $_GET['example'] . "'");
 }
 
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
