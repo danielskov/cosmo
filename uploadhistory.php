@@ -59,11 +59,11 @@ if (!isset($_POST['epsilon_int_min']) || $_POST['epsilon_int_min'] == '') {
 if (!isset($_POST['epsilon_int_max']) || $_POST['epsilon_int_max'] == '') {
     array_push($missing_fields, 'Max. inter-glacial erosion rate');
 }
-if (!isset($_POST['t_degla']) || $_POST['t_degla'] == '') {
-    array_push($missing_fields, 'Time since deglaciation');
+if (!isset($_POST['t_degla_min']) || $_POST['t_degla_min'] == '') {
+    array_push($missing_fields, 'Minimum time since deglaciation');
 }
-if (!isset($_POST['t_degla_uncer']) || $_POST['t_degla_uncer'] == '') {
-    array_push($missing_fields, 'Uncertainty of time since deglaciation');
+if (!isset($_POST['t_degla_max']) || $_POST['t_degla_max'] == '') {
+    array_push($missing_fields, 'Maximum time since deglaciation');
 }
 if (!isset($_POST['record']) || $_POST['record'] == ''){
     array_push($missing_fields, 'Climate record');
@@ -73,6 +73,9 @@ if (!isset($_POST['record_threshold_min']) || $_POST['record_threshold_min'] == 
 }
 if (!isset($_POST['record_threshold_max']) || $_POST['record_threshold_max'] == ''){
     array_push($missing_fields, 'Max. climate record threshold value');
+}
+if (!isset($_POST['nwalkers']) || $_POST['nwalkers'] == ''){
+    array_push($missing_fields, 'Number of MCMC walkers');
 }
 
 // Check TCN concentrations, at least one value is needed
@@ -86,7 +89,8 @@ if ((!isset($_POST['be_conc']) || $_POST['be_conc'] == '') &&
 // For each isotope concentration there should be uncertainty and production 
 // rate
 if ((isset($_POST['be_conc']) && $_POST['be_conc'] != '') &&
-    (!isset($_POST['be_prod']) || $_POST['be_prod'] == '' ||
+    (!isset($_POST['be_prod_muons']) || $_POST['be_prod_muons'] == '' ||
+    !isset($_POST['be_prod_spall']) || $_POST['be_prod_spall'] == '' ||
     !isset($_POST['be_zobs']) || $_POST['be_zobs'] == '' ||
     !isset($_POST['be_uncer']) || $_POST['be_uncer'] == '')) {
     array_push($missing_fields,
@@ -94,7 +98,8 @@ if ((isset($_POST['be_conc']) && $_POST['be_conc'] != '') &&
         '<sup>10</sup>Be');
 }
 if ((isset($_POST['al_conc']) && $_POST['al_conc'] != '') &&
-    (!isset($_POST['al_prod']) || $_POST['al_prod'] == '' ||
+    (!isset($_POST['al_prod_muons']) || $_POST['al_prod_muons'] == '' ||
+    !isset($_POST['al_prod_spall']) || $_POST['al_prod_spall'] == '' ||
     !isset($_POST['al_zobs']) || $_POST['al_zobs'] == '' ||
     !isset($_POST['al_uncer']) || $_POST['al_uncer'] == '')) {
         array_push($missing_fields,
@@ -102,7 +107,8 @@ if ((isset($_POST['al_conc']) && $_POST['al_conc'] != '') &&
         '<sup>26</sup>Al');
 }
 if ((isset($_POST['c_conc']) && $_POST['c_conc'] != '') &&
-    (!isset($_POST['c_prod']) || $_POST['c_prod'] == '' ||
+    (!isset($_POST['c_prod_muons']) || $_POST['c_prod_muons'] == '' ||
+    !isset($_POST['c_prod_spall']) || $_POST['c_prod_spall'] == '' ||
     !isset($_POST['c_zobs']) || $_POST['c_zobs'] == '' ||
     !isset($_POST['c_uncer']) || $_POST['c_uncer'] == '')) {
         array_push($missing_fields,
@@ -110,7 +116,8 @@ if ((isset($_POST['c_conc']) && $_POST['c_conc'] != '') &&
         '<sup>14</sup>C');
 }
 if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
-    (!isset($_POST['ne_prod']) || $_POST['ne_prod'] == '' ||
+    (!isset($_POST['ne_prod_muons']) || $_POST['ne_prod_muons'] == '' ||
+    !isset($_POST['ne_prod_spall']) || $_POST['ne_prod_spall'] == '' ||
     !isset($_POST['ne_zobs']) || $_POST['ne_zobs'] == '' ||
     !isset($_POST['ne_uncer']) || $_POST['ne_uncer'] == '')) {
         array_push($missing_fields,
