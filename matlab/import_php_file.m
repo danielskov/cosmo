@@ -1,4 +1,17 @@
-function [sample_id,name,email,lat,long,be_conc,al_conc,c_conc,ne_conc,be_uncer,al_uncer,c_uncer,ne_uncer,be_zobs,al_zobs,c_zobs,ne_zobs,be_prod,al_prod,c_prod,ne_prod,rock_density,epsilon_gla_min,epsilon_gla_max,epsilon_int_min,epsilon_int_max,t_degla,t_degla_uncer,record,record_threshold_min,record_threshold_max] = import_php_file(filename, startRow, endRow)
+function [sample_id, name, email, ...
+    lat, long, ...
+    be_conc, al_conc, c_conc, ne_conc, ...
+    be_uncer, al_uncer, c_uncer, ne_uncer, ...
+    be_zobs, al_zobs, c_zobs, ne_zobs, ...
+    be_prod_muon, al_prod_muon, c_prod_muon, ne_prod_muon, ...
+    be_prod_spall, al_prod_spall, c_prod_spall, ne_prod_spall, ...
+    rock_density, ...
+    epsilon_gla_min, epsilon_gla_max, ...
+    epsilon_int_min, epsilon_int_max, ...
+    t_degla_min, t_degla_max, ...
+    record, record_threshold_min, record_threshold_max, ...
+    nwalkers] = ...
+    import_php_file(filename, startRow, endRow)
 
 %% import_php_file.m
 % Automatically generated using the `uiimport` tool in Matlab.
@@ -34,7 +47,7 @@ end
 %% Read columns of data as strings:
 % For more information, see the TEXTSCAN documentation.
 %formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
-formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
+formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
 
 %% Open the text file.
 fileID = fopen(filename,'r');
@@ -65,7 +78,7 @@ numericData = NaN(size(dataArray{1},1),size(dataArray,2));
 
 % the columns in col are numeric
 %for col=[6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,26,27]
-for col=[6:28, 30:31]
+for col=[6:32, 34:36]
     % Converts strings in the input cell array to numbers. Replaced non-numeric
     % strings with NaN.
     rawData = dataArray{col};
@@ -128,17 +141,17 @@ be_zobs              = cell2mat(rawNumericColumns(:, 9));  % 14
 al_zobs              = cell2mat(rawNumericColumns(:, 10)); % 15
 c_zobs               = cell2mat(rawNumericColumns(:, 11)); % 16
 ne_zobs              = cell2mat(rawNumericColumns(:, 12)); % 17
-be_prod              = cell2mat(rawNumericColumns(:, 13)); % 18
-al_prod              = cell2mat(rawNumericColumns(:, 14)); % 19
-c_prod               = cell2mat(rawNumericColumns(:, 15)); % 20
-ne_prod              = cell2mat(rawNumericColumns(:, 16)); % 21
+be_prod_muon              = cell2mat(rawNumericColumns(:, 13)); % 18
+al_prod_muon              = cell2mat(rawNumericColumns(:, 14)); % 19
+c_prod_muon               = cell2mat(rawNumericColumns(:, 15)); % 20
+ne_prod_muon              = cell2mat(rawNumericColumns(:, 16)); % 21
 rock_density         = cell2mat(rawNumericColumns(:, 17)); % 22
 epsilon_gla_min      = cell2mat(rawNumericColumns(:, 18)); % 23
 epsilon_gla_max      = cell2mat(rawNumericColumns(:, 19)); % 24
 epsilon_int_min      = cell2mat(rawNumericColumns(:, 20)); % 25
 epsilon_int_max      = cell2mat(rawNumericColumns(:, 21)); % 26
-t_degla              = cell2mat(rawNumericColumns(:, 22)); % 27
-t_degla_uncer        = cell2mat(rawNumericColumns(:, 23)); % 28
+t_degla_min              = cell2mat(rawNumericColumns(:, 22)); % 27
+t_degla_max        = cell2mat(rawNumericColumns(:, 23)); % 28
 record               = rawCellColumns(:, 6);               % 29
 record_threshold_min = cell2mat(rawNumericColumns(:, 24)); % 30
 record_threshold_max = cell2mat(rawNumericColumns(:, 25)); % 31
