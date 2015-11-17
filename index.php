@@ -23,6 +23,12 @@ if ($_POST["g-recaptcha-response"]) {
 // include top of html template
 include('head.html');
 
+if ($_GET['example'] && !empty($_GET['example'])) {
+?>
+<script type="text/javascrip" src="js/history-form-prefiller.js"></script>
+<?php
+}
+
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
     // read status file contents
