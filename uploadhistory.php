@@ -165,6 +165,21 @@ if (count($missing_fields) > 0) {
     die();
 }
 
+// The matlab scripts need all depths, even for unused isotopes. Use the value
+// 0.0 if the depth isn't set
+if (!isset($_POST['be_zobs']) || $_POST['be_zobs'] == '') {
+    $_POST['be_zobs'] = 0.0;
+}
+if (!isset($_POST['al_zobs']) || $_POST['al_zobs'] == '') {
+    $_POST['al_zobs'] = 0.0;
+}
+if (!isset($_POST['c_zobs']) || $_POST['c_zobs'] == '') {
+    $_POST['c_zobs'] = 0.0;
+}
+if (!isset($_POST['ne_zobs']) || $_POST['ne_zobs'] == '') {
+    $_POST['ne_zobs'] = 0.0;
+}
+
 
 // If this is reached, input is ok and it is time to write the file for matlab
 
