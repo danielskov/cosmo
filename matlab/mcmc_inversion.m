@@ -28,7 +28,15 @@ addpath(matlab_scripts_folder)
 fs.rho = rock_density;
 
 % save production rates for later use in subfunctions
-fs.be_prod_spall
+fs.be_prod_spall = be_prod_spall;
+fs.al_prod_spall = al_prod_spall;
+fs.c_prod_spall  =  c_prod_spall;
+fs.ne_prod_spall = ne_prod_spall;
+
+fs.be_prod_muons = be_prod_muons;
+fs.al_prod_muons = al_prod_muons;
+fs.c_prod_muons  =  c_prod_muons;
+fs.ne_prod_muons = ne_prod_muons;
 
 fs.g_case = 'CosmoLongsteps'; %must match a case in function gz = linspace(0,10,100);
 
