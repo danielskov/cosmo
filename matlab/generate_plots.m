@@ -212,18 +212,26 @@ for i1 = 1:M % for each model parameter
     subplot(M,Nwalkers,isub)
     %Nhistc=histc(Ss{iwalk}.ms(i1,:),xbins{i1});
     %bar(xbins{i1},Nhistc,'histc')
-    histogram(Ss{iwalk}.ms(i1,:), xbins{i1});
+    
+    if i1 == 1 || i1 == 2
+        % change units from mm/yr to m/Myr
+        histogram(Ss{iwalk}.ms(i1,:)*1000., xbins{i1}*1000.);
+    else
+        histogram(Ss{iwalk}.ms(i1,:), xbins{i1});
+    end
     
     if i1 == 1
         title(['MCMC walker ' num2str(iwalk)])
     end
     
     if i1 == 1
-        xlabel('Interglacial erosion rate [mm/yr]')
+        %xlabel('Interglacial erosion rate [mm/yr]')
+        xlabel('Interglacial erosion rate [m/Myr]')
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
-        xlabel('Glacial erosion rate [mm/yr]')
+        %xlabel('Glacial erosion rate [mm/yr]')
+        xlabel('Glacial erosion rate [m/Myr]')
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
@@ -262,13 +270,19 @@ for i1 = 1:M % for each model parameter
     data = [];
     for iwalker=1:Nwalkers
         data = [data, Ss{iwalker}.ms(i1,:)];
+        if i1 == 1 || i1 == 2
+            data = data*1000.;
+        end
     end
     
     hold on
     %Nhistc=histc(data, xbins{i1});
     %bar(xbins{i1},Nhistc,'histc')
+    if i1 == 1 || i1 == 2
+        xbins{i1} = xbins{i1}*1000.; % change to m/Myr
+    end
     histogram(data, xbins{i1});
-
+    
     % 2nd quartile = median = 50th percentile
     med = median(data);
     plot([med, med], get(gca,'YLim'), 'm-')
@@ -300,13 +314,17 @@ for i1 = 1:M % for each model parameter
     hold off
     
     if i1 == 1
+        %xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
         xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
-            num2str(med, 4) ' mm/yr'])
+            num2str(med, 4) ' m/Myr'])
+            %num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
-        xlabel(['Glacial erosion rate [mm/yr], median = ' ...
-            num2str(med, 4) ' mm/yr'])
+        %xlabel(['Glacial erosion rate [mm/yr], median = ' ...
+        xlabel(['Glacial erosion rate [m/Myr], median = ' ...
+            num2str(med, 4) ' m/Myr'])
+            %num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
