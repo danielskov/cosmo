@@ -250,9 +250,16 @@ for i1 = 1:M % for each model parameter
     end
     %set (gca,'xtick',[1e-7:1e-3]);
     
-    switch mDistr(i1,:)
-      case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:))
-      case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
+    if i1 == 1 || i1 == 2 % shift axes for new units
+        switch mDistr(i1,:)
+            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:)*1000.)
+            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:)*1000.)
+        end
+    else
+        switch mDistr(i1,:)
+            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:))
+            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
+        end
     end
   end
 end
@@ -297,7 +304,7 @@ for i1 = 1:M % for each model parameter
     elseif i1 == 4
         record_threshold_med = med;
     else
-        error('Unknown parametr');
+        error('Unknown parameter');
     end
     %ylims = get(gca,'YLim');
     %text(med, ylims(1) + (ylims(2) - ylims(1))*0.9, ...
@@ -315,7 +322,7 @@ for i1 = 1:M % for each model parameter
     
     if i1 == 1
         %xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
-        xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
+        xlabel(['Interglacial erosion rate [m/Myr], median = ' ...
             num2str(med, 4) ' m/Myr'])
             %num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'a', 'Units', ...
@@ -346,9 +353,16 @@ for i1 = 1:M % for each model parameter
     end
     %set (gca,'xtick',[1e-7:1e-3]);
     
-    switch mDistr(i1,:)
-        case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:))
-        case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
+    if i1 == 1 || i1 == 2 % shift axes for new units
+        switch mDistr(i1,:)
+            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:)*1000.)
+            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:)*1000.)
+        end
+    else
+        switch mDistr(i1,:)
+            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:))
+            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:))
+        end
     end
 end
 
