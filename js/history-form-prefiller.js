@@ -17,11 +17,11 @@ var PrefillMachine = {
         $("#be_uncer").val("2.6");
         $("#al_uncer").val("4.0");
 
-        $("#be_prod_muons").val("5.33");
-        $("#al_prod_muons").val("31.1");
+        $("#be_prod_spall").val("5.33");
+        $("#al_prod_spall").val("31.1");
 
-        $("#be_prod_spall").val("0.106");
-        $("#al_prod_spall").val("0.70");
+        $("#be_prod_muons").val("0.106");
+        $("#al_prod_muons").val("0.70");
 
         $("#rock_density").val("2650");
 
