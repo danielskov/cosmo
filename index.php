@@ -120,9 +120,20 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <h2 class="header center orange-text">MCMC inversion results</h2>
 
             <div class="row">
+              <div class="col s12 m10 offset-m1">
+                <div class="card">
+                  <div class="card-image">
                 <?php 
                     include('output/' . $_GET['results_id'] . '_Walks.html');
                 ?>
+                  </div>
+                  <div class="card-content">
+                      <h5 class="blue-text">
+                          Results</h5>
+                      <p>Bla bla bla</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="row">
