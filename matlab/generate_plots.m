@@ -723,7 +723,7 @@ html = [html, ...
     '            <td>&nbsp;</td>\n'...
     '            <td align="center">25%%</td>\n'];
 for i=1:Nwalkers
-    html = [html, '            <td>',num2str(epsilon_int_25(i)),'</td>\n'];
+    html = [html, '            <td>',num2str(epsilon_int_25(i),3),'</td>\n'];
 end
     
 html = [html, '            <td>', num2str(sum(epsilon_int_25)/Nwalkers),'</td>\n'...
@@ -733,7 +733,7 @@ html = [html, '            <td>', num2str(sum(epsilon_int_25)/Nwalkers),'</td>\n
     '            <td align="center">50%%</td>\n'];
 
 for i=1:Nwalkers
-    html = [html, '            <td>',num2str(epsilon_int_50(i)),'</td>\n'];
+    html = [html, '            <td>',num2str(epsilon_int_50(i),3),'</td>\n'];
 end
 
 
@@ -744,7 +744,7 @@ html = [html, '            <td>', num2str(sum(epsilon_int_50)/Nwalkers),'</td>\n
     '            <td align="center">75%%</td>\n'];
 
 for i=1:Nwalkers
-    html = [html, '            <td>',num2str(epsilon_int_75(i)),'</td>\n'];
+    html = [html, '            <td>',num2str(epsilon_int_75(i),3),'</td>\n'];
 end
 
 html = [html, '            <td>', num2str(sum(epsilon_int_75)/Nwalkers),'</td>\n'...
