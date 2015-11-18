@@ -436,7 +436,7 @@ xlabel('Age BP [Ma]')
 ylabel('Exposure [%]')
 axis tight
 xlim([min(xs), max(xs)])
-ylim([-20, 120])
+ylim([-30, 130])
 % deglaciation timing
 plot([t_degla_med, t_degla_med], get(gca,'YLim'), 'k--');
 
