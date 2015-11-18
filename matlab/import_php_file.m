@@ -162,3 +162,23 @@ record_threshold_max = cell2mat(rawNumericColumns(:, 29)); % 35
 nwalkers             = cell2mat(rawNumericColumns(:, 30)); % 36
 
 
+%% Change units
+be_conc = be_conc*1000.; % atoms/g to atoms/kg
+al_conc = al_conc*1000.; % atoms/g to atoms/kg
+c_conc  =  c_conc*1000.; % atoms/g to atoms/kg
+ne_conc = ne_conc*1000.; % atoms/g to atoms/kg
+
+be_prod_muon = be_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+al_prod_muon = al_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+c_prod_muon  =  c_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+ne_prod_muon = ne_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+
+be_prod_spall = be_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
+al_prod_spall = al_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
+c_prod_spall  =  c_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
+ne_prod_spall = ne_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
+
+epsilon_gla_min = epsilon_gla_min/1000.; % m/Myr to mm/yr
+epsilon_gla_max = epsilon_gla_max/1000.; % m/Myr to mm/yr
+epsilon_int_min = epsilon_int_min/1000.; % m/Myr to mm/yr
+epsilon_int_max = epsilon_int_max/1000.; % m/Myr to mm/yr
