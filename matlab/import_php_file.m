@@ -3,8 +3,8 @@ function [sample_id, name, email, ...
     be_conc, al_conc, c_conc, ne_conc, ...
     be_uncer, al_uncer, c_uncer, ne_uncer, ...
     be_zobs, al_zobs, c_zobs, ne_zobs, ...
-    be_prod_muon, al_prod_muon, c_prod_muon, ne_prod_muon, ...
     be_prod_spall, al_prod_spall, c_prod_spall, ne_prod_spall, ...
+    be_prod_muon, al_prod_muon, c_prod_muon, ne_prod_muon, ...
     rock_density, ...
     epsilon_gla_min, epsilon_gla_max, ...
     epsilon_int_min, epsilon_int_max, ...
@@ -141,14 +141,14 @@ be_zobs              = cell2mat(rawNumericColumns(:, 9));  % 14
 al_zobs              = cell2mat(rawNumericColumns(:, 10)); % 15
 c_zobs               = cell2mat(rawNumericColumns(:, 11)); % 16
 ne_zobs              = cell2mat(rawNumericColumns(:, 12)); % 17
-be_prod_muon         = cell2mat(rawNumericColumns(:, 13)); % 18
-al_prod_muon         = cell2mat(rawNumericColumns(:, 14)); % 19
-c_prod_muon          = cell2mat(rawNumericColumns(:, 15)); % 20
-ne_prod_muon         = cell2mat(rawNumericColumns(:, 16)); % 21
-be_prod_spall        = cell2mat(rawNumericColumns(:, 17)); % 22
-al_prod_spall        = cell2mat(rawNumericColumns(:, 18)); % 23
-c_prod_spall         = cell2mat(rawNumericColumns(:, 19)); % 24
-ne_prod_spall        = cell2mat(rawNumericColumns(:, 20)); % 25
+be_prod_spall        = cell2mat(rawNumericColumns(:, 17)); % 18
+al_prod_spall        = cell2mat(rawNumericColumns(:, 18)); % 19
+c_prod_spall         = cell2mat(rawNumericColumns(:, 19)); % 20
+ne_prod_spall        = cell2mat(rawNumericColumns(:, 20)); % 21
+be_prod_muon         = cell2mat(rawNumericColumns(:, 13)); % 22
+al_prod_muon         = cell2mat(rawNumericColumns(:, 14)); % 23
+c_prod_muon          = cell2mat(rawNumericColumns(:, 15)); % 24
+ne_prod_muon         = cell2mat(rawNumericColumns(:, 16)); % 25
 rock_density         = cell2mat(rawNumericColumns(:, 21)); % 26
 epsilon_gla_min      = cell2mat(rawNumericColumns(:, 22)); % 27
 epsilon_gla_max      = cell2mat(rawNumericColumns(:, 23)); % 28
@@ -168,15 +168,15 @@ al_conc = al_conc*1000.; % atoms/g to atoms/kg
 c_conc  =  c_conc*1000.; % atoms/g to atoms/kg
 ne_conc = ne_conc*1000.; % atoms/g to atoms/kg
 
-be_prod_muon = be_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
-al_prod_muon = al_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
-c_prod_muon  =  c_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
-ne_prod_muon = ne_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
-
 be_prod_spall = be_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
 al_prod_spall = al_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
 c_prod_spall  =  c_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
 ne_prod_spall = ne_prod_spall*1000.; % atoms/g/yr to atoms/kg/yr
+
+be_prod_muon = be_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+al_prod_muon = al_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+c_prod_muon  =  c_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
+ne_prod_muon = ne_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 
 epsilon_gla_min = epsilon_gla_min/1000.; % m/Myr to mm/yr
 epsilon_gla_max = epsilon_gla_max/1000.; % m/Myr to mm/yr
