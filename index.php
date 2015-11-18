@@ -121,7 +121,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
             <div class="row">
                 <?php 
-                    include("output/" . $_GET['results_id'] . '.html');
+                    include('output/' . $_GET['results_id'] . '.html');
                 ?>
             </div>
 
