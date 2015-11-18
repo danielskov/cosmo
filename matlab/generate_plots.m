@@ -240,18 +240,18 @@ for i1 = 1:M % for each model parameter
         xlabel('Interglacial erosion rate [m/Myr]')
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
-        epsilon_int_25 = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
-        epsilon_int_50 = prctile(Ss{iwalk}.ms(i1,:)*1000., 50);
-        epsilon_int_75 = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
+        epsilon_int_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
+        epsilon_int_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 50);
+        epsilon_int_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
         
     elseif i1 == 2
         %xlabel('Glacial erosion rate [mm/yr]')
         xlabel('Glacial erosion rate [m/Myr]')
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
-        epsilon_gla_25 = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
-        epsilon_gla_50 = prctile(Ss{iwalk}.ms(i1,:)*1000., 50);
-        epsilon_gla_75 = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
+        epsilon_gla_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
+        epsilon_gla_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 50);
+        epsilon_gla_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
         
     elseif i1 == 3
         xlabel('Timing of last deglaciation [yr]')
@@ -264,9 +264,9 @@ for i1 = 1:M % for each model parameter
         xlabel(['\delta^{18}O_{threshold} [' char(8240) ']'])
         text(0.02,0.98,'d','Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
-        record_threshold_25 = prctile(Ss{iwalk}.ms(i1,:), 25);
-        record_threshold_50 = prctile(Ss{iwalk}.ms(i1,:), 50);
-        record_threshold_75 = prctile(Ss{iwalk}.ms(i1,:), 75);
+        record_threshold_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:), 25);
+        record_threshold_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:), 50);
+        record_threshold_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:), 75);
         
     else
         disp(['Using mname for i1 = ' i1])
