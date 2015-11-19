@@ -119,8 +119,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <!-- page header -->
             <h2 class="header center orange-text">MCMC inversion results</h2>
 
-            <div class="row">
-              <div class="col s12 m12">
+            <div class="row center">
                 <div class="card">
                   <div class="card-image">
                 <?php 
@@ -135,7 +134,6 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
                   </div>
                 </div>
-              </div>
             </div>
 
             <div class="row">
