@@ -136,6 +136,22 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   </div>
                 </div>
               </div>
+              <div class="col s6">
+                <div class="card">
+                  <div class="card-image">
+                <?php 
+                    include('output/' . $_GET['results_id'] . '_Walks.html');
+                ?>
+                  </div>
+                  <div class="card-content">
+                      <h5 class="blue-text">
+                          Results</h5>
+                      <p>The table shows the general statistical results of the
+                      Markov-Chain Monte-Carlo inversion.</p>
+
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="row">
