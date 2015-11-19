@@ -130,7 +130,9 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-content">
                       <h5 class="blue-text">
                           Results</h5>
-                      <p>Bla bla bla</p>
+                      <p>The table shows the general statistical results of the
+                      Markov-Chain Monte-Carlo inversion.</p>
+
                   </div>
                 </div>
               </div>
