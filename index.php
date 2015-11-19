@@ -120,7 +120,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             <h2 class="header center orange-text">MCMC inversion results</h2>
 
             <div class="row center">
-              <div class="col s12 m10">
+              <div class="col s12 m10 offset-m1">
                 <div class="card">
                   <div class="card-image">
                 <?php 
