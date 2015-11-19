@@ -177,7 +177,11 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       MCMC walker.  The solid magenta lines denote the median
                       values (second quartile), while the dashed magenta lines
                       denote the lower and upper quartiles (25th and 75th
-                      percentiles, respectively).</p>
+                      percentiles, respectively). A parameter is well
+                      constrained if the histogram has a single, distinct peak,
+                      and relatively close median, lower and upper quartile
+                      values. Flat histograms denote that the parameters are not
+                      well constrained.</p>
                   </div>
                   <div class="card-action">
                   <a href="output/<?php
