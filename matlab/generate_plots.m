@@ -257,7 +257,7 @@ for i1 = 1:M % for each model parameter
         
     elseif i1 == 3
         %xlabel('Timing of last deglaciation [yr]')
-        xlabel('$t$_{degla} [yr]')
+        xlabel('t_{degla} [yr]')
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
         
