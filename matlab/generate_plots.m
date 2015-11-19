@@ -303,9 +303,10 @@ for i1 = 1:M % for each model parameter
     
     data = [];
     for iwalker=1:Nwalkers
-        data = [data, Ss{iwalker}.ms(i1,:)];
         if i1 == 1 || i1 == 2
-            data = data*1000.;
+            data = [data, Ss{iwalker}.ms(i1,:)*1000.];
+        else
+            data = [data, Ss{iwalker}.ms(i1,:)];
         end
     end
     
