@@ -237,7 +237,8 @@ for i1 = 1:M % for each model parameter
     if i1 == 1
         title(['MCMC walker ' num2str(iwalk)])
         %xlabel('Interglacial erosion rate [mm/yr]')
-        xlabel('Interglacial erosion rate [m/Myr]')
+        %xlabel('Interglacial erosion rate [m/Myr]')
+        xlabel('\epsilon_{int} [m/Myr]')
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
         epsilon_int_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
@@ -246,7 +247,8 @@ for i1 = 1:M % for each model parameter
         
     elseif i1 == 2
         %xlabel('Glacial erosion rate [mm/yr]')
-        xlabel('Glacial erosion rate [m/Myr]')
+        %xlabel('Glacial erosion rate [m/Myr]')
+        xlabel('\epsilon_{gla} [m/Myr]')
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
         epsilon_gla_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
@@ -254,7 +256,8 @@ for i1 = 1:M % for each model parameter
         epsilon_gla_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
         
     elseif i1 == 3
-        xlabel('Timing of last deglaciation [yr]')
+        %xlabel('Timing of last deglaciation [yr]')
+        xlabel('$t$_{degla} [yr]')
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
         
@@ -346,20 +349,23 @@ for i1 = 1:M % for each model parameter
     
     if i1 == 1
         %xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
-        xlabel(['Interglacial erosion rate [m/Myr], median = ' ...
+        %xlabel(['Interglacial erosion rate [m/Myr], median = ' ...
+        xlabel(['\epsilon_{int} [m/Myr], median = ' ...
             num2str(med, 4) ' m/Myr'])
             %num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
         %xlabel(['Glacial erosion rate [mm/yr], median = ' ...
-        xlabel(['Glacial erosion rate [m/Myr], median = ' ...
+        %xlabel(['Glacial erosion rate [m/Myr], median = ' ...
+        xlabel(['\epsilon_{gla} [m/Myr], median = ' ...
             num2str(med, 4) ' m/Myr'])
             %num2str(med, 4) ' mm/yr'])
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
-        xlabel(['Timing of last deglaciation [yr], median = ' ...
+        %xlabel(['Timing of last deglaciation [yr], median = ' ...
+        xlabel(['t_{degla} [yr], median = ' ...
             num2str(med, 4) ' yr'])
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
