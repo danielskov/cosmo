@@ -130,8 +130,23 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-content">
                       <h5 class="blue-text">
                           Results</h5>
-                      <p>The table shows the general statistical results of the
-                      Markov-Chain Monte-Carlo inversion.</p>
+                      <p>The table shows the general statistical results of
+                      interglacial erosion rate (&epsilon;<sub>int</sub>),
+                      glacial erosion rate (&epsilon;<sub>gla</sub>), climate
+                      record threshold value
+                      (&delta;<sup>18</sup>O<sub>threshold</sub>), and total
+                      erosion (E), produced the Markov-Chain Monte-Carlo
+                      inversion. Results are displayed per walker and on
+                      average. The 50th percentiles (also called second
+                      quartile) denote the median parameter value. The 25th
+                      percentiles (first quartile) marks the value that splits
+                      the lowest 25% percent of data from the highest 75%.
+                      The 75th percentiles mark the limit to the upper 25% of
+                      data. If the 25th, 50th, and 75th percentile values for a
+                      parameter are close, the parameter is well constrained. If
+                      a specific percentile value shows high variability for a
+                      parameter, there may be several values which fit the
+                      solution.</p>
 
                   </div>
                 </div>
