@@ -490,8 +490,8 @@ xlabel('Age BP [Ma]')
 ylabel('Erosion rate [m/Myr]')
 axis tight
 xlim([min(xs), max(xs)])
-%ylims = get(gca,'YLim');
-%ylim([ylims(1)*0.97, ylims(2)*1.03])
+ylims = get(gca,'YLim');
+ylim([ylims(1)*0.97, ylims(2)*1.03])
 
 % deglaciation timing
 plot([t_degla_med, t_degla_med], get(gca,'YLim'), 'k--');
