@@ -1,6 +1,6 @@
 var PrefillMachine = {
 
-    prefill2isotopes: function() {
+    prefillCorrectly: function() {
         $("#sample_id").val("sample00");
         $("#name").val("John Doe");
         $("#email").val("john@doe.com");
