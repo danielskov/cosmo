@@ -84,17 +84,17 @@ var PrefillMachine2 = {
 
         $("#rock_density").val("2650");
         
-        $("#epsilon_gla_min").val("1.0e-6");
+        $("#epsilon_gla_min").val("1.0e-5");
         $("#epsilon_gla_max").val("1.0e-1");
 
-        $("#epsilon_int_min").val("1.0e-6");
+        $("#epsilon_int_min").val("1.0e-5");
         $("#epsilon_int_max").val("1.0e-1");
 
         $("#t_degla_min").val("10000");
         $("#t_degla_max").val("12000");
 
         $("#record_threshold_min").val("3.7");
-        $("#record_threshold_max").val("4.7");
+        $("#record_threshold_max").val("4.5");
 
     }
 }
