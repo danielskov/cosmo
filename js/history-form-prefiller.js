@@ -38,8 +38,10 @@ var PrefillMachine = {
         $("#record_threshold_max").val("4.3");
 
     }
+}
 
-    prefill4isotopes: function() {
+var PrefillMachine2 = {
+    prefillCorrectly2: function() {
         $("#sample_id").val("sample01");
         $("#name").val("John Doe");
         $("#email").val("john@doe.com");
@@ -89,3 +91,4 @@ var PrefillMachine = {
 
 // run the prefiller
 PrefillMachine.prefillCorrectly();
+PrefillMachine2.prefillCorrectly2();
