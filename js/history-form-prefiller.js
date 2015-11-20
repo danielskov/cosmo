@@ -88,4 +88,4 @@ var PrefillMachine = {
 }
 
 // run the prefiller
-//PrefillMachine.prefillCorrectly();
+PrefillMachine.prefillCorrectly();
