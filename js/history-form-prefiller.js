@@ -10,18 +10,26 @@ var PrefillMachine = {
 
         $("#be_zobs").val("0.0");
         $("#al_zobs").val("0.0");
+        $("#c_zobs").val("");
+        $("#ne_zobs").val("");
 
         $("#be_conc").val("5.67e5");
         $("#al_conc").val("2.67e6");
+        $("#c_conc").val("");
+        $("#ne_conc").val("");
 
         $("#be_uncer").val("2.6");
         $("#al_uncer").val("4.0");
 
         $("#be_prod_spall").val("5.33");
         $("#al_prod_spall").val("31.1");
+        $("#c_prod_spall").val("");
+        $("#ne_prod_spall").val("");
 
         $("#be_prod_muons").val("0.106");
         $("#al_prod_muons").val("0.70");
+        $("#c_prod_muons").val("");
+        $("#ne_prod_muons").val("");
 
         $("#rock_density").val("2650");
 
@@ -51,6 +59,8 @@ var PrefillMachine2 = {
 
         $("#be_zobs").val("0.0");
         $("#al_zobs").val("0.0");
+        $("#c_zobs").val("0.0");
+        $("#ne_zobs").val("0.0");
 
         $("#be_conc").val("1.152e6");
         $("#al_conc").val("4.940e6");
