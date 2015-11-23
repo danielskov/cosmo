@@ -510,11 +510,11 @@ linkaxes(axh,'x')
 
 
 %% Exhumation history from InspectDepthConcTracks_True_plot.m
+fh = [fh;figure('visible', show_figures)];
 for iwalk = 1:Nwalkers
-    %for iwalk = 1:4;%Nwalks
     % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
-    %subplot(2,2,iwalk)
-    fh = [fh;figure('visible', show_figures)];
+    subplot(Nwalkers,1,iwalk)
+    
     lump_MetHas = Ss{iwalk}.lump_MetHas;
     fixed_stuff = Ss{iwalk}.fs;
     % if ~isempty(lump_MetHas.zsss{1})
@@ -574,7 +574,7 @@ for iwalk = 1:Nwalkers
 end
 colormap(1-copper(15))
 %subplot(2,2,1);
-title(fn,'interpreter','none')
+%title(fn,'interpreter','none')
 %axis([-2e6 0 0 40])
 axis([0 1e6 0 25])
 caxis([0 25])
