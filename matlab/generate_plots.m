@@ -511,10 +511,14 @@ linkaxes(axh,'x')
 
 %% Exhumation history from InspectDepthConcTracks_True_plot.m
 disp('Exhumation history');
-fh = [fh;figure('visible', show_figures)];
+%fh = [fh;figure('visible', show_figures)];
 for iwalk = 1:Nwalkers
     % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
-    subplot(Nwalkers,1,iwalk)
+    
+    % if all walker results are written to a single figure, it exceeds
+    % system memory limits
+    %subplot(Nwalkers,1,iwalk)
+    fh = [fh;figure('visible', show_figures)];
     
     lump_MetHas = Ss{iwalk}.lump_MetHas;
     fixed_stuff = Ss{iwalk}.fs;
