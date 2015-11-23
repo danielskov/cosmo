@@ -8,7 +8,8 @@ function figure_save_multiformat(fig, basename, formats)
 for i=1:length(formats)
     format = formats(i);
     if strcmp(format, 'fig')
-        savefig(fig, strcat(basename, '.fig'));
+        %savefig(fig, strcat(basename, '.fig'), '-v7.3');
+        savefig(fig, strcat(basename, '.fig'), 'compact');
     else
         print(fig, basename, strcat('-d', cell2mat(format)));
     end
