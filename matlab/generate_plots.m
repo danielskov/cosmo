@@ -509,7 +509,80 @@ linkaxes(axh,'x')
 % stairs(-tStarts,relExpos+2,'r')
 
 
-%% Exhumation history
+%% Exhumation history from InspectDepthConcTracks_True_plot.m
+for iwalk = 1:Nwalkers
+    %for iwalk = 1:4;%Nwalks
+    % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
+    %subplot(2,2,iwalk)
+    fh = [fh;figure('visible', show_figures)];
+    lump_MetHas = Ss{iwalk}.lump_MetHas;
+    fixed_stuff = Ss{iwalk}.fs;
+    % if ~isempty(lump_MetHas.zsss{1})
+    % % % % zsss = lump_MetHas.zsss;
+    % % % % tss = lump_MetHas.tss;
+    % % % % dtfine = -1000; tfinemax = -20e5; dzfine = 0.1; zfinemax = 20,
+    % % % % iz = 1;
+    % % % % DepthExposureTimeDens(zsss,tss,dtfine,tfinemax,dzfine,zfinemax,fixed_stuff,iz)
+    % % % % title('z(time)')
+    % % % % axis ij
+    % % % % hold on
+    
+    %making quantiles to plot ontop of exhumation densities:
+    tss = lump_MetHas.tss;
+    dtfine = -500; tfinemax = -20e5;
+    Xxsss = lump_MetHas.zsss;
+    % dXxfine = 0.05; Xxfinemax = 50; iz=1; %Xx may be depth or nucleide concentration or ...
+    dXxfine = 0.01; Xxfinemax = 50; iz=1; %Xx may be depth or nucleide concentration or ...
+    dzfine = dXxfine; zfinemax = Xxfinemax;
+    [smoothgrid,histgrid,tsfine,Xxfine]=XxTimeDens(Xxsss,tss,dtfine,tfinemax,dXxfine,Xxfinemax,fixed_stuff,iz);
+    pcolor(-tsfine,Xxfine,sqrt(smoothgrid));
+    %pcolor(tsfine,Xxfine,sqrt(histgrid)); %<<<BHJ: v?lge mellem glattet og r? farvel?gning
+    hold on
+    %plot a selection of depth histories
+    for i=1:ceil(length(tss)/50):length(tss)
+        %   plot(tss{i},Xxsss{i},'.-c')
+    end
+    %Compute and plot quantiles
+    N = sum(histgrid(:,1));
+    fractions = [0.25,0.5,0.75]; %quartiles
+    tsfine = 0:dtfine:tfinemax; %bin boundaries
+    Ntfine = length(tsfine);
+    zsfine = 0:dzfine:zfinemax; %bin boundaries
+    % quants{iwalk} = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
+    % plot(tsfine,quants{iwalk}(1,:),'r','linewidth',3)
+    % plot(tsfine,quants{iwalk}(2,:),'k','linewidth',3)
+    % plot(tsfine,quants{iwalk}(3,:),'b','linewidth',3)
+    quants(:,:,iwalk) = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
+    quants2(:,:,iwalk) = GetHistgridQuantiles2(histgrid,N,fractions,tsfine,zsfine);
+    
+    grid on; shading flat; axis tight; set(gca,'fontsize',8); hold on
+    % lh(1)=plot(tsfine,quants(1,:,iwalk),'r','linewidth',2)
+    % lh(2)=plot(tsfine,quants(2,:,iwalk),'k','linewidth',2)
+    % lh(3)=plot(tsfine,quants(3,:,iwalk),'g','linewidth',2)
+    lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',2)
+    lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',2)
+    lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',2)
+    %legend(lh2,'25%','median','75%','location','northwest')
+    axis ij
+    %track_handle=AddTrueModelDepthTrack(Ss{iwalk}.fs,'-m'); %<<< BHJ: added 2014 dec 09
+    %set(track_handle,'linewidth',2);
+    
+    % Save erosion magnitudes over the last 1 Myr
+    E_25(iwalk) = quants2(1, 2001, iwalk);
+    E_50(iwalk) = quants2(2, 2001, iwalk);
+    E_75(iwalk) = quants2(3, 2001, iwalk);
+end
+colormap(1-copper(15))
+%subplot(2,2,1);
+title(fn,'interpreter','none')
+%axis([-2e6 0 0 40])
+axis([0 1e6 0 25])
+caxis([0 25])
+%colorbar
+%set (gca,'xtick',[-2e6:0.2e6:0]);
+set (gca,'xtick',[0:0.1e5:1e6]);
+set (gca,'ytick',[0:3:12]);
+%XTicksAt = ([-2e6:0.2e6:0]);
 
 
 
@@ -698,7 +771,7 @@ html = [html, '            <td>',...
     num2str(sum(E_25)/Nwalkers,3),'</td>\n'...
     '        </tr>\n'...
     '        <tr>\n'...
-    '            <td align="center">E [m]</td>\n'...
+    '            <td align="center">E [m/Myr]</td>\n'...
     '            <td align="center">50%%</td>\n'];
 
 for i=1:Nwalkers

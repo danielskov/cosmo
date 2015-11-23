@@ -135,9 +135,9 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       glacial erosion rate (&epsilon;<sub>gla</sub>), climate
                       record threshold value
                       (&delta;<sup>18</sup>O<sub>threshold</sub>), and total
-                      erosion (E), produced the Markov-Chain Monte-Carlo
-                      inversion. Results are displayed per walker and on
-                      average. The 50th percentiles (also called second
+                      erosion over the last 1 Myr (E), produced the Markov-Chain
+                      Monte-Carlo inversion. Results are displayed per walker
+                      and on average. The 50th percentiles (also called second
                       quartile) denote the median parameter value. The 25th
                       percentiles (first quartile) marks the value that splits
                       the lowest 25% percent of data from the highest 75%.
