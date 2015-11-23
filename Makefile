@@ -4,7 +4,7 @@ documentroot=/var/www/html
 	#python -m http.server & open "http://localhost:8000"
 
 open:
-	open "http://cosmo.au.dk" && open "http://localhost/~ad/cosmo"
+	open "https://cosmo.au.dk" #&& open "http://localhost/~ad/cosmo"
 
 folders:
 	mkdir -p input && chmod 777 input && mkdir -p archive
