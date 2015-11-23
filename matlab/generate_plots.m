@@ -510,6 +510,7 @@ linkaxes(axh,'x')
 
 
 %% Exhumation history from InspectDepthConcTracks_True_plot.m
+disp('Exhumation history');
 fh = [fh;figure('visible', show_figures)];
 for iwalk = 1:Nwalkers
     % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
@@ -559,9 +560,9 @@ for iwalk = 1:Nwalkers
     % lh(1)=plot(tsfine,quants(1,:,iwalk),'r','linewidth',2)
     % lh(2)=plot(tsfine,quants(2,:,iwalk),'k','linewidth',2)
     % lh(3)=plot(tsfine,quants(3,:,iwalk),'g','linewidth',2)
-    lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',2)
-    lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',2)
-    lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',2)
+    lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',2);
+    lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',2);
+    lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',2);
     %legend(lh2,'25%','median','75%','location','northwest')
     axis ij
     %track_handle=AddTrueModelDepthTrack(Ss{iwalk}.fs,'-m'); %<<< BHJ: added 2014 dec 09
