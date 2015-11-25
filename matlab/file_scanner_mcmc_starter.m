@@ -127,7 +127,7 @@ while 1
         fprintf(fid, 'Computations complete');
         fclose(fid);
         
-        disp('Computations complete');
+        disp(['Computations complete, id = ' id]);
         
         diary off;
         
