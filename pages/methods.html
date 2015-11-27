@@ -65,7 +65,28 @@
                     (&delta;<sup>18</sup>O<sub>threshold</sub>) is specified
                     with uniform probability across the linear
                     parameter interval. The user specifies the bounds
-                    of the model parameters, which define the model space.
+                    of the model parameters.
+                    </p>
+
+                    <p>Given a single value of model parameters
+                    (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>,
+                    <i>t</i><sub>degla</sub>,
+                    &delta;<sup>18</sup>O<sub>threshold</sub>), the TCN
+                    concentration after the duration of e.g. the entire
+                    Quaternary period in a sample can be computed. This
+                    <i>forward model</i> describes a history of exhumation and
+                    TCN production in a sample volume as it experiences the
+                    variable physical environment of the Pleistocene.
+                    </p>
+
+                    <p>When model parameters 
+                    (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>,
+                    <i>t</i><sub>degla</sub>,
+                    &delta;<sup>18</sup>O<sub>threshold</sub>) are allowed to
+                    vary within specified limits, they can be thought of as
+                    orthogonal axes creating a coordinate system in higher-order
+                    space. Every position in this model space is associated with
+                    a certain set of model parameter values.
                     </p>
                 </div>
 
@@ -73,13 +94,29 @@
                     <h4 class="header blue-text light">
                         What is a MCMC walker?</h4>
                     <p>
-                    forward responses are computed based on an initial set of
-                    model parameters that is proposed using the
-                    Metropolis-Hastings technique. A burn-in phase of 1000
-                    iterations is first used to make a crude initial search of
-                    the model space. This step is followed by a more detailed
-                    and local search of the model space based on the best-fit
-                    model parameters from the burn-in phase.
+                    A MCMC walker is a numerical entity which sequentially
+                    explores the model parameter space in order to obtain the
+                    best result between a forward-model and an observational
+                    dataset. During each iteration
+                    the walker takes its current position in model space, plugs
+                    the parameter value into the forward-model, and
+                    evaluates if the output result matches the observational
+                    record better or worse than the output at its previous
+                    position in model space. If the new results better matches
+                    the observed dataset, it continues walking along the same
+                    path in model space with a small random perturbation.
+                    </p>
+
+                    <p>
+                    Starting at a random place inside the model space, a burn-in
+                    phase of 1000 iterations is first used to make a crude
+                    search of the entire model space.  
+                    The burn-in phase is followed by a similar but more detailed
+                    and local search of the model space, based on the best-fit
+                    model parameters from the burn-in phase.  The weighted
+                    least-squared misfit to observed TCN concentrations is used
+                    to evaluate the likelyhood for the combinations of
+                    model parameter values.
                     </p>
                 </div>
 
