@@ -87,85 +87,89 @@
                     as it experiences the variable physical environment of the
                     Quaternary.</p>
 
-                </div>
 
-                <div id="twostage" class="subsection scrollspy">
-                    <h4 class="header blue-text light">
-                        Two-stage glacial-interglacial forward model</h4>
-                    <p>The forward model builds on the assumption of a
-                    "two-stage uniformitarianism", meaning that the processes
-                    that operated during the Holocene also operated during
-                    earlier interglacials with comparable intensity. Likewise,
-                    the erosion rate during the past glacial periods is assumed
-                    to be comparable.</p>
+                    <div id="twostage" class="subsection scrollspy">
+                        <h4 class="header blue-text light">
+                            Two-stage glacial-interglacial forward model</h4>
+                        <p>The forward model builds on the assumption of a
+                        "two-stage uniformitarianism", meaning that the
+                        processes that operated during the Holocene also
+                        operated during earlier interglacials with comparable
+                        intensity. Likewise, the erosion rate during the past
+                        glacial periods is assumed to be comparable.</p>
 
-                    <p>The model approach assumes that glacial periods were
-                    characterized by 100% shielding and no exposure, which would
-                    require more than 10 m of ice thickness for production due
-                    to spallation (&gt;50 m for muons). Interglacial periods are
-                    assumed to have been characterized by 100% exposure and zero
-                    shielding. The production of TCNs takes place during the
-                    interglacials, while erosion removes the land surface at
-                    different rates during the glacials and interglacials.</p>
-                </div>
+                        <p>The model approach assumes that glacial periods were
+                        characterized by 100% shielding and no exposure, which
+                        would require more than 10 m of ice thickness for
+                        production due to spallation (&gt;50 m for muons).
+                        Interglacial periods are assumed to have been
+                        characterized by 100% exposure and zero shielding. The
+                        production of TCNs takes place during the interglacials,
+                        while erosion removes the land surface at different
+                        rates during the glacials and interglacials.</p>
+                    </div>
 
-                <div id="mcmcwalker" class="subsection scrollspy">
-                    <h4 class="header blue-text light">
-                        What is a MCMC walker?</h4>
-                    <p>
-                    A MCMC walker is in this context a numerical entity which
-                    sequentially explores the model parameter space in order to
-                    obtain the closest match between the forward model and the
-                    observational dataset of TCNs. During each iteration
-                    the walker takes its current position in model space, plugs
-                    the parameter value into the forward model, and
-                    evaluates if the output result matches the observational
-                    record better or worse than the output at its previous
-                    position in model space. If the new results better matches
-                    the observed dataset, it continues walking in the same
-                    direction in model space.
-                    </p>
+                    <div id="mcmcwalker" class="subsection scrollspy">
+                        <h4 class="header blue-text light">
+                            What is a MCMC walker?</h4>
+                        <p>
+                        A MCMC walker is in this context a numerical entity
+                        which sequentially explores the model parameter space in
+                        order to obtain the closest match between the forward
+                        model and the observational dataset of TCNs. During each
+                        iteration the walker takes its current position in model
+                        space, plugs the parameter value into the forward model,
+                        and evaluates if the output result matches the
+                        observational record better or worse than the output at
+                        its previous position in model space. If the new results
+                        better matches the observed dataset, it continues
+                        walking in the same direction in model space.
+                        </p>
 
-                    <p>
-                    Starting at a random place inside the model space, a burn-in
-                    phase of 1000 iterations is first used to make a crude
-                    search of the entire model space.  The burn-in phase is
-                    followed by a similar but more detailed and local search of
-                    the model space, based on the best-fit model parameters from
-                    the burn-in phase.  The weighted least-squared misfit to
-                    observed TCN concentrations is used to evaluate the
-                    likelyhood for the combinations of model parameter values.
-                    The MCMC walker continues exploring the model space until it
-                    is sufficiently satisfied with the best model parameter
-                    estimate it has found.
-                    </p>
+                        <p>
+                        Starting at a random place inside the model space, a
+                        burn-in phase of 1000 iterations is first used to make a
+                        crude search of the entire model space.  The burn-in
+                        phase is followed by a similar but more detailed and
+                        local search of the model space, based on the best-fit
+                        model parameters from the burn-in phase.  The weighted
+                        least-squared misfit to observed TCN concentrations is
+                        used to evaluate the likelyhood for the combinations of
+                        model parameter values.  The MCMC walker continues
+                        exploring the model space until it is sufficiently
+                        satisfied with the best model parameter estimate it has
+                        found.
+                        </p>
 
-                    <p>
-                    For a given observational data set more than one set of
-                    model parameters may produce forward models which
-                    sufficiently satisfy the MCMC walker.
-                    In this case the solution is <i>non-unique</i>. Even worse,
-                    a single MCMC walker may find an area in model space which
-                    seemingly is in good correspondence with the observational
-                    data set, but the walker is missing a much better set of
-                    model parameters since they are located somewhere entirely
-                    different in the model space. In order to mitigate these
-                    issues, MCMC inversions are often performed using several
-                    MCMC walkers.  The starting point of each MCMC walker is
-                    chosen at random, resulting in unique walks through the
-                    model space. If a single walker is caught in an area of
-                    non-ideal solutions, chances are that the other walkers will
-                    find the area of better model parameters.
-                    </p>
+                        <p>
+                        For a given observational data set more than one set of
+                        model parameters may produce forward models which
+                        sufficiently satisfy the MCMC walker.  In this case the
+                        solution is <i>non-unique</i>. Even worse, a single MCMC
+                        walker may find an area in model space which seemingly
+                        is in good correspondence with the observational data
+                        set, but the walker is missing a much better set of
+                        model parameters since they are located somewhere
+                        entirely different in the model space. In order to
+                        mitigate these issues, MCMC inversions are often
+                        performed using several MCMC walkers.  The starting
+                        point of each MCMC walker is chosen at random, resulting
+                        in unique walks through the model space. If a single
+                        walker is caught in an area of non-ideal solutions,
+                        chances are that the other walkers will find the area of
+                        better model parameters.
+                        </p>
 
-                    <p>
-                    The computational time depends on the number of MCMC
-                    walkers. When casually trying out the calculator we
-                    recommend using low numbers of MCMC walkers (1 to 2) in
-                    order to obtain fast results and reduce load on the server.
-                    When attempting to produce high-quality and reliable
-                    results, the number of walkers should be increased (3 to 4).
-                    </p>
+                        <p>
+                        The computational time depends on the number of MCMC
+                        walkers. When casually trying out the calculator we
+                        recommend using low numbers of MCMC walkers (1 to 2) in
+                        order to obtain fast results and reduce load on the
+                        server.  When attempting to produce high-quality and
+                        reliable results, the number of walkers should be
+                        increased (3 to 4).
+                        </p>
+                    </div>
                 </div>
 
 
