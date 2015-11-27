@@ -54,18 +54,17 @@
                         Markov-Chain Monte Carlo (MCMC) basics</h3>
                     <p>The inversion problem of turning observed TCN
                     concentrations into erosion histories is handled using a
-                    conventional Metropolis-Hastings MCMC approach where the
+                    conventional Metropolis-Hastings MCMC approach. The
                     model parameters are constrained between fixed model
                     parameter bounds specified by the user. Erosion rates
                     (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>), which
-                    may vary over several orders of magnitude, are specified
+                    may vary over several orders of magnitude, are tested
                     with uniform probability across the logarithmic parameter
                     interval. The temporal parameter (<i>t</i><sub>degla</sub>)
                     and climate record threshold value
-                    (&delta;<sup>18</sup>O<sub>threshold</sub>) is specified
-                    with uniform probability across the linear
-                    parameter interval. The user specifies the bounds
-                    of the model parameters.
+                    (&delta;<sup>18</sup>O<sub>threshold</sub>) is tested with
+                    uniform probability across the linear parameter interval.
+                    The user specifies the bounds of the model parameters.
                     </p>
 
                     <p>When model parameters 
