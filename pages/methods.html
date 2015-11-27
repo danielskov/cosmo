@@ -62,19 +62,18 @@
                     with uniform probability across the logarithmic parameter
                     interval. The temporal parameter (<i>t</i><sub>degla</sub>)
                     and climate record threshold value
-                    (&delta;<sup>18</sup>O<sub>threshold</sub>) is tested with
+                    (&delta;<sup>18</sup>O<sub>threshold</sub>) are tested with
                     uniform probability across the linear parameter interval.
-                    The user specifies the bounds of the model parameters.
                     </p>
 
                     <p>When model parameters 
                     (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>,
                     <i>t</i><sub>degla</sub>,
                     &delta;<sup>18</sup>O<sub>threshold</sub>) are varied within
-                    specified limits, they can be thought of as orthogonal axes
-                    creating a coordinate system in higher-order space. Every
-                    position in this model space is associated with a certain
-                    set of model parameter values.
+                    specified limits, they can be thought of as being orthogonal
+                    axes spanning a coordinate system in four-dimensional space.
+                    Each position in this model space is associated with a
+                    unique set of model parameter values.
                     </p>
 
                     <p>Given a single value of model parameters
@@ -86,7 +85,7 @@
                     computed. This <i>forward model</i> describes a possible
                     history of exhumation and TCN production in a sample volume
                     as it experiences the variable physical environment of the
-                    Pleistocene.</p>
+                    Quaternary.</p>
 
                 </div>
 
@@ -105,7 +104,9 @@
                     require more than 10 m of ice thickness for production due
                     to spallation (&gt;50 m for muons). Interglacial periods are
                     assumed to have been characterized by 100% exposure and zero
-                    shielding.</p>
+                    shielding. The production of TCNs takes place during the
+                    interglacials, while erosion removes the land surface at
+                    different rates during the glacials and interglacials.</p>
                 </div>
 
                 <div id="mcmcwalker" class="subsection scrollspy">
@@ -121,8 +122,8 @@
                     evaluates if the output result matches the observational
                     record better or worse than the output at its previous
                     position in model space. If the new results better matches
-                    the observed dataset, it continues walking along
-                    approximately in the same direction in model space.
+                    the observed dataset, it continues walking in the same
+                    direction in model space.
                     </p>
 
                     <p>
@@ -142,19 +143,19 @@
                     <p>
                     For a given observational data set more than one set of
                     model parameters may produce forward models which
-                    sufficiently satisfy the MCMC walker as solution
-                    approximations. In this case the solution is
-                    <i>non-unique</i>. Even worse, a single MCMC walker may find
-                    an area in model space which seemingly is in good
-                    correspondence with the observational data set, but is
-                    missing a much better set of model parameters since they are
-                    located somewhere entirely different in the model space. In
-                    order to mitigate these issues, MCMC inversions are often
-                    performed using several MCMC walkers.  The starting point of
-                    each MCMC walker is chosen at random, resulting in unique
-                    walks through the model space. If a single walker is caught
-                    in an area of non-ideal solutions, chances are that the
-                    other walkers will find the area of better model parameters.
+                    sufficiently satisfy the MCMC walker.
+                    In this case the solution is <i>non-unique</i>. Even worse,
+                    a single MCMC walker may find an area in model space which
+                    seemingly is in good correspondence with the observational
+                    data set, but the walker is missing a much better set of
+                    model parameters since they are located somewhere entirely
+                    different in the model space. In order to mitigate these
+                    issues, MCMC inversions are often performed using several
+                    MCMC walkers.  The starting point of each MCMC walker is
+                    chosen at random, resulting in unique walks through the
+                    model space. If a single walker is caught in an area of
+                    non-ideal solutions, chances are that the other walkers will
+                    find the area of better model parameters.
                     </p>
 
                     <p>
@@ -162,8 +163,8 @@
                     walkers. When casually trying out the calculator we
                     recommend using low numbers of MCMC walkers (1 to 2) in
                     order to obtain fast results and reduce load on the server.
-                    When attempting to produce high-quality reliable results,
-                    the number of walkers should be increased (3 to 4).
+                    When attempting to produce high-quality and reliable
+                    results, the number of walkers should be increased (3 to 4).
                     </p>
                 </div>
 
