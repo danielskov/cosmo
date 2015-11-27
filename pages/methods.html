@@ -16,8 +16,8 @@
                     Constraining the landscape history and past erosion rates in
                     previously glaciated terrains is, however, notoriously
                     difficult because it involves a large number of unknowns.
-                    This webpage uses an approach based on the Markov Chain
-                    Monte Carlo (MCMC) technique.  The model framework currently
+                    This tool uses an approach based on the Markov Chain Monte
+                    Carlo (MCMC) technique.  The model framework currently
                     incorporates any combination of the following terrestrial
                     cosmogenic nuclides (TCNs) <sup>10</sup>Be, <sup>26</sup>Al,
                     <sup>14</sup>C, and <sup>21</sup>Ne in order to constrain a
@@ -68,62 +68,33 @@
                     of the model parameters.
                     </p>
 
-                    <p>Given a single value of model parameters
-                    (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>,
-                    <i>t</i><sub>degla</sub>,
-                    &delta;<sup>18</sup>O<sub>threshold</sub>), the TCN
-                    concentration after the duration of e.g. the entire
-                    Quaternary period in a sample can be computed. This
-                    <i>forward model</i> describes a history of exhumation and
-                    TCN production in a sample volume as it experiences the
-                    variable physical environment of the Pleistocene.
-                    </p>
-
                     <p>When model parameters 
                     (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>,
                     <i>t</i><sub>degla</sub>,
-                    &delta;<sup>18</sup>O<sub>threshold</sub>) are allowed to
-                    vary within specified limits, they can be thought of as
-                    orthogonal axes creating a coordinate system in higher-order
-                    space. Every position in this model space is associated with
-                    a certain set of model parameter values.
+                    &delta;<sup>18</sup>O<sub>threshold</sub>) are varied within
+                    specified limits, they can be thought of as orthogonal axes
+                    creating a coordinate system in higher-order space. Every
+                    position in this model space is associated with a certain
+                    set of model parameter values.
                     </p>
+
+                    <p>Given a single value of model parameters
+                    (&epsilon;<sub>int</sub>, &epsilon;<sub>gla</sub>,
+                    <i>t</i><sub>degla</sub>,
+                    &delta;<sup>18</sup>O<sub>threshold</sub>) within the
+                    specified limits, the TCN concentration after the duration
+                    of e.g. the entire Quaternary period in a sample can be
+                    computed. This <i>forward model</i> describes a possible
+                    history of exhumation and TCN production in a sample volume
+                    as it experiences the variable physical environment of the
+                    Pleistocene.</p>
+
                 </div>
 
-                <div id="mcmcwalker" class="subsection scrollspy">
+                <div id="twostage" class="subsection scrollspy">
                     <h4 class="header blue-text light">
-                        What is a MCMC walker?</h4>
-                    <p>
-                    A MCMC walker is a numerical entity which sequentially
-                    explores the model parameter space in order to obtain the
-                    best result between a forward-model and an observational
-                    dataset. During each iteration
-                    the walker takes its current position in model space, plugs
-                    the parameter value into the forward-model, and
-                    evaluates if the output result matches the observational
-                    record better or worse than the output at its previous
-                    position in model space. If the new results better matches
-                    the observed dataset, it continues walking along the same
-                    path in model space with a small random perturbation.
-                    </p>
-
-                    <p>
-                    Starting at a random place inside the model space, a burn-in
-                    phase of 1000 iterations is first used to make a crude
-                    search of the entire model space.  
-                    The burn-in phase is followed by a similar but more detailed
-                    and local search of the model space, based on the best-fit
-                    model parameters from the burn-in phase.  The weighted
-                    least-squared misfit to observed TCN concentrations is used
-                    to evaluate the likelyhood for the combinations of
-                    model parameter values.
-                    </p>
-                </div>
-
-                <div id="twostage" class="section scrollspy">
-                    <h3 class="header blue-text">
-                        Two-stage glacial-interglacial model</h3>
-                    <p>The model concept builds on the assumption of a
+                        Two-stage glacial-interglacial forward model</h4>
+                    <p>The forward model builds on the assumption of a
                     "two-stage uniformitarianism", meaning that the processes
                     that operated during the Holocene also operated during
                     earlier interglacials with comparable intensity. Likewise,
@@ -136,6 +107,65 @@
                     to spallation (&gt;50 m for muons). Interglacial periods are
                     assumed to have been characterized by 100% exposure and zero
                     shielding.</p>
+                </div>
+
+                <div id="mcmcwalker" class="subsection scrollspy">
+                    <h4 class="header blue-text light">
+                        What is a MCMC walker?</h4>
+                    <p>
+                    A MCMC walker is in this context a numerical entity which
+                    sequentially explores the model parameter space in order to
+                    obtain the closest match between the forward model and the
+                    observational dataset of TCNs. During each iteration
+                    the walker takes its current position in model space, plugs
+                    the parameter value into the forward model, and
+                    evaluates if the output result matches the observational
+                    record better or worse than the output at its previous
+                    position in model space. If the new results better matches
+                    the observed dataset, it continues walking along
+                    approximately in the same direction in model space.
+                    </p>
+
+                    <p>
+                    Starting at a random place inside the model space, a burn-in
+                    phase of 1000 iterations is first used to make a crude
+                    search of the entire model space.  The burn-in phase is
+                    followed by a similar but more detailed and local search of
+                    the model space, based on the best-fit model parameters from
+                    the burn-in phase.  The weighted least-squared misfit to
+                    observed TCN concentrations is used to evaluate the
+                    likelyhood for the combinations of model parameter values.
+                    The MCMC walker continues exploring the model space until it
+                    is sufficiently satisfied with the best model parameter
+                    estimate it has found.
+                    </p>
+
+                    <p>
+                    For a given observational data set more than one set of
+                    model parameters may produce forward models which
+                    sufficiently satisfy the MCMC walker as solution
+                    approximations. In this case the solution is
+                    <i>non-unique</i>. Even worse, a single MCMC walker may find
+                    an area in model space which seemingly is in good
+                    correspondence with the observational data set, but is
+                    missing a much better set of model parameters since they are
+                    located somewhere entirely different in the model space. In
+                    order to mitigate these issues, MCMC inversions are often
+                    performed using several MCMC walkers.  The starting point of
+                    each MCMC walker is chosen at random, resulting in unique
+                    walks through the model space. If a single walker is caught
+                    in an area of non-ideal solutions, chances are that the
+                    other walkers will find the area of better model parameters.
+                    </p>
+
+                    <p>
+                    The computational time depends on the number of MCMC
+                    walkers. When casually trying out the calculator we
+                    recommend using low numbers of MCMC walkers (1 to 2) in
+                    order to obtain fast results and reduce load on the server.
+                    When attempting to produce high-quality reliable results,
+                    the number of walkers should be increased (3 to 4).
+                    </p>
                 </div>
 
 
