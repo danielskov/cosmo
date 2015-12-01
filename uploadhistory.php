@@ -78,6 +78,10 @@ if (!isset($_POST['nwalkers']) || $_POST['nwalkers'] == ''){
     array_push($missing_fields, 'Number of MCMC walkers');
 }
 
+if (!isset($_POST['zobs']) || $_POST['zobs'] == ''){
+    array_push($missing_fields, 'One or more sample depths');
+}
+
 // Check TCN concentrations, at least one value is needed
 if ((!isset($_POST['be_conc']) || $_POST['be_conc'] == '') &&
     (!isset($_POST['al_conc']) || $_POST['al_conc'] == '') &&
@@ -91,7 +95,6 @@ if ((!isset($_POST['be_conc']) || $_POST['be_conc'] == '') &&
 if ((isset($_POST['be_conc']) && $_POST['be_conc'] != '') &&
     (!isset($_POST['be_prod_muons']) || $_POST['be_prod_muons'] == '' ||
     !isset($_POST['be_prod_spall']) || $_POST['be_prod_spall'] == '' ||
-    !isset($_POST['be_zobs']) || $_POST['be_zobs'] == '' ||
     !isset($_POST['be_uncer']) || $_POST['be_uncer'] == '')) {
     array_push($missing_fields,
         'Production rate, sample depth, and/or uncertainty for ' .
@@ -100,7 +103,6 @@ if ((isset($_POST['be_conc']) && $_POST['be_conc'] != '') &&
 if ((isset($_POST['al_conc']) && $_POST['al_conc'] != '') &&
     (!isset($_POST['al_prod_muons']) || $_POST['al_prod_muons'] == '' ||
     !isset($_POST['al_prod_spall']) || $_POST['al_prod_spall'] == '' ||
-    !isset($_POST['al_zobs']) || $_POST['al_zobs'] == '' ||
     !isset($_POST['al_uncer']) || $_POST['al_uncer'] == '')) {
         array_push($missing_fields,
         'Production rate, sample depth, and/or uncertainty for ' .
@@ -109,7 +111,6 @@ if ((isset($_POST['al_conc']) && $_POST['al_conc'] != '') &&
 if ((isset($_POST['c_conc']) && $_POST['c_conc'] != '') &&
     (!isset($_POST['c_prod_muons']) || $_POST['c_prod_muons'] == '' ||
     !isset($_POST['c_prod_spall']) || $_POST['c_prod_spall'] == '' ||
-    !isset($_POST['c_zobs']) || $_POST['c_zobs'] == '' ||
     !isset($_POST['c_uncer']) || $_POST['c_uncer'] == '')) {
         array_push($missing_fields,
         'Production rate, sample depth, and/or uncertainty for ' .
@@ -118,7 +119,6 @@ if ((isset($_POST['c_conc']) && $_POST['c_conc'] != '') &&
 if ((isset($_POST['ne_conc']) && $_POST['ne_conc'] != '') &&
     (!isset($_POST['ne_prod_muons']) || $_POST['ne_prod_muons'] == '' ||
     !isset($_POST['ne_prod_spall']) || $_POST['ne_prod_spall'] == '' ||
-    !isset($_POST['ne_zobs']) || $_POST['ne_zobs'] == '' ||
     !isset($_POST['ne_uncer']) || $_POST['ne_uncer'] == '')) {
         array_push($missing_fields,
         'Production rate, sample depth, and/or uncertainty for ' .
@@ -165,21 +165,6 @@ if (count($missing_fields) > 0) {
     die();
 }
 
-// The matlab scripts need all depths, even for unused isotopes. Use the value
-// 0.0 if the depth isn't set
-if (!isset($_POST['be_zobs']) || $_POST['be_zobs'] == '') {
-    $_POST['be_zobs'] = 0.0;
-}
-if (!isset($_POST['al_zobs']) || $_POST['al_zobs'] == '') {
-    $_POST['al_zobs'] = 0.0;
-}
-if (!isset($_POST['c_zobs']) || $_POST['c_zobs'] == '') {
-    $_POST['c_zobs'] = 0.0;
-}
-if (!isset($_POST['ne_zobs']) || $_POST['ne_zobs'] == '') {
-    $_POST['ne_zobs'] = 0.0;
-}
-
 
 // If this is reached, input is ok and it is time to write the file for matlab
 
@@ -200,10 +185,7 @@ $fieldnames = array(
     'al_uncer',
     'c_uncer',
     'ne_uncer',
-    'be_zobs',
-    'al_zobs',
-    'c_zobs',
-    'ne_zobs',
+    'zobs',
     'be_prod_spall',
     'al_prod_spall',
     'c_prod_spall',

@@ -2,7 +2,7 @@ function [sample_id, name, email, ...
     lat, long, ...
     be_conc, al_conc, c_conc, ne_conc, ...
     be_uncer, al_uncer, c_uncer, ne_uncer, ...
-    be_zobs, al_zobs, c_zobs, ne_zobs, ...
+    zobs, ...
     be_prod_spall, al_prod_spall, c_prod_spall, ne_prod_spall, ...
     be_prod_muon, al_prod_muon, c_prod_muon, ne_prod_muon, ...
     rock_density, ...
@@ -21,11 +21,11 @@ function [sample_id, name, email, ...
 % by the col vector) are converted to numbers.
 
 %IMPORTFILE Import numeric data from a text file as column vectors.
-%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_ZOBS,AL_ZOBS,C_ZOBS,NE_ZOBS,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
+%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,ZOBS,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
 %   = IMPORTFILE(FILENAME) Reads data from text file FILENAME for the
 %   default selection.
 %
-%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,BE_ZOBS,AL_ZOBS,C_ZOBS,NE_ZOBS,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
+%   [SAMPLEID,NAME,EMAIL,LAT,LONG,BE_CONC,AL_CONC,C_CONC,NE_CONC,BE_UNCER,AL_UNCER,C_UNCER,NE_UNCER,ZOBS,BE_PROD,AL_PROD,C_PROD,NE_PROD,ROCK_DENSITY,EPSILON_GLA_MIN,EPSILON_GLA_MAX,EPSILON_INT_MIN,EPSILON_INT_MAX,T_DEGLA,T_DEGLA_UNCER,RECORD,RECORD_THRESHOLD_MIN,RECORD_THRESHOLD_MAX]
 %   = IMPORTFILE(FILENAME, STARTROW, ENDROW) Reads data from rows STARTROW
 %   through ENDROW of text file FILENAME.
 %
@@ -47,7 +47,7 @@ end
 %% Read columns of data as strings:
 % For more information, see the TEXTSCAN documentation.
 %formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
-formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
+formatSpec = '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]';
 
 %% Open the text file.
 fileID = fopen(filename,'r');
@@ -76,9 +76,8 @@ for col=1:length(dataArray)-1
 end
 numericData = NaN(size(dataArray{1},1),size(dataArray,2));
 
-% the columns in col are numeric
-%for col=[6,7,8,9,10,11,12,13,18,19,20,21,22,23,24,26,27]
-for col=[6:32, 34:36]
+% the columns in col are numeric]
+for col=[6:29, 31:33]
     % Converts strings in the input cell array to numbers. Replaced non-numeric
     % strings with NaN.
     rawData = dataArray{col};
@@ -115,10 +114,10 @@ end
 
 % rows with numbers, check that range matches values in for loop l. 68 and
 % the list below
-rawNumericColumns = raw(:, [6:32, 34:36]);
+rawNumericColumns = raw(:, [6:29, 31:33]);
 
 % rows with strings
-rawCellColumns = raw(:, [1:5, 33]);
+rawCellColumns = raw(:, [1:5, 30]);
 
 
 %% Allocate imported array to column variable names
@@ -137,29 +136,26 @@ be_uncer             = cell2mat(rawNumericColumns(:, 5));  % 10
 al_uncer             = cell2mat(rawNumericColumns(:, 6));  % 11
 c_uncer              = cell2mat(rawNumericColumns(:, 7));  % 12
 ne_uncer             = cell2mat(rawNumericColumns(:, 8));  % 13
-be_zobs              = cell2mat(rawNumericColumns(:, 9));  % 14
-al_zobs              = cell2mat(rawNumericColumns(:, 10)); % 15
-c_zobs               = cell2mat(rawNumericColumns(:, 11)); % 16
-ne_zobs              = cell2mat(rawNumericColumns(:, 12)); % 17
-be_prod_spall        = cell2mat(rawNumericColumns(:, 13)); % 18
-al_prod_spall        = cell2mat(rawNumericColumns(:, 14)); % 19
-c_prod_spall         = cell2mat(rawNumericColumns(:, 15)); % 20
-ne_prod_spall        = cell2mat(rawNumericColumns(:, 16)); % 21
-be_prod_muon         = cell2mat(rawNumericColumns(:, 17)); % 22
-al_prod_muon         = cell2mat(rawNumericColumns(:, 18)); % 23
-c_prod_muon          = cell2mat(rawNumericColumns(:, 19)); % 24
-ne_prod_muon         = cell2mat(rawNumericColumns(:, 20)); % 25
-rock_density         = cell2mat(rawNumericColumns(:, 21)); % 26
-epsilon_gla_min      = cell2mat(rawNumericColumns(:, 22)); % 27
-epsilon_gla_max      = cell2mat(rawNumericColumns(:, 23)); % 28
-epsilon_int_min      = cell2mat(rawNumericColumns(:, 24)); % 29
-epsilon_int_max      = cell2mat(rawNumericColumns(:, 25)); % 30
-t_degla_min          = cell2mat(rawNumericColumns(:, 26)); % 31
-t_degla_max          = cell2mat(rawNumericColumns(:, 27)); % 32
-record               = rawCellColumns(:, 6);               % 33
-record_threshold_min = cell2mat(rawNumericColumns(:, 28)); % 34
-record_threshold_max = cell2mat(rawNumericColumns(:, 29)); % 35
-nwalkers             = cell2mat(rawNumericColumns(:, 30)); % 36
+zobs                 = cell2mat(rawNumericColumns(:, 9));  % 14
+be_prod_spall        = cell2mat(rawNumericColumns(:, 13)); % 15
+al_prod_spall        = cell2mat(rawNumericColumns(:, 14)); % 16
+c_prod_spall         = cell2mat(rawNumericColumns(:, 15)); % 17
+ne_prod_spall        = cell2mat(rawNumericColumns(:, 16)); % 18
+be_prod_muon         = cell2mat(rawNumericColumns(:, 17)); % 19
+al_prod_muon         = cell2mat(rawNumericColumns(:, 18)); % 20
+c_prod_muon          = cell2mat(rawNumericColumns(:, 19)); % 21
+ne_prod_muon         = cell2mat(rawNumericColumns(:, 20)); % 22
+rock_density         = cell2mat(rawNumericColumns(:, 21)); % 23
+epsilon_gla_min      = cell2mat(rawNumericColumns(:, 22)); % 24
+epsilon_gla_max      = cell2mat(rawNumericColumns(:, 23)); % 25
+epsilon_int_min      = cell2mat(rawNumericColumns(:, 24)); % 26
+epsilon_int_max      = cell2mat(rawNumericColumns(:, 25)); % 27
+t_degla_min          = cell2mat(rawNumericColumns(:, 26)); % 28
+t_degla_max          = cell2mat(rawNumericColumns(:, 27)); % 29
+record               = rawCellColumns(:, 6);               % 30
+record_threshold_min = cell2mat(rawNumericColumns(:, 28)); % 31
+record_threshold_max = cell2mat(rawNumericColumns(:, 29)); % 32
+nwalkers             = cell2mat(rawNumericColumns(:, 30)); % 33
 
 
 %% Change units
