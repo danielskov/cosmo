@@ -13,10 +13,11 @@ infolder = '~/cosmo/input';
 
 % outfolder: folder for generated plots
 [status, hostname] = system('hostname');
-if strfind(hostname, 'flaptop') || strfind(hostname, 'adc-server') % laptop
+if ~isempty(strfind(hostname, 'flaptop')) || ...
+        ~isempty(strfind(hostname, 'adc-server')) % laptop or desktop
     infolder = '~/src/cosmo/input';
     outfolder = 'output/';
-else % server
+else % cosmo server
     outfolder = '/var/www/html/output/';
 end
 
