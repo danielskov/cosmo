@@ -290,6 +290,26 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
               </div>
             </div>
 
+            <div class="row">
+              <div class="col s12">
+                <div class="card">
+                  <div class="card-image">
+                <?php 
+                    include('output/' . $_GET['results_id'] . '_Walks-input.html');
+                ?>
+                  </div>
+                  <div class="card-content">
+                      <h5 class="blue-text">
+                          Input parameters</h5>
+                      <p>This table summarizes the supplied input parameter
+                      values.</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
 <?php
 } else {
 ?>
