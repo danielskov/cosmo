@@ -578,9 +578,9 @@ for iwalk = 1:Nwalkers
     % lh(2)=plot(tsfine,quants(2,:,iwalk),'k','linewidth',2)
     % lh(3)=plot(tsfine,quants(3,:,iwalk),'g','linewidth',2)
     
-    %lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',2); % 25%
-    %lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',2); % 50%
-    %lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',2); % 75%
+    lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',2); % 25%
+    lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',2); % 50%
+    lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',2); % 75%
     
     %legend(lh2,'25%','median','75%','location','northwest')
     axis ij
@@ -964,5 +964,5 @@ html = [html, ...
     '</table>\n'...
     ];
 fileID = fopen(filename,'w');
-fprintf(fileID, html);
+fprintf(fileID, char(html));
 fclose(fileID);
