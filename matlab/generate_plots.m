@@ -609,6 +609,7 @@ end
 %% save all figures
 disp('Saving figures')
 for i=1:length(fh)
+    disp(['Saving figure ' num2str(i) ' of ' num2str(length(fh))])
     figure_save_multiformat(fh(i), ...
         strcat(save_file, '-', num2str(i)), ...
         formats);
