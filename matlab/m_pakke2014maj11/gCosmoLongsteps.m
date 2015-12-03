@@ -96,6 +96,8 @@ c3 = 0.375;
 % ratios between fast muon capture and negative muons
 nm_rat10 = 0.1070/(0.1070+0.0940);
 fm_rat10 = 0.0940/(0.1070+0.0940);
+nm_rat26 = 0.7/(0.7+0.6);
+fm_rat26 = (0.6/(0.7+0.6));
 
 %>>>BHJ: To be used in analytical expressions
 % L_spal = Tau_spal/rho; %Decay depth, exp(-z/L)
@@ -159,8 +161,8 @@ end
 if ~isempty(fixed_stuff.al_prod_spall) && ...
         ~isempty(fixed_stuff.al_prod_muons)
     P26_top_spal = fixed_stuff.al_prod_spall;
-    P26_top_nm = nm_rat10*fixed_stuff.al_prod_muons;
-    P26_top_fm = fm_rat10*fixed_stuff.al_prod_muons;
+    P26_top_nm = nm_rat26*fixed_stuff.al_prod_muons;
+    P26_top_fm = fm_rat26*fixed_stuff.al_prod_muons;
 else
     P26_top_spal=31.1e3; %atoms/kg/yr
     P26_top_nm=0.7e3; %atoms/kg/yr
