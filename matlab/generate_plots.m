@@ -573,14 +573,16 @@ for iwalk = 1:Nwalkers
     quants(:,:,iwalk) = GetHistgridQuantiles(histgrid,N,fractions,tsfine,zsfine);
     quants2(:,:,iwalk) = GetHistgridQuantiles2(histgrid,N,fractions,tsfine,zsfine);
     
-    grid on; shading flat; axis tight; set(gca,'fontsize',8); hold on
+    grid on; shading flat; axis tight; 
+    %set(gca,'fontsize',8); 
+    hold on
     % lh(1)=plot(tsfine,quants(1,:,iwalk),'r','linewidth',2)
     % lh(2)=plot(tsfine,quants(2,:,iwalk),'k','linewidth',2)
     % lh(3)=plot(tsfine,quants(3,:,iwalk),'g','linewidth',2)
     
-    lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',2); % 25%
-    lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',2); % 50%
-    lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',2); % 75%
+    lh2(1)=plot(-tsfine,quants2(1,:,iwalk),'r','linewidth',1); % 25%
+    lh2(2)=plot(-tsfine,quants2(2,:,iwalk),'k','linewidth',1); % 50%
+    lh2(3)=plot(-tsfine,quants2(3,:,iwalk),'r','linewidth',1); % 75%
     
     %legend(lh2,'25%','median','75%','location','northwest')
     axis ij
