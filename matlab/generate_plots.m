@@ -249,7 +249,7 @@ for i1 = 1:M % for each model parameter
     
     if i1 == 1
         title(['MCMC walker ' num2str(iwalk)])
-        %xlabel('Interglacial erosion rate [mm/yr]')
+        %xlabel('Interglacial erosion rate [m/yr]')
         %xlabel('Interglacial erosion rate [m/Myr]')
         xlabel('\epsilon_{int} [m/Myr]')
         text(0.02,0.98,'a', 'Units', ...
@@ -259,7 +259,7 @@ for i1 = 1:M % for each model parameter
         epsilon_int_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 75);
         
     elseif i1 == 2
-        %xlabel('Glacial erosion rate [mm/yr]')
+        %xlabel('Glacial erosion rate [m/yr]')
         %xlabel('Glacial erosion rate [m/Myr]')
         xlabel('\epsilon_{gla} [m/Myr]')
         text(0.02,0.98,'b', 'Units', ...
@@ -362,19 +362,19 @@ for i1 = 1:M % for each model parameter
     hold off
     
     if i1 == 1
-        %xlabel(['Interglacial erosion rate [mm/yr], median = ' ...
+        %xlabel(['Interglacial erosion rate [m/yr], median = ' ...
         %xlabel(['Interglacial erosion rate [m/Myr], median = ' ...
         xlabel(['\epsilon_{int} [m/Myr], median = ' ...
             num2str(med, 4) ' m/Myr'])
-            %num2str(med, 4) ' mm/yr'])
+            %num2str(med, 4) ' m/yr'])
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 2
-        %xlabel(['Glacial erosion rate [mm/yr], median = ' ...
+        %xlabel(['Glacial erosion rate [m/yr], median = ' ...
         %xlabel(['Glacial erosion rate [m/Myr], median = ' ...
         xlabel(['\epsilon_{gla} [m/Myr], median = ' ...
             num2str(med, 4) ' m/Myr'])
-            %num2str(med, 4) ' mm/yr'])
+            %num2str(med, 4) ' m/yr'])
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
     elseif i1 == 3
@@ -500,7 +500,7 @@ plot(start1,start2,'r','linewidth',1.5);
 %axis([-0.05,0.3,-1,2])
 text(0.02,0.98,'c', 'Units', 'Normalized', 'VerticalAlignment', 'Top')
 xlabel('Age BP [Ma]')
-%ylabel('Erosion rate [mm/yr]')
+%ylabel('Erosion rate [m/yr]')
 ylabel('Erosion rate [m/Myr]')
 axis tight
 xlim([min(xs), max(xs)])
