@@ -174,6 +174,11 @@ al_prod_muon = al_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 c_prod_muon  =  c_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 ne_prod_muon = ne_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 
+be_uncer = be_uncer/100.; % percent to fraction
+al_uncer = al_uncer/100.; % percent to fraction
+c_uncer  =  c_uncer/100.; % percent to fraction
+ne_uncer = ne_uncer/100.; % percent to fraction
+
 epsilon_gla_min = epsilon_gla_min/1.0e6; % m/Myr to m/yr
 epsilon_gla_max = epsilon_gla_max/1.0e6; % m/Myr to m/yr
 epsilon_int_min = epsilon_int_min/1.0e6; % m/Myr to m/yr
