@@ -11,14 +11,18 @@
 % and status file
 infolder = '~/cosmo/input';
 
+% folder containing input files from web interface while their contents are
+% being used by matlab
+waitfolder = '~/cosmo/wait';
+
 % outfolder: folder for generated plots
+outfolder = '/var/www/html/output/';
+
 [status, hostname] = system('hostname');
 if ~isempty(strfind(hostname, 'flaptop')) || ...
         ~isempty(strfind(hostname, 'adc-server')) % laptop or desktop
     infolder = '~/src/cosmo/input';
     outfolder = 'output/';
-else % cosmo server
-    outfolder = '/var/www/html/output/';
 end
 
 % uniquely identifying file name prefix for input files

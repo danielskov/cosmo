@@ -33,7 +33,7 @@ var PrefillMachine = {
         $("#epsilon_gla_min").val("0.1");
         $("#epsilon_gla_max").val("1000");
 
-        $("#epsilon_int_min").val("1.0");
+        $("#epsilon_int_min").val("0.1");
         $("#epsilon_int_max").val("1000");
 
         $("#t_degla_min").val("10000");

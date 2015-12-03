@@ -7,7 +7,7 @@ open:
 	open "https://cosmo.au.dk" #&& open "http://localhost/~ad/cosmo"
 
 folders:
-	mkdir -p input && chmod 777 input && mkdir -p archive
+	mkdir -p input && chmod 777 input && mkdir -p archive && mkdir -p wait
 
 deploy:
 	rsync -rav index.php recaptchalib.php \
