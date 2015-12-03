@@ -73,6 +73,7 @@ while 1
         
         % move to waitfolder
         movefile(infile, waitfolder);
+        waitfile = strcat(waitfolder, '/', infiles(i).name);
         
         idstring = strsplit(infile, '_');
         id = idstring(2);
@@ -98,7 +99,7 @@ while 1
             record, ...
             record_threshold_min, record_threshold_max, ...
             nwalkers] ...
-            = import_php_file(infile, 1, 1); % only read first line
+            = import_php_file(waitfile, 1, 1); % only read first line
         
         % run inversion
         [Ss, save_file] = mcmc_inversion(matlab_scripts_folder, debug, ...
@@ -154,12 +155,12 @@ while 1
         
         diary off;
         
-        % sleep in order to reduce system load
-        pause(5)
-        
         %keyboard
     end
 
+    % sleep in order to reduce system load
+    pause(5)
+    
     % for debugging purposes; ends loop after first iteration
     %break
 
