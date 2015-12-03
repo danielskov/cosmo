@@ -1,7 +1,7 @@
 var PrefillMachine = {
 
     prefillCorrectly: function() {
-        $("#sample_id").val("sample00");
+        $("#sample_id").val("GU111");
         $("#name").val("John Doe");
         $("#email").val("john@doe.com");
 
@@ -10,8 +10,8 @@ var PrefillMachine = {
 
         $("#zobs").val("0.0");
 
-        $("#be_conc").val("5.67e5");
-        $("#al_conc").val("2.67e6");
+        $("#be_conc").val("4.26e5");
+        $("#al_conc").val("2.37e6");
         $("#c_conc").val("");
         $("#ne_conc").val("");
 
@@ -30,11 +30,11 @@ var PrefillMachine = {
 
         $("#rock_density").val("2650");
 
-        $("#epsilon_gla_min").val("1.0e-4");
-        $("#epsilon_gla_max").val("1.0");
+        $("#epsilon_gla_min").val("0.1");
+        $("#epsilon_gla_max").val("1000");
 
-        $("#epsilon_int_min").val("1.0e-4");
-        $("#epsilon_int_max").val("1.0");
+        $("#epsilon_int_min").val("1.0");
+        $("#epsilon_int_max").val("1000");
 
         $("#t_degla_min").val("10000");
         $("#t_degla_max").val("12000");
@@ -47,7 +47,7 @@ var PrefillMachine = {
 
 var PrefillMachine2 = {
     prefillCorrectly2: function() {
-        $("#sample_id").val("sample01");
+        $("#sample_id").val("syn02");
         $("#name").val("John Doe");
         $("#email").val("john@doe.com");
 
@@ -78,11 +78,11 @@ var PrefillMachine2 = {
 
         $("#rock_density").val("2650");
         
-        $("#epsilon_gla_min").val("1.0e-5");
-        $("#epsilon_gla_max").val("1.0e-1");
+        $("#epsilon_gla_min").val("0.1");
+        $("#epsilon_gla_max").val("1000");
 
-        $("#epsilon_int_min").val("1.0e-5");
-        $("#epsilon_int_max").val("1.0e-1");
+        $("#epsilon_int_min").val("0.1");
+        $("#epsilon_int_max").val("1000");
 
         $("#t_degla_min").val("10000");
         $("#t_degla_max").val("12000");
