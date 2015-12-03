@@ -592,12 +592,13 @@ for iwalk = 1:Nwalkers
     E_50(iwalk) = quants2(2, 2001, iwalk);
     E_75(iwalk) = quants2(3, 2001, iwalk);
     
-    axis([0 1e6 0 25])
+    %axis([0 1e6 0 25])
     %caxis([0 25])
-    set (gca,'xtick',[0:0.1e5:1e6]);
-    set (gca,'ytick',[0:3:12]);
+    %set (gca,'xtick',[0:0.1e5:1e6]);
+    xlim([0, 1e6]);
+    %set (gca,'ytick',[0:3:12]);
     xlabel('Time BP [yr]')
-    ylabel('Depth beneath terrain [m]')
+    ylabel('Depth [m]')
 end
 colormap(1-copper(15))
 %subplot(2,2,1);
