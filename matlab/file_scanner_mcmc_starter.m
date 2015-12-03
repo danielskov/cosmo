@@ -71,6 +71,9 @@ while 1
         % read full file name and path
         infile = strcat(infolder, '/', infiles(i).name);
         
+        % move to waitfolder
+        movefile(infile, waitfolder);
+        
         idstring = strsplit(infile, '_');
         id = idstring(2);
         statusfile = char(strcat(infolder, '/status_', id));
@@ -80,7 +83,7 @@ while 1
             disp(infile);
             disp(strcat('Simulation id: ', id));
         end
-        
+
         % read file and save data to local scope
         [sample_id, name, email, lat, long, ...
             be_conc,  al_conc,  c_conc,  ne_conc, ...
@@ -140,7 +143,8 @@ while 1
         
         % delete or archive the file so it is not processed again
         %delete(infile)
-        movefile(infile, archivefolder);
+        %movefile(infile, archivefolder);
+        movefile(char(strcat(waitfolder, '/cosmo_', id)), archivefolder);
         
         fid = fopen(statusfile, 'w');
         fprintf(fid, 'Computations complete');
@@ -150,8 +154,8 @@ while 1
         
         diary off;
         
-        % sleep 1 second in order to reduce system load
-        pause(1)
+        % sleep in order to reduce system load
+        pause(5)
         
         %keyboard
     end
