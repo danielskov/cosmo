@@ -524,14 +524,14 @@ linkaxes(axh,'x')
 
 %% Exhumation history from InspectDepthConcTracks_True_plot.m
 disp('Exhumation history');
-%fh = [fh;figure('visible', show_figures)];
+fh = [fh;figure('visible', show_figures)];
 for iwalk = 1:Nwalkers
     % iwalk=input(['What iwalk?[1..',num2str(length(Ss)),']']),
     
     % if all walker results are written to a single figure, it exceeds
     % system memory limits
-    %subplot(Nwalkers,1,iwalk)
-    fh = [fh;figure('visible', show_figures)];
+    subplot(Nwalkers,1,iwalk)
+    %fh = [fh;figure('visible', show_figures)];
     
     lump_MetHas = Ss{iwalk}.lump_MetHas;
     fixed_stuff = Ss{iwalk}.fs;
@@ -591,17 +591,22 @@ for iwalk = 1:Nwalkers
     E_25(iwalk) = quants2(1, 2001, iwalk);
     E_50(iwalk) = quants2(2, 2001, iwalk);
     E_75(iwalk) = quants2(3, 2001, iwalk);
+    
+    axis([0 1e6 0 25])
+    %caxis([0 25])
+    set (gca,'xtick',[0:0.1e5:1e6]);
+    set (gca,'ytick',[0:3:12]);
+    xlabel('Time BP [yr]')
+    ylabel('Depth beneath terrain [m]')
 end
 colormap(1-copper(15))
 %subplot(2,2,1);
 %title(fn,'interpreter','none')
 %axis([-2e6 0 0 40])
-axis([0 1e6 0 25])
-caxis([0 25])
+
 %colorbar
 %set (gca,'xtick',[-2e6:0.2e6:0]);
-set (gca,'xtick',[0:0.1e5:1e6]);
-set (gca,'ytick',[0:3:12]);
+
 %XTicksAt = ([-2e6:0.2e6:0]);
 
 

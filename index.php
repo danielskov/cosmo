@@ -291,6 +291,40 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
             </div>
 
             <div class="row">
+                <!--<div class="col s12 m8 offset-m2">-->
+              <div class="col s12">
+                <div class="card">
+                  <div class="card-image">
+                  <img src="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-8.png">
+                        <!--
+                        <span class="card-title blue-text text-darken-2">
+                        Erosion history</span>-->
+                  </div>
+                  <div class="card-content">
+                      <h5 class="blue-text">
+                          Exhumation history</h5>
+                      <p>
+                      Mean and 25 and 75 percentiles of sample exhumation
+                      history, one figure per MCMC walker.
+                      </p>
+                  </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-8.png"
+                    target="_blank">Link to PNG</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-8.pdf"
+                    target="_blank">Link to PDF</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-8.fig"
+                    target="_blank">Link to FIG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
               <div class="col s12">
                 <div class="card">
                   <div class="card-image">
