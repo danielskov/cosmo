@@ -305,8 +305,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       <h5 class="blue-text">
                           Exhumation history</h5>
                       <p>
-                      Mean and 25 and 75 percentiles of sample exhumation
-                      history, one figure per MCMC walker.
+                      Mean (black) and 25 and 75 percentiles (red) of sample
+                      exhumation history. There is one subplot per MCMC walker.
                       </p>
                   </div>
                   <div class="card-action">

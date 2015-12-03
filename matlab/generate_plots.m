@@ -597,6 +597,8 @@ for iwalk = 1:Nwalkers
     %set (gca,'xtick',[0:0.1e5:1e6]);
     xlim([0, 1e6]);
     %set (gca,'ytick',[0:3:12]);
+    
+    title(['MCMC walker ' num2str(iwalk)])
     xlabel('Time BP [yr]')
     ylabel('Depth [m]')
 end
