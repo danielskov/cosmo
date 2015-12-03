@@ -28,7 +28,7 @@ var PrefillMachine = {
         $("#c_prod_muons").val("");
         $("#ne_prod_muons").val("");
 
-        $("#rock_density").val("2750");
+        $("#rock_density").val("2650");
 
         $("#epsilon_gla_min").val("0.1");
         $("#epsilon_gla_max").val("1000");
