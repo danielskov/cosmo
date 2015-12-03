@@ -18,17 +18,17 @@ var PrefillMachine = {
         $("#be_uncer").val("2.6");
         $("#al_uncer").val("4.0");
 
-        $("#be_prod_spall").val("5.33");
-        $("#al_prod_spall").val("31.1");
+        $("#be_prod_spall").val("5.71");
+        $("#al_prod_spall").val("38.5");
         $("#c_prod_spall").val("");
         $("#ne_prod_spall").val("");
 
-        $("#be_prod_muons").val("0.106");
-        $("#al_prod_muons").val("0.70");
+        $("#be_prod_muons").val("0.206");
+        $("#al_prod_muons").val("1.73");
         $("#c_prod_muons").val("");
         $("#ne_prod_muons").val("");
 
-        $("#rock_density").val("2650");
+        $("#rock_density").val("2750");
 
         $("#epsilon_gla_min").val("0.1");
         $("#epsilon_gla_max").val("1000");
