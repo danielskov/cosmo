@@ -143,10 +143,10 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       the lowest 25% percent of data from the highest 75%.
                       The 75th percentiles mark the limit to the upper 25% of
                       data. If the 25th, 50th, and 75th percentile values for a
-                      parameter are close, the parameter is well constrained. If
-                      a specific percentile value shows high variability for a
-                      parameter, there may be several values which fit the
-                      solution.</p>
+                      parameter are close, the parameter is well constrained. 
+                      If a single walker produces values with significant
+                      deviation from the others, remove it from the data
+                      set.</p>
 
                   </div>
                 </div>
