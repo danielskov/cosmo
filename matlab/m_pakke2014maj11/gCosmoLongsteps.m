@@ -93,6 +93,10 @@ c1 = 0.010;
 c2 = 0.615;
 c3 = 0.375;
 
+% ratios between fast muon capture and negative muons
+nm_rat10 = 0.1070/(0.1070+0.0940);
+fm_rat10 = 0.0940/(0.1070+0.0940);
+
 %>>>BHJ: To be used in analytical expressions
 % L_spal = Tau_spal/rho; %Decay depth, exp(-z/L)
 % L_nm = Tau_nm/rho;
@@ -104,15 +108,17 @@ c3 = 0.375;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% - Start
 %P10_top_spal=5.33e3; %atoms/kg/yr
 %P10_top_nm=0.106e3; %atoms/kg/yr
-P10_top_fm=0.093e3; %atoms/kg/yr
+%P10_top_fm=0.093e3; %atoms/kg/yr
 
 if ~isempty(fixed_stuff.be_prod_spall) && ...
         ~isempty(fixed_stuff.be_prod_muons)
     P10_top_spal = fixed_stuff.be_prod_spall;
-    P10_top_nm = fixed_stuff.be_prod_muons;
+    P10_top_nm = nm_rat10*fixed_stuff.be_prod_muons;
+    P10_top_fm = fm_rat10*fixed_stuff.be_prod_muons;
 else
     P10_top_spal=5.33e3; %atoms/kg/yr
     P10_top_nm=0.106e3; %atoms/kg/yr
+    P10_top_fm=0.093e3; %atoms/kg/yr
 end
 
 %Reference values for Kasper
@@ -148,15 +154,17 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% - Start
 %P26_top_spal=31.1e3; %atoms/kg/yr
 %P26_top_nm=0.7e3; %atoms/kg/yr
-P26_top_fm=0.6e3; %atoms/kg/yr
+%P26_top_fm=0.6e3; %atoms/kg/yr
 
 if ~isempty(fixed_stuff.al_prod_spall) && ...
         ~isempty(fixed_stuff.al_prod_muons)
     P26_top_spal = fixed_stuff.al_prod_spall;
-    P26_top_nm = fixed_stuff.al_prod_muons;
+    P26_top_nm = nm_rat10*fixed_stuff.al_prod_muons;
+    P26_top_fm = fm_rat10*fixed_stuff.al_prod_muons;
 else
     P26_top_spal=31.1e3; %atoms/kg/yr
     P26_top_nm=0.7e3; %atoms/kg/yr
+    P26_top_fm=0.6e3; %atoms/kg/yr
 end
 
 %Reference values for Kasper
@@ -182,15 +190,17 @@ end
 %21Ne production
 %P21_top_spal=20.8e3; %atoms/kg/yr
 %P21_top_nm=0.4e3; %atoms/kg/yr
-P21_top_fm=0.35e3; %atoms/kg/yr
+%P21_top_fm=0.35e3; %atoms/kg/yr
 
 if ~isempty(fixed_stuff.ne_prod_spall) && ...
         ~isempty(fixed_stuff.ne_prod_muons)
     P21_top_spal = fixed_stuff.ne_prod_spall;
-    P21_top_nm = fixed_stuff.ne_prod_muons;
+    P21_top_nm = nm_rat10*fixed_stuff.ne_prod_muons;
+    P21_top_fm = fm_rat10*fixed_stuff.ne_prod_muons;
 else
     P21_top_spal=20.8e3; %atoms/kg/yr
     P21_top_nm=0.4e3; %atoms/kg/yr
+    P21_top_fm=0.35e3; %atoms/kg/yr
 end
 
 % P21_spal = P21_top_spal*exp(-z*rho/Tau_spal);
@@ -202,15 +212,17 @@ end
 %14C production
 %P14_top_spal=14.6e3; %atoms/kg/yr
 %P14_top_nm=2.3e3; %atoms/kg/yr
-P14_top_fm=2.1e3; %atoms/kg/yr
+%P14_top_fm=2.1e3; %atoms/kg/yr
 
 if ~isempty(fixed_stuff.c_prod_spall) && ...
         ~isempty(fixed_stuff.c_prod_muons)
     P14_top_spal = fixed_stuff.c_prod_spall;
-    P14_top_nm = fixed_stuff.c_prod_muons;
+    P14_top_nm = nm_rat10*fixed_stuff.c_prod_muons;
+    P14_top_fm = fm_rat10*fixed_stuff.c_prod_muons;
 else
     P14_top_spal=14.6e3; %atoms/kg/yr
     P14_top_nm=2.3e3; %atoms/kg/yr
+    P14_top_fm=2.1e3; %atoms/kg/yr
 end
     
 % P14_spal = P14_top_spal*exp(-z*rho/Tau_spal);
