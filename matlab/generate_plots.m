@@ -241,8 +241,8 @@ for i1 = 1:M % for each model parameter
     %bar(xbins{i1},Nhistc,'histc')
     
     if i1 == 1 || i1 == 2
-        % change units from mm/yr to m/Myr
-        histogram(Ss{iwalk}.ms(i1,:)*1000., xbins{i1}*1000.);
+        % change units from m/yr to m/Myr
+        histogram(Ss{iwalk}.ms(i1,:)*1.0e6, xbins{i1}*1.0e6);
     else
         histogram(Ss{iwalk}.ms(i1,:), xbins{i1});
     end
@@ -254,9 +254,9 @@ for i1 = 1:M % for each model parameter
         xlabel('\epsilon_{int} [m/Myr]')
         text(0.02,0.98,'a', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
-        epsilon_int_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
-        epsilon_int_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 50);
-        epsilon_int_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
+        epsilon_int_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 25);
+        epsilon_int_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 50);
+        epsilon_int_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 75);
         
     elseif i1 == 2
         %xlabel('Glacial erosion rate [mm/yr]')
@@ -264,9 +264,9 @@ for i1 = 1:M % for each model parameter
         xlabel('\epsilon_{gla} [m/Myr]')
         text(0.02,0.98,'b', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
-        epsilon_gla_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 25);
-        epsilon_gla_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 50);
-        epsilon_gla_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1000., 75);
+        epsilon_gla_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 25);
+        epsilon_gla_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 50);
+        epsilon_gla_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 75);
         
     elseif i1 == 3
         %xlabel('Timing of last deglaciation [yr]')
@@ -292,8 +292,8 @@ for i1 = 1:M % for each model parameter
     
     if i1 == 1 || i1 == 2 % shift axes for new units
         switch mDistr(i1,:)
-            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:)*1000.)
-            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:)*1000.)
+            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:)*1.0e6)
+            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:)*1.0e6)
         end
     else
         switch mDistr(i1,:)
@@ -317,7 +317,7 @@ for i1 = 1:M % for each model parameter
     data = [];
     for iwalker=1:Nwalkers
         if i1 == 1 || i1 == 2
-            data = [data, Ss{iwalker}.ms(i1,:)*1000.];
+            data = [data, Ss{iwalker}.ms(i1,:)*1.0e6];
         else
             data = [data, Ss{iwalker}.ms(i1,:)];
         end
@@ -327,7 +327,7 @@ for i1 = 1:M % for each model parameter
     %Nhistc=histc(data, xbins{i1});
     %bar(xbins{i1},Nhistc,'histc')
     if i1 == 1 || i1 == 2
-        xbins{i1} = xbins{i1}*1000.; % change to m/Myr
+        xbins{i1} = xbins{i1}*1.0e6; % change to m/Myr
     end
     histogram(data, xbins{i1});
     
@@ -399,8 +399,8 @@ for i1 = 1:M % for each model parameter
     
     if i1 == 1 || i1 == 2 % shift axes for new units
         switch mDistr(i1,:)
-            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:)*1000.)
-            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:)*1000.)
+            case 'uniform', set(gca,'xscale','lin','xlim',mminmax(i1,:)*1.0e6)
+            case 'logunif', set(gca,'xscale','log','xlim',mminmax(i1,:)*1.0e6)
         end
     else
         switch mDistr(i1,:)
@@ -943,13 +943,13 @@ html = ['\n' ...
     '        </tr>\n'...
     '        <tr>\n'...
     '            <td>&epsilon;<sub>gla</sub></td>\n'...
-    '            <td>' num2str(epsilon_gla_min*1000.) ...
-    ' to ' num2str(epsilon_gla_max*1000.) ' m/Myr</td>\n'...
+    '            <td>' num2str(epsilon_gla_min*1.0e6) ...
+    ' to ' num2str(epsilon_gla_max*1.0e6) ' m/Myr</td>\n'...
     '        </tr>\n'...
     '        <tr>\n'...
     '            <td>&epsilon;<sub>int</sub></td>\n'...
-    '            <td>' num2str(epsilon_int_min*1000.) ...
-    ' to ' num2str(epsilon_int_max*1000.) ' m/Myr</td>\n'...
+    '            <td>' num2str(epsilon_int_min*1.0e6) ...
+    ' to ' num2str(epsilon_int_max*1.0e6) ' m/Myr</td>\n'...
     '        </tr>\n'...
     '        <tr>\n'...
     '            <td><i>t</i><sub>degla</sub></td>\n'...

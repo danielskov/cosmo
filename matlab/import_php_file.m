@@ -174,7 +174,7 @@ al_prod_muon = al_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 c_prod_muon  =  c_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 ne_prod_muon = ne_prod_muon*1000.; % atoms/g/yr to atoms/kg/yr
 
-epsilon_gla_min = epsilon_gla_min/1000.; % m/Myr to mm/yr
-epsilon_gla_max = epsilon_gla_max/1000.; % m/Myr to mm/yr
-epsilon_int_min = epsilon_int_min/1000.; % m/Myr to mm/yr
-epsilon_int_max = epsilon_int_max/1000.; % m/Myr to mm/yr
+epsilon_gla_min = epsilon_gla_min/1.0e6; % m/Myr to m/yr
+epsilon_gla_max = epsilon_gla_max/1.0e6; % m/Myr to m/yr
+epsilon_int_min = epsilon_int_min/1.0e6; % m/Myr to m/yr
+epsilon_int_max = epsilon_int_max/1.0e6; % m/Myr to m/yr
