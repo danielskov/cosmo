@@ -99,11 +99,12 @@ fm_rat10 = 0.0940/(0.1070+0.0940);
 nm_rat26 = 0.7/(0.7+0.6);
 fm_rat26 = (0.6/(0.7+0.6));
 
-% use ratios from 10Be since I (Anders) don't know better...
-nm_rat14 = nm_rat10;
-fm_rat14 = fm_rat10;
-nm_rat21 = nm_rat10;
-fm_rat21 = fm_rat10;
+% unconfirmed ratios
+nm_rat14 = 0.4/(0.4+0.35);
+fm_rat14 = 0.35/(0.4+0.35);
+nm_rat21 = 2.3/(2.3+2.1);
+fm_rat21 = 2.1/(2.3+2.1);
+
 
 %>>>BHJ: To be used in analytical expressions
 % L_spal = Tau_spal/rho; %Decay depth, exp(-z/L)
@@ -115,7 +116,7 @@ fm_rat21 = fm_rat10;
 % Input fra Kasper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% - Start
 P10_top_spal=5.33e3; %atoms/kg/yr
-P10_top_nm=0.106e3; %atoms/kg/yr
+1P10_top_nm=0.106e3; %atoms/kg/yr
 P10_top_fm=0.093e3; %atoms/kg/yr
 
 if exist('fixed_stuff.be_prod_spall', 'var') == 1 && ...
