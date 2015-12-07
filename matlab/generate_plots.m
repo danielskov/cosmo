@@ -227,6 +227,11 @@ if titles
 end
 
 %% Plot one histogram per model parameter per walker
+epsilon_int_data_w = cell(1, Nwalkers);
+epsilon_gla_data_w = cell(1, Nwalkers);
+t_degla_data_w = cell(1, Nwalkers);
+record_threshold_data_w = cell(1, Nwalkers);
+
 disp('One histogram per model parameter per walker')
 fh = [fh;figure('visible', show_figures)];
 for i1 = 1:M % for each model parameter
@@ -257,6 +262,7 @@ for i1 = 1:M % for each model parameter
         epsilon_int_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 25);
         epsilon_int_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 50);
         epsilon_int_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 75);
+        epsilon_int_data_w{iwalk} = Ss{iwalk}.ms(i1,:)*1.0e6;
         
     elseif i1 == 2
         %xlabel('Glacial erosion rate [m/yr]')
@@ -267,12 +273,14 @@ for i1 = 1:M % for each model parameter
         epsilon_gla_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 25);
         epsilon_gla_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 50);
         epsilon_gla_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:)*1.0e6, 75);
+        epsilon_gla_data_w{iwalk} = Ss{iwalk}.ms(i1,:)*1.0e6;
         
     elseif i1 == 3
         %xlabel('Timing of last deglaciation [yr]')
         xlabel('t_{degla} [yr]')
         text(0.02,0.98,'c', 'Units', ...
             'Normalized', 'VerticalAlignment', 'Top')
+        t_degla_data_w{iwalk} = Ss{iwalk}.ms(i1,:);
         
     elseif i1 == 4
         %xlabel('$\delta^{18}$O$_\mathrm{threshold}$ [$^o/_{oo}$]', ...
@@ -283,6 +291,7 @@ for i1 = 1:M % for each model parameter
         record_threshold_25(iwalk) = prctile(Ss{iwalk}.ms(i1,:), 25);
         record_threshold_50(iwalk) = prctile(Ss{iwalk}.ms(i1,:), 50);
         record_threshold_75(iwalk) = prctile(Ss{iwalk}.ms(i1,:), 75);
+        record_threshold_data_w{iwalk} = Ss{iwalk}.ms(i1,:);
         
     else
         disp(['Using mname for i1 = ' i1])
@@ -1100,3 +1109,47 @@ dlmwrite([save_file, '-eps_int.txt'], epsilon_int_data);
 dlmwrite([save_file, '-eps_gla.txt'], epsilon_gla_data);
 dlmwrite([save_file, '-t_degla.txt'], t_degla_data);
 dlmwrite([save_file, '-d18O_threshold.txt'], record_threshold_data);
+
+%% Save per-walker data
+for i=1:Nwalkers
+    dlmwrite([save_file, '-eps_int-w' num2str(i) '.txt'],...
+        epsilon_int_data_w{i});
+    dlmwrite([save_file, '-eps_gla-w' num2str(i) '.txt'],...
+        epsilon_gla_data_w{i});
+    dlmwrite([save_file, '-t_degla-w' num2str(i) '.txt'],...
+        t_degla_data_w{i});
+    dlmwrite([save_file, '-d18O_threshold-w' num2str(i) '.txt'],...
+        record_threshold_data_w{i});
+end
+
+% create HTML snippet with results
+html = '\n';
+for i=1:Nwalkers
+    html = [html, ...
+        '                  <a href="output/', save_file, '-eps_int-w', ...
+        num2str(i), '.txt"\n', ...
+        '                     target="_blank">Walker ', num2str(i), ...
+        ' &epsilon;<sub>int</sub> ',...
+        'data</a>\n'];
+    html = [html, ...
+        '                  <a href="output/', save_file, '-eps_gla-w', ...
+        num2str(i), '.txt"\n', ...
+        '                     target="_blank">Walker ', num2str(i), ...
+        ' &epsilon;<sub>gla</sub> ',...
+        'data</a>\n'];
+    html = [html, ...
+        '                  <a href="output/', save_file, '-t_degla-w', ...
+        num2str(i), '.txt"\n', ...
+        '                     target="_blank">Walker ', num2str(i), ...
+        ' <i>t</i><sub>degla</sub> ',...
+        'data</a>\n'];
+    html = [html, ...
+        '                  <a href="output/', save_file, '-eps_int-w', ...
+        num2str(i), '.txt"\n', ...
+        '                     target="_blank">Walker ', num2str(i), ...
+        ' &delta;<sup>18</sub>O', ...
+        '<sub>threshold</sub> data</a>\n'];
+end
+fileID = fopen([save_file, '-walker-data.html','w');
+fprintf(fileID, html);
+fclose(fileID);
