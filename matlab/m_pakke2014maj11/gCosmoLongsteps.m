@@ -116,7 +116,7 @@ fm_rat21 = 2.1/(2.3+2.1);
 % Input fra Kasper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% - Start
 P10_top_spal=5.33e3; %atoms/kg/yr
-1P10_top_nm=0.106e3; %atoms/kg/yr
+P10_top_nm=0.106e3; %atoms/kg/yr
 P10_top_fm=0.093e3; %atoms/kg/yr
 
 if exist('fixed_stuff.be_prod_spall', 'var') == 1 && ...
