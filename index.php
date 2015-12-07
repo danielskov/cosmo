@@ -254,7 +254,7 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                         echo($_GET['results_id']); ?>_Walks-5.fig"
                     target="_blank">Link to FIG</a>
                   <br>
-                  <?php include($_GET['results_id'] . '_Walks-walker-data.html'); ?>
+                  <?php include('output/' . $_GET['results_id'] . '_Walks-walker-data.html'); ?>
                   </div>
                 </div>
               </div>
