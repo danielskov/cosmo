@@ -99,6 +99,12 @@ fm_rat10 = 0.0940/(0.1070+0.0940);
 nm_rat26 = 0.7/(0.7+0.6);
 fm_rat26 = (0.6/(0.7+0.6));
 
+% use ratios from 10Be since I (Anders) don't know better...
+nm_rat14 = nm_rat10;
+fm_rat14 = fm_rat10;
+nm_rat21 = nm_rat10;
+fm_rat21 = fm_rat10;
+
 %>>>BHJ: To be used in analytical expressions
 % L_spal = Tau_spal/rho; %Decay depth, exp(-z/L)
 % L_nm = Tau_nm/rho;
@@ -197,8 +203,8 @@ if exist('fixed_stuff.ne_prod_spall', 'var') == 1 && ...
     if ~isempty(fixed_stuff.ne_prod_spall) && ...
             ~isempty(fixed_stuff.ne_prod_muons)
         P21_top_spal = fixed_stuff.ne_prod_spall;
-        P21_top_nm = nm_rat10*fixed_stuff.ne_prod_muons;
-        P21_top_fm = fm_rat10*fixed_stuff.ne_prod_muons;
+        P21_top_nm = nm_rat21*fixed_stuff.ne_prod_muons;
+        P21_top_fm = fm_rat21*fixed_stuff.ne_prod_muons;
     end
 end
 
@@ -218,8 +224,8 @@ if exist('fixed_stuff.c_prod_spall', 'var') == 1 && ...
     if ~isempty(fixed_stuff.c_prod_spall) && ...
             ~isempty(fixed_stuff.c_prod_muons)
         P14_top_spal = fixed_stuff.c_prod_spall;
-        P14_top_nm = nm_rat10*fixed_stuff.c_prod_muons;
-        P14_top_fm = fm_rat10*fixed_stuff.c_prod_muons;
+        P14_top_nm = nm_rat14*fixed_stuff.c_prod_muons;
+        P14_top_fm = fm_rat14*fixed_stuff.c_prod_muons;
     end
 end
     
