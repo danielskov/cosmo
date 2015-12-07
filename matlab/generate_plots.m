@@ -338,12 +338,16 @@ for i1 = 1:M % for each model parameter
     % save median values for later
     if i1 == 1
         epsilon_int_med = med;
+        epsilon_int_data = data;
     elseif i1 == 2
         epsilon_gla_med = med;
+        epsilon_gla_data = data;
     elseif i1 == 3
         t_degla_med = med;
+        t_degla_data = data;
     elseif i1 == 4
         record_threshold_med = med;
+        record_threshold_data = data;
     else
         error('Unknown parameter');
     end
@@ -1090,3 +1094,9 @@ html = ['\n' ...
 fileID = fopen(filename,'w');
 fprintf(fileID, html);
 fclose(fileID);
+
+%% Save general data
+dlmwrite([save_file, '-eps_int.txt'], epsilon_int_data);
+dlmwrite([save_file, '-eps_gla.txt'], epsilon_gla_data);
+dlmwrite([save_file, '-t_degla.txt'], t_degla_data);
+dlmwrite([save_file, '-d18O_threshold.txt'], record_threshold_data);
