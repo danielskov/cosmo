@@ -836,6 +836,125 @@ fileID = fopen(filename,'w');
 fprintf(fileID, html);
 fclose(fileID);
 
+%% generate csv table of results
+filename = [save_file, '.csv'];
+disp('Saving CSV table of results')
+% header
+csv = [...
+    'Parameter;Percentile;'];
+
+for i=1:Nwalkers
+    csv = [csv, ...
+        'Walker ', num2str(i), ';'];
+end
+
+% epsilon_int
+csv = [csv, ...
+    'Average\n'...
+    ';25%%;'];
+for i=1:Nwalkers
+    csv = [csv, num2str(epsilon_int_25(i),3),';'];
+end
+    
+csv = [csv, num2str(sum(epsilon_int_25)/Nwalkers,3),'\n'...
+    'epsilon_int [m/Myr];50%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(epsilon_int_50(i),3),';'];
+end
+
+
+csv = [csv, num2str(sum(epsilon_int_50)/Nwalkers,3),'\n'...
+    ';75%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(epsilon_int_75(i),3),';'];
+end
+
+csv = [csv, num2str(sum(epsilon_int_75)/Nwalkers,3),'\n'];
+
+
+% epsilon_gla
+csv = [csv, ...
+    'Average\n'...
+    ';25%%;'];
+for i=1:Nwalkers
+    csv = [csv, num2str(epsilon_gla_25(i),3),';'];
+end
+    
+csv = [csv, num2str(sum(epsilon_gla_25)/Nwalkers,3),'\n'...
+    'epsilon_gla [m/Myr];50%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(epsilon_gla_50(i),3),';'];
+end
+
+
+csv = [csv, num2str(sum(epsilon_gla_50)/Nwalkers,3),'\n'...
+    ';75%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(epsilon_gla_75(i),3),';'];
+end
+
+csv = [csv, num2str(sum(epsilon_gla_75)/Nwalkers,3),'\n'];
+
+% record_threshold
+csv = [csv, ...
+    'Average\n'...
+    ';25%%;'];
+for i=1:Nwalkers
+    csv = [csv, num2str(record_threshold_25(i),3),';'];
+end
+    
+csv = [csv, num2str(sum(record_threshold_25)/Nwalkers,3),'\n'...
+    'd18O_threshold [permille];50%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(record_threshold_50(i),3),';'];
+end
+
+
+csv = [csv, num2str(sum(record_threshold_50)/Nwalkers,3),'\n'...
+    ';75%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(record_threshold_75(i),3),';'];
+end
+
+csv = [csv, num2str(sum(record_threshold_75)/Nwalkers,3),'\n'];
+
+
+% E
+csv = [csv, ...
+    'Average\n'...
+    ';25%%;'];
+for i=1:Nwalkers
+    csv = [csv, num2str(E_25(i),3),';'];
+end
+    
+csv = [csv, num2str(sum(E_25)/Nwalkers,3),'\n'...
+    'E [m/Myr];50%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(E_50(i),3),';'];
+end
+
+
+csv = [csv, num2str(sum(E_50)/Nwalkers,3),'\n'...
+    ';75%%;'];
+
+for i=1:Nwalkers
+    csv = [csv, num2str(E_75(i),3),';'];
+end
+
+csv = [csv, num2str(sum(E_75)/Nwalkers,3),'\n'];
+
+
+fileID = fopen(filename,'w');
+fprintf(fileID, csv);
+fclose(fileID);
+
 
 %% generate html table of input parameters
 filename = [save_file, '-input.html'];

@@ -148,8 +148,11 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       deviation from the others, remove it from the data
                       set. NaN results in total erosion rate mean that the rate
                       exceeds values which are possible to constrain.</p>
-
                   </div>
+                  <div class="card-action">
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks.csv"
+                    target="_blank">Link to CSV (import to Excel)</a>
                 </div>
               </div>
             </div>
