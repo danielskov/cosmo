@@ -146,7 +146,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                       parameter are close, the parameter is well constrained. 
                       If a single walker produces values with significant
                       deviation from the others, remove it from the data
-                      set.</p>
+                      set. NaN results in total erosion rate mean that the rate
+                      exceeds values which are possible to constrain.</p>
 
                   </div>
                 </div>
