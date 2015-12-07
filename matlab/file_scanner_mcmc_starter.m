@@ -53,6 +53,9 @@ show_figures = 'off';
 %% initialization
 addpath(matlab_scripts_folder);
 
+% make sure multiple matlab processes to not launch at the exact same time
+pause(rand()*4.0);
+
 disp('Entering main loop, waiting for input from web interface...');
 
 %% main loop
