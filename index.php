@@ -197,7 +197,20 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                     target="_blank">Link to PDF</a>
                   <a href="output/<?php
                         echo($_GET['results_id']); ?>_Walks-6.fig"
-                    target="_blank">Link to FIG</a>
+                     target="_blank">Link to FIG</a>
+                  <br>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-eps_int.txt"
+                     target="_blank">&epsilon;<sub>int</sub> data</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-eps_gla.txt"
+                     target="_blank">&epsilon;<sub>gla</sub> data</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-t_degla.txt"
+                     target="_blank"><i>t</i><sub>degla</sub> data</a>
+                  <a href="output/<?php
+                        echo($_GET['results_id']); ?>_Walks-d18O_threshold.txt"
+                     target="_blank">&delta;<sup>18</sup>O<sub>threshold</sub> data</a>
                   </div>
                 </div>
               </div>
