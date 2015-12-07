@@ -152,7 +152,8 @@ if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
                   <div class="card-action">
                   <a href="output/<?php
                         echo($_GET['results_id']); ?>_Walks.csv"
-                    target="_blank">Link to CSV (import to Excel)</a>
+                     target="_blank">Link to CSV</a>
+                  (right click to save, can be imported to Excel, Matlab, etc.)
                 </div>
               </div>
             </div>

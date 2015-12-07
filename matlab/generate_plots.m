@@ -876,7 +876,6 @@ csv = [csv, num2str(sum(epsilon_int_75)/Nwalkers,3),'\n'];
 
 % epsilon_gla
 csv = [csv, ...
-    'Average\n'...
     ';25%%;'];
 for i=1:Nwalkers
     csv = [csv, num2str(epsilon_gla_25(i),3),';'];
@@ -901,7 +900,6 @@ csv = [csv, num2str(sum(epsilon_gla_75)/Nwalkers,3),'\n'];
 
 % record_threshold
 csv = [csv, ...
-    'Average\n'...
     ';25%%;'];
 for i=1:Nwalkers
     csv = [csv, num2str(record_threshold_25(i),3),';'];
@@ -927,7 +925,6 @@ csv = [csv, num2str(sum(record_threshold_75)/Nwalkers,3),'\n'];
 
 % E
 csv = [csv, ...
-    'Average\n'...
     ';25%%;'];
 for i=1:Nwalkers
     csv = [csv, num2str(E_25(i),3),';'];
