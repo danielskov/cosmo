@@ -123,7 +123,7 @@ while 1
                 statusfile, id);
 
             fid = fopen(statusfile, 'w');
-            fprintf(fid, 'Generating plots');
+            fprintf(fid, 'Generating plots and output files');
             fclose(fid);
 
             % generate plots

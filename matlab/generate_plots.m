@@ -1150,6 +1150,6 @@ for i=1:Nwalkers
         ' &delta;<sup>18</sub>O', ...
         '<sub>threshold</sub> data</a>\n'];
 end
-fileID = fopen([save_file, '-walker-data.html','w');
+fileID = fopen([save_file, '-walker-data.html'],'w');
 fprintf(fileID, html);
 fclose(fileID);
