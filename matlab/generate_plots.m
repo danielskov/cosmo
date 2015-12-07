@@ -1105,6 +1105,7 @@ fprintf(fileID, html);
 fclose(fileID);
 
 %% Save general data
+disp('Saving general data files');
 dlmwrite([save_file, '-eps_int.txt'], epsilon_int_data);
 dlmwrite([save_file, '-eps_gla.txt'], epsilon_gla_data);
 dlmwrite([save_file, '-t_degla.txt'], t_degla_data);
@@ -1123,6 +1124,7 @@ for i=1:Nwalkers
 end
 
 % create HTML snippet with results
+disp('Creating html snippet for per-walker data file links')
 html = '\n';
 for i=1:Nwalkers
     html = [html, ...
