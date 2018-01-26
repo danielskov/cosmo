@@ -4,7 +4,7 @@
 require_once('recaptchalib.php');
 
 // your secret key
-$secret = "6LeMrRATAAAAAOdcvVGi6PfR__XGOVoUP7lCqHp1";
+$secret = "6LcFokIUAAAAAFp_sFudFH4kYn1HdahxB0URfses";
  
 // empty response
 $response = null;
@@ -31,7 +31,7 @@ include('head.html');
 if (isset($_GET['wait_id']) && !empty($_GET['wait_id'])) {
 
     // read status file contents
-    if (!$statusfile = fopen("/home/adc/cosmo/input/status_" . $_GET['wait_id'], "r")) {
+    if (!$statusfile = fopen("/Users/danielss/cosmo/input/status_" . $_GET['wait_id'], "r")) {
         echo("Error! Sample data not found.");
     }
 

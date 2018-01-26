@@ -7,7 +7,7 @@
 
 UNAMESTR=`uname`
 if [[ "$UNAMESTR" == 'Darwin' ]]; then # OS X
-    matlabbin=/Applications/MATLAB_R2015a.app/bin/matlab
+    matlabbin=/Applications/MATLAB_R2014b.app/bin/matlab
 else # Linux
     matlabbin=/usr/local/MATLAB/R2015a/bin/matlab
 fi

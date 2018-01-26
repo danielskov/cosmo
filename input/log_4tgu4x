@@ -1,0 +1,86 @@
+~/cosmo/input/cosmo_4tgu4x
+    'Simulation id:4tgu4x'
+
+    '10Be'    '26Al'
+>>>>>> Check that values match nucleides and depths:
+10Be
+>>> z=0 m:  4.26e+08
+26Al
+>>> z=0 m:  2.37e+09
+dtop =
+   426000000
+dtop =
+   2.3700e+09
+ 
+#### iwalk = 1/2 ####
+1000: Elaps=00:00:14. Remaining time walker=00:02:24
+StepFact updated to 0.40028. It=499
+StepFact updated to 0.356. It=998
+1000: Elaps=00:00:30. Remaining time walker=00:02:16
+StepFact updated to 0.36513. It=1497
+StepFact updated to 0.24571. It=1996
+2000: Elaps=00:00:46. Remaining time walker=00:02:03
+StepFact updated to 0.28156. It=2495
+StepFact updated to 0.25606. It=2994
+3000: Elaps=00:01:03. Remaining time walker=00:01:50
+StepFact updated to 0.31394. It=3493
+StepFact updated to 0.29431. It=3992
+4000: Elaps=00:01:23. Remaining time walker=00:01:39
+StepFact updated to 0.33253. It=4491
+StepFact updated to 0.33706. It=4990
+5000: Elaps=00:01:41. Remaining time walker=00:01:24
+StepFact updated to 0.35652. It=5489
+StepFact updated to 0.33137. It=5988
+6000: Elaps=00:01:58. Remaining time walker=00:01:07
+StepFact updated to 0.31729. It=6487
+StepFact updated to 0.29236. It=6986
+7000: Elaps=00:02:15. Remaining time walker=00:00:50
+StepFact updated to 0.31275. It=7485
+StepFact updated to 0.34209. It=7984
+8000: Elaps=00:02:35. Remaining time walker=00:00:34
+StepFact updated to 0.3111. It=8483
+StepFact updated to 0.29165. It=8982
+9000: Elaps=00:02:54. Remaining time walker=00:00:17
+StepFact updated to 0.25705. It=9481
+StepFact updated to 0.30176. It=9980
+10000: Elaps=00:03:09. Remaining time walker=00:00:00
+ 
+#### iwalk = 2/2 ####
+1000: Elaps=00:03:26. Remaining time walker=00:34:25
+StepFact updated to 0.29086. It=499
+StepFact updated to 0.29483. It=998
+1000: Elaps=00:03:43. Remaining time walker=00:16:46
+StepFact updated to 0.31539. It=1497
+StepFact updated to 0.30957. It=1996
+2000: Elaps=00:04:00. Remaining time walker=00:10:42
+StepFact updated to 0.35225. It=2495
+StepFact updated to 0.37117. It=2994
+3000: Elaps=00:04:16. Remaining time walker=00:07:28
+StepFact updated to 0.32565. It=3493
+StepFact updated to 0.29876. It=3992
+4000: Elaps=00:04:31. Remaining time walker=00:05:26
+StepFact updated to 0.30762. It=4491
+StepFact updated to 0.26496. It=4990
+5000: Elaps=00:04:51. Remaining time walker=00:04:02
+StepFact updated to 0.27601. It=5489
+StepFact updated to 0.33619. It=5988
+6000: Elaps=00:05:05. Remaining time walker=00:02:54
+StepFact updated to 0.3502. It=6487
+StepFact updated to 0.31146. It=6986
+7000: Elaps=00:05:23. Remaining time walker=00:02:01
+StepFact updated to 0.26078. It=7485
+StepFact updated to 0.29046. It=7984
+8000: Elaps=00:05:37. Remaining time walker=00:01:15
+StepFact updated to 0.28511. It=8483
+StepFact updated to 0.29128. It=8982
+9000: Elaps=00:05:51. Remaining time walker=00:00:35
+StepFact updated to 0.31509. It=9481
+StepFact updated to 0.33075. It=9980
+10000: Elaps=00:06:05. Remaining time walker=00:00:00
+1
+Cannot create '4tgu4x_Walks.mat' because '/var/www/html/output' does not exist.
+{Operation terminated by user during file_scanner_mcmc_starter (line 172)
+
+In run (line 63)
+evalin('caller', [script ';']);} 
+quit

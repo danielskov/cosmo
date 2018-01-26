@@ -21,9 +21,10 @@ outfolder = '/var/www/html/output/';
 [status, hostname] = system('hostname');
 if ~isempty(strfind(hostname, 'flaptop')) || ...
         ~isempty(strfind(hostname, 'adc-server')) % laptop or desktop
-    infolder = '~/src/cosmo/input';
-    outfolder = 'output/';
+    infolder = '/Users/danielss/cosmo/input';
+    outfolder = '/Users/danielss/cosmo/output';
 end
+outfolder = '/Users/danielss/cosmo/output';
 
 % uniquely identifying file name prefix for input files
 prefix = 'cosmo_';

@@ -128,6 +128,14 @@ switch fs.g_case
                 else
                     error(['record ' record ' not understood']);
                 end
+                d18Ofn = fs.d18O_filename;
+                load(d18Ofn); %must contain a variable d18O_triang, sampled in steps of 0.001 Ma
+                if ~exist('d18O_triang','var')
+                    error(['the filename ',d18Ofn,' did not contain the variable d18O_triang'])
+                end
+                fs.ti=ti;
+                fs.d18O_triang=d18O_triang;
+                fs.d18O_runav=d18O_runav;
                 fs.tStarts = NaN; %load or compute fixed times of more or less glaciated periods
                 fs.relExpos = NaN; %load or compute degree of exposure in periods
         end
@@ -282,7 +290,7 @@ if beeps
     pause(0.6)
     sound(0.5*sin(1:0.5:500));pause(0.3);sound(0.5*sin(1:0.75:750))
 end
-
+disp('1')
 %save_file = [outfolder, '/', id, '_Walks_',datestr(now,'yyyymmdd_HHMMSS')];
 save_file = strcat(outfolder, '/', char(sim_id), '_Walks');
 save(save_file,'Ss','save_file')

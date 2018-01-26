@@ -1,0 +1,111 @@
+~/cosmo/input/cosmo_4lBwBS
+    'Simulation id:4lBwBS'
+    '10Be'    '26Al'
+>>>>>> Check that values match nucleides and depths:
+10Be
+>>> z=0 m:  4.26e+08
+26Al
+>>> z=0 m:  2.37e+09
+dtop =
+   426000000
+dtop =
+   2.3700e+09
+ 
+#### iwalk = 1/2 ####
+1000: Elaps=00:00:18. Remaining time walker=00:06:18
+StepFact updated to 0.40028. It=499
+StepFact updated to 0.356. It=998
+1000: Elaps=00:00:36. Remaining time walker=00:06:05
+StepFact updated to 0.36513. It=1497
+StepFact updated to 0.24571. It=1996
+2000: Elaps=00:00:54. Remaining time walker=00:05:46
+StepFact updated to 0.28156. It=2495
+StepFact updated to 0.25606. It=2994
+3000: Elaps=00:01:12. Remaining time walker=00:05:26
+StepFact updated to 0.31394. It=3493
+StepFact updated to 0.29431. It=3992
+4000: Elaps=00:01:28. Remaining time walker=00:05:01
+StepFact updated to 0.33253. It=4491
+StepFact updated to 0.33706. It=4990
+5000: Elaps=00:01:49. Remaining time walker=00:04:52
+StepFact updated to 0.35652. It=5489
+StepFact updated to 0.33137. It=5988
+6000: Elaps=00:02:09. Remaining time walker=00:04:36
+StepFact updated to 0.31729. It=6487
+StepFact updated to 0.29236. It=6986
+7000: Elaps=00:02:27. Remaining time walker=00:04:17
+StepFact updated to 0.31275. It=7485
+StepFact updated to 0.34209. It=7984
+8000: Elaps=00:02:44. Remaining time walker=00:03:57
+StepFact updated to 0.3111. It=8483
+StepFact updated to 0.29165. It=8982
+9000: Elaps=00:03:01. Remaining time walker=00:03:38
+StepFact updated to 0.25705. It=9481
+StepFact updated to 0.30176. It=9980
+10000: Elaps=00:03:17. Remaining time walker=00:03:17
+ 
+#### iwalk = 2/2 ####
+1000: Elaps=00:03:35. Remaining time walker=01:15:26
+StepFact updated to 0.29086. It=499
+StepFact updated to 0.29483. It=998
+1000: Elaps=00:03:52. Remaining time walker=00:38:48
+StepFact updated to 0.31539. It=1497
+StepFact updated to 0.30957. It=1996
+2000: Elaps=00:04:09. Remaining time walker=00:26:22
+StepFact updated to 0.35225. It=2495
+StepFact updated to 0.37117. It=2994
+3000: Elaps=00:04:27. Remaining time walker=00:20:02
+StepFact updated to 0.32565. It=3493
+StepFact updated to 0.29876. It=3992
+4000: Elaps=00:04:43. Remaining time walker=00:16:04
+StepFact updated to 0.30762. It=4491
+StepFact updated to 0.26496. It=4990
+5000: Elaps=00:05:03. Remaining time walker=00:13:28
+StepFact updated to 0.27601. It=5489
+StepFact updated to 0.33619. It=5988
+6000: Elaps=00:05:19. Remaining time walker=00:11:23
+StepFact updated to 0.3502. It=6487
+StepFact updated to 0.31146. It=6986
+7000: Elaps=00:05:36. Remaining time walker=00:09:48
+StepFact updated to 0.26078. It=7485
+StepFact updated to 0.29046. It=7984
+8000: Elaps=00:05:51. Remaining time walker=00:08:27
+StepFact updated to 0.28511. It=8483
+StepFact updated to 0.29128. It=8982
+9000: Elaps=00:06:06. Remaining time walker=00:07:19
+StepFact updated to 0.31509. It=9481
+StepFact updated to 0.33075. It=9980
+10000: Elaps=00:06:23. Remaining time walker=00:06:23
+1
+[Warning: Ignoring extra legend entries.] 
+[> In /Applications/MATLAB_R2014b.app/toolbox/matlab/scribe/private/legendHGUsingMATLABClasses.p>set_children_and_strings at 649
+  In /Applications/MATLAB_R2014b.app/toolbox/matlab/scribe/private/legendHGUsingMATLABClasses.p>make_legend at 312
+  In /Applications/MATLAB_R2014b.app/toolbox/matlab/scribe/private/legendHGUsingMATLABClasses.p>legendHGUsingMATLABClasses at 241
+  In legend at 118
+  In generate_plots at 61
+  In file_scanner_mcmc_starter at 132
+  In run at 63] 
+str = 
+    'BurnIn: 1000 skip 1 of Prior'    '>>    StepFactor Fixed'
+str = 
+    'Sampling: 10000 skip 1 of ApproxPosterior'    '>>    StepFactor Adaptive'
+Histogram plots for all four parameters, one subplot per walker
+One histogram per model parameter per walker
+One histogram per model parameter
+d18O curve, exposure, and erosion history
+Exhumation history
+Saving figures
+Saving figure 1 of 8
+Saving figure 2 of 8
+Saving figure 3 of 8
+Saving figure 4 of 8
+Saving figure 5 of 8
+Saving figure 6 of 8
+Saving figure 7 of 8
+Saving figure 8 of 8
+Saving html table of results
+Saving CSV table of results
+Saving html table of input values
+Saving general data files
+Creating html snippet for per-walker data file links
+    'Computations complete, id = '    '4lBwBS'

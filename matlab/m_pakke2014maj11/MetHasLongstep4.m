@@ -103,6 +103,7 @@ iCpostUpdate = 0;
 
 %................... The main iteration loop
 for it=1:N_run
+    %disp(num2str(it))
     if rem(it,1000)==0,
         [ElapsedTime,RemainingTime,TotalTime,EndTime,IterationsPerSecond,PrintString] = ...
             RuntimeStatus(it,isBurnIn,fixed_stuff);
@@ -120,16 +121,20 @@ for it=1:N_run
 
   if rem(it,fsSampling.StepsPerFactorUpdate)==0
     %update StepFact
+    %disp('update stepfact')
     acc=accepts((it-fsSampling.StepsPerFactorUpdate+1):it); %recent accepts
     StepFact = UpdateStepFact(StepFact,acc,fsSampling);
     disp(['StepFact updated to ',num2str(StepFact),'. It=',num2str(it)])
   end
+  
   if rem(it,fsSampling.StepsPerCpostUpdate)==1
+      %disp('update Cpost')
     %update sqrtCpost already at the start of the first iterations
-    is = max(1,it-fsSampling.StepsPerCpostUpdate-1):it;
+    is = max(1,it-fsSampling.StepsPerCpostUpdate-1):max(2,it);
     [sqrtCpostpr,Cpostpr,Gestpr]=updateCpost(mprops(:,is),dprops(:,is),fsSampling,fixed_stuff);
 %     disp(['sqrtCpost updated. Cond(sqrtCpost)=',num2str(cond(sqrtCpostpr)),'. It=',num2str(it)])
-    iCpostUpdate = iCpostUpdate+1;
+      %disp('update Cpost2')    
+iCpostUpdate = iCpostUpdate+1;
     sqrtCposts{iCpostUpdate}=sqrtCpostpr;
   end
   

@@ -7,7 +7,7 @@
 require_once('recaptchalib.php');
 
 // your secret key
-$secret = "6LeMrRATAAAAAOdcvVGi6PfR__XGOVoUP7lCqHp1";
+$secret = "6LcFokIUAAAAAFp_sFudFH4kYn1HdahxB0URfses";
  
 // empty response
 $response = null;
@@ -208,8 +208,9 @@ $fieldnames = array(
 
 // Generate unique output file name
 //$outputfile = tempnam('/tmp', 'cosmo_');
-$outputfile = tempnam('/home/adc/cosmo/input', 'cosmo_');
+$outputfile = tempnam('/Users/danielss/cosmo/input', 'cosmo_');
 $id = explode('_', $outputfile)[1];
+
 if (is_writable($outputfile)) {
 
     if (!$handle = fopen($outputfile, 'w')) {
@@ -233,7 +234,7 @@ if (!chmod($outputfile, 0777)) {
 }
 
 // Create inversion status output file
-$statusfile = ("/home/adc/cosmo/input/status_" . $id);
+$statusfile = ("/Users/danielss/cosmo/input/status_" . $id);
 if (!$handle = fopen($statusfile, 'w')) {
     die("The php server could not open $statusfile.");
 }
